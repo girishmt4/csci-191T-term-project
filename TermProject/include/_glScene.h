@@ -11,7 +11,6 @@
 #include <_timer.h>
 #include <_fallingObject.h>
 #include <_collision.h>
-#include <_finishFlag.h>
 #include <_gameMessage.h>
 
 using namespace std;
@@ -39,7 +38,6 @@ class _glScene
         _player *myPly = new _player();
         _fallingObject fallObj[20];
         _collision *collision = new _collision();
-        _finishFlag *finishFlag = new _finishFlag();
         _gameMessage *msg = new _gameMessage();
 
 

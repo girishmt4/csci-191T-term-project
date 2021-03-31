@@ -16,6 +16,7 @@ _glScene::_glScene()
     gameComplete = false;
 }
 
+
 _glScene::~_glScene()
 {
     //dtor
@@ -34,8 +35,6 @@ GLint _glScene::initGL()
         background->parallaxInit("images/parallax1.png");
         background1->parallaxInit("images/level1_pathway.png");
         timer->startTimer();
-        finishFlag->flagInit(10,1,-0.37);
-        finishFlag->flagImage->loadTexture("images/flag.png");
         myPly->playerInit(8,2,-0.4);
         myPly->plyImage->loadTexture("images/playerAnimated.png");
         for(int i=0;i<20;i++)
@@ -51,8 +50,6 @@ GLint _glScene::initGL()
         background->parallaxInit("images/parallax2.png");
         background1->parallaxInit("images/level2_pathway.png");
         timer->startTimer();
-        finishFlag->flagInit(10,1,-0.53);
-        finishFlag->flagImage->loadTexture("images/flag.png");
         myPly->playerInit(8,2,-0.55);
         myPly->plyImage->loadTexture("images/playerAnimated.png");
         for(int i=0;i<20;i++)
@@ -70,8 +67,6 @@ GLint _glScene::initGL()
         background->parallaxInit("images/parallax3.png");
         background1->parallaxInit("images/level3_pathway.png");
         timer->startTimer();
-        finishFlag->flagInit(10,1,-0.28);
-        finishFlag->flagImage->loadTexture("images/flag.png");
         myPly->playerInit(8,2,-0.3);
         myPly->plyImage->loadTexture("images/playerAnimated.png");
         for(int i=0;i<20;i++)
@@ -107,13 +102,6 @@ GLint _glScene::drawScene()
     glPopMatrix();
 
     glPushMatrix();
-    glBindTexture(GL_TEXTURE_2D,finishFlag->flagImage->tex);
-    finishFlag->drawFlag();
-    finishFlag->flagAction();
-    glPopMatrix();
-
-
-    glPushMatrix();
     glBindTexture(GL_TEXTURE_2D,myPly->plyImage->tex);
     myPly->drawPlayer();
     if(timer->getTicks() > 150)
@@ -147,34 +135,7 @@ GLint _glScene::drawScene()
         glPopMatrix();
     }
 
-    if(fabs(myPly->playerPos.x - finishFlag->flagPosition.x) < 0.01)
-    {
-        if(level1)
-        {
-            level1 = !level1;
-            level2 = !level2;
-        }
-        else if(level2)
-        {
-            level2 = !level2;
-            level3 = !level3;
-        }
-        else if(level3)
-        {
-            gameComplete = true;
-            glPushMatrix();
-            glBindTexture(GL_TEXTURE_2D,msg->msgImage->tex);
-            msg->showMessage();
-            glPopMatrix();
-        }
-        doneInitializing = false;
-    }
 }
-
-
-
-//    background->scroll(false,"left",0.003);
-
 
 
 void _glScene::resizeGLScene(int width, int height)
