@@ -7,11 +7,10 @@
 	<iostream>
 	<windows.h>
 
-1617224233 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_glscene.h
+1617227573 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_glscene.h
 	<windows.h>
 	<GL/glut.h>
 	<iostream>
-	<_model.h>
 	<_input.h>
 	<_texture.h>
 	<_parallax.h>
@@ -33,9 +32,8 @@
 	<GL/glut.h>
 	<iostream>
 
-1617224222 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_input.h
+1617227653 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_input.h
 	<windows.h>
-	<_model.h>
 	<_parallax.h>
 	<_player.h>
 
@@ -102,13 +100,13 @@
 1616103990 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_gllight.h
 	<_glScene.h>
 
-1616826581 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_glscene.cpp
+1617227561 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_glscene.cpp
 	"_glScene.h"
 	<_glLight.h>
 	<SOIL.h>
 	<math.h>
 
-1616801299 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_input.cpp
+1617227685 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_input.cpp
 	"_input.h"
 
 1616103990 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_model.cpp

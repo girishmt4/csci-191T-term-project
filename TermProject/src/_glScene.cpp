@@ -205,7 +205,6 @@ int _glScene::winMsg(HWND	hWnd,			// Handle For This Window
 		case WM_KEYDOWN:							// Is A Key Being Held Down?
 		{
 
-		    kbMs->keyPressed(modelTeapot);
 		    //to move background
 		    kbMs->moveEnv(background, 0.005);
             kbMs->moveEnv(background1, 0.015);
@@ -224,13 +223,13 @@ int _glScene::winMsg(HWND	hWnd,			// Handle For This Window
 
 		case WM_LBUTTONDOWN:
             {
-                kbMs ->mouseDown(modelTeapot, LOWORD(lParam),HIWORD(lParam));
+//                kbMs ->mouseDown(modelTeapot, LOWORD(lParam),HIWORD(lParam));
 
                 break;
             }
         case WM_RBUTTONDOWN:
             {
-                kbMs ->mouseDown(modelTeapot, LOWORD(lParam),HIWORD(lParam));
+//                kbMs ->mouseDown(modelTeapot, LOWORD(lParam),HIWORD(lParam));
               break;
             }
         case WM_MBUTTONDOWN:
@@ -246,13 +245,13 @@ int _glScene::winMsg(HWND	hWnd,			// Handle For This Window
             }
         case WM_MOUSEMOVE:
             {
-                kbMs ->mouseMove(modelTeapot, LOWORD(lParam),HIWORD(lParam));
+//                kbMs ->mouseMove(modelTeapot, LOWORD(lParam),HIWORD(lParam));
                break;
             }
 
         case WM_MOUSEWHEEL:
             {
-                kbMs->mouseWheel(modelTeapot,(float)GET_WHEEL_DELTA_WPARAM(wParam));
+//                kbMs->mouseWheel(modelTeapot,(float)GET_WHEEL_DELTA_WPARAM(wParam));
                 break;
             }
 	}

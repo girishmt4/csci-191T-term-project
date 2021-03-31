@@ -14,19 +14,7 @@ _input::~_input()
 {
     //dtor
 }
-void _input::keyPressed(_model* mdl)
-{
-    switch(wParam)
-    {
-    case VK_LEFT:
-              mdl->rotateY +=1.0;
 
-        break;
-    case VK_RIGHT:
-             mdl->rotateY -=1.0;
-        break;
-    }
-}
 
 void _input::keyPressed(_player* ply)
 {
@@ -101,6 +89,7 @@ void _input::keyUp(_player* ply)
     ply->actionTrigger = ply->STAND;
 }
 
+/*
 void _input::mouseDown(_model* mdl, float x, float y)
 {
      prevMouseX =x;
@@ -119,6 +108,7 @@ void _input::mouseDown(_model* mdl, float x, float y)
       default: break;
      }
 }
+*/
 
 void _input::mouseUp()
 {
@@ -126,11 +116,13 @@ void _input::mouseUp()
     mouseTranslation = false;
 }
 
+/*
 void _input::mouseWheel(_model* mdl, float delta )
 {
      mdl->zoom +=delta/100;
 }
-
+*/
+/*
 void _input::mouseMove(_model* mdl, float x, float y)
 {
        if(mouseRotate){
@@ -147,3 +139,4 @@ void _input::mouseMove(_model* mdl, float x, float y)
        prevMouseY =y;
 }
 
+*/

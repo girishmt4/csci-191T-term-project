@@ -4,7 +4,6 @@
 #include <windows.h>
 #include <GL/glut.h>
 #include <iostream>
-#include <_model.h>
 #include <_input.h>
 #include <_texture.h>
 #include <_parallax.h>
@@ -33,9 +32,7 @@ class _glScene
         bool doneInitializing;
         bool gameComplete;
 
-        _model *modelTeapot = new _model();
         _input *kbMs = new _input();
-        _texture *modelTex = new _texture();
         _parallax *background = new _parallax();
         _parallax *background1 = new _parallax();
         _timer *timer = new _timer();
