@@ -9,7 +9,6 @@ _finishFlag::_finishFlag()
     vert[3].x=-0.5;vert[3].y=0.5;vert[3].z=0.0;
 
     radius = 0.5*0.15;
-    //flagSpeed = 0.0003;
 }
 
 _finishFlag::~_finishFlag()
@@ -52,7 +51,6 @@ void _finishFlag::flagInit(float X, float Y, float yPosition)
     flagPosition.z = -2.0;
 
     flagSize.x = flagSize.y  = 0.2;
-    //radius *= 0.15;
     flagSize.z = 1.0;
 
     framesX = X;

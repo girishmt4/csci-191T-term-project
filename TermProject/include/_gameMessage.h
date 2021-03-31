@@ -11,7 +11,6 @@ class _gameMessage
         virtual ~_gameMessage();
 
         _texture *msgImage = new _texture();
-
         vec3 vert[4];
         vec3 msgSize;
 

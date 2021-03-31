@@ -7,7 +7,6 @@ _input::_input()
         prevMouseY =0;
         mouseTranslation =0;
         mouseRotate =0;
-
 }
 
 _input::~_input()

@@ -48,7 +48,6 @@ void _fallingObject::objInit(float X, float Y,float scaleSize, bool level1, bool
     objPosition.z = -2.0;
 
     objSize.x = objSize.y  = scaleSize;
-    //radius *= 0.15;
     objSize.z = 1.0;
 
     framesX = X;
@@ -86,7 +85,6 @@ void _fallingObject::drawObj(bool level1, bool level2, bool level3)
         {
             objPosition.x = (2.4 - (-2.4)) * ((((float) rand()) / (float) RAND_MAX)) + (-2.4) ;
         }
-        //objPosition.x = (2.4 - (-1.2)) * ((((float) rand()) / (float) RAND_MAX)) + (-1.2) ;
         objPosition.y = (YSCREEN*3 - (YSCREEN)) * ((((float) rand()) / (float) RAND_MAX)) + (YSCREEN) ;
     }
     glTranslatef(objPosition.x,objPosition.y,objPosition.z);
@@ -120,35 +118,11 @@ void _fallingObject::objFallingAction(bool level1, bool level2, bool level3)
         objTimer->resetTime();
     }
     objPosition.y -= objSpeed;
-    /*if(level1)
-    {
-        objPosition.y -= objSpeed;
-    }*/
+
     if(level2 || level3)
     {
         objPosition.x -= xSpeed;
-        /*if(level2Movements >= 5)
-        {
-            objPosition.y -= objSpeed;
-            level2Movements -= 1;
-        }
-        if(level2Movements < 5 && level2Movements > 0)
-        {
-            objPosition.y += objSpeed;
-            level2Movements -= 1;
-        }
-        if(level2Movements == 0)
-        {
-            level2Movements = 10;
-        }*/
-
     }
 
-
-
 }
 
-void _fallingObject::objPlace()
-{
-    //objTimer->startTimer();
-}

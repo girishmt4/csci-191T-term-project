@@ -13,7 +13,6 @@ class _fallingObject
 
         void drawObj(bool, bool, bool);
         void objFallingAction(bool, bool, bool);
-        void objPlace();
         void objInit(float, float, float, bool, bool, bool);
 
         vec3 objPosition;
