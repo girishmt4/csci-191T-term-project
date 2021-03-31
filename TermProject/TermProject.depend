@@ -1,0 +1,128 @@
+# depslib dependency file v1.0
+1616824119 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\main.cpp
+	<windows.h>
+	<_glScene.h>
+	<GL/glut.h>
+	<stdlib.h>
+	<iostream>
+	<windows.h>
+
+1617224233 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_glscene.h
+	<windows.h>
+	<GL/glut.h>
+	<iostream>
+	<_model.h>
+	<_input.h>
+	<_texture.h>
+	<_parallax.h>
+	<_player.h>
+	<_timer.h>
+	<_fallingObject.h>
+	<_collision.h>
+	<_finishFlag.h>
+	<_gameMessage.h>
+
+1612228921 c:\users\giris\desktop\csci191games\common\include\gl\glut.h
+	<windows.h>
+	<stdlib.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1616103990 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_model.h
+	<windows.h>
+	<GL/glut.h>
+	<iostream>
+
+1617224222 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_input.h
+	<windows.h>
+	<_model.h>
+	<_parallax.h>
+	<_player.h>
+
+1616103990 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_parallax.h
+	<string>
+	<GL/gl.h>
+	<_texture.h>
+
+1616103990 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_texture.h
+	<SOIL.h>
+	<GL/gl.h>
+	<iostream>
+
+1613613288 c:\users\giris\desktop\csci191games\common\include\soil.h
+
+1616734990 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_player.h
+	<_common.h>
+	<_texture.h>
+	<iostream>
+	<GL/gl.h>
+
+1615252925 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_common.h
+
+1615427954 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_timer.h
+	<time.h>
+
+1616821324 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_fallingobject.h
+	<_common.h>
+	<_timer.h>
+	<_texture.h>
+
+1617224219 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_collision.h
+	<_player.h>
+	<_fallingObject.h>
+
+1616791904 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_finishflag.h
+	<_common.h>
+	<_texture.h>
+	<_timer.h>
+
+1616823973 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_gamemessage.h
+	<_texture.h>
+	<_common.h>
+
+1616629877 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_collision.cpp
+	"_collision.h"
+	<math.h>
+	<algorithm>
+
+1616827366 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_fallingobject.cpp
+	"_fallingObject.h"
+	<bits/stdc++.h>
+	<stdlib.h>
+
+1616793759 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_finishflag.cpp
+	"_finishFlag.h"
+
+1616824464 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_gamemessage.cpp
+	"_gameMessage.h"
+
+1616103990 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_gllight.cpp
+	"_glLight.h"
+
+1616103990 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_gllight.h
+	<_glScene.h>
+
+1616826581 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_glscene.cpp
+	"_glScene.h"
+	<_glLight.h>
+	<SOIL.h>
+	<math.h>
+
+1616801299 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_input.cpp
+	"_input.h"
+
+1616103990 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_model.cpp
+	"_model.h"
+
+1616555051 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_parallax.cpp
+	"_parallax.h"
+
+1616826611 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_player.cpp
+	"_player.h"
+
+1616800669 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_texture.cpp
+	"_texture.h"
+
+1615428375 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_timer.cpp
+	"_timer.h"
+
