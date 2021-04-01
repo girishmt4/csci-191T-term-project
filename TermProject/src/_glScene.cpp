@@ -203,11 +203,11 @@ GLint _glScene::drawScene()
 
     if (kbMs->flag == 4)  //pause game pop-up page
     {
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	// Clear Screen and Depth buffer
-        glLoadIdentity();
+        //glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	// Clear Screen and Depth buffer
+        //glLoadIdentity();
         glPushMatrix();
-        glTranslated(30.0, 15.0, -8.0);  //placing objects on the screen
-        glScalef(12.0, 12.0, 1.0);  //pause screen pop-up scaling
+        //glTranslated(0.0, 0.0, -7.0);  //placing objects on the screen
+        glScalef(0.2, 0.2, 1.0);  //pause screen pop-up scaling
         pup -> renderBack(screenWidth, screenHeight);       //create background for pause pop-up screen
         glPopMatrix();
     }

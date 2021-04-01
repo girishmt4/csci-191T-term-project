@@ -372,13 +372,12 @@ int WINAPI WinMain(	HINSTANCE	hInstance,			// Instance
 		else										// If There Are No Messages
 		{
 			// Draw The Scene.  Watch For ESC Key And Quit Messages From DrawGLScene()
-			//if (keys[VK_ESCAPE])	// Active?  Was There A Quit Received?
-			//{
+			if (keys[VK_ESCAPE])	// Active?  Was There A Quit Received?
+			{
 
-				//` done=TRUE;							// ESC or DrawGLScene Signalled A Quit
-			//}
-			//else
-            if(!Scene->gameComplete)//if(Scene->myPly->hitCount != 5)           						// Not Time To Quit, Update Screen
+				 //done=TRUE;							// ESC or DrawGLScene Signalled A Quit
+			}
+			else if(!Scene->gameComplete)//if(Scene->myPly->hitCount != 5)           						// Not Time To Quit, Update Screen
 			{   Scene->drawScene();
 				SwapBuffers(hDC);					// Swap Buffers (Double Buffering)
 			}
