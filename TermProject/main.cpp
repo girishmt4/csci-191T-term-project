@@ -375,7 +375,7 @@ int WINAPI WinMain(	HINSTANCE	hInstance,			// Instance
 			if (keys[VK_ESCAPE])	// Active?  Was There A Quit Received?
 			{
 
-				done=TRUE;							// ESC or DrawGLScene Signalled A Quit
+				 //done=TRUE;							// ESC or DrawGLScene Signalled A Quit
 			}
 			else if(!Scene->gameComplete)//if(Scene->myPly->hitCount != 5)           						// Not Time To Quit, Update Screen
 			{   Scene->drawScene();

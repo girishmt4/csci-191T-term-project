@@ -7,6 +7,7 @@ _input::_input()
         prevMouseY =0;
         mouseTranslation =0;
         mouseRotate =0;
+        flag =0;
 }
 
 _input::~_input()
@@ -113,6 +114,113 @@ void _input::mouseUp()
 {
     mouseRotate = false;
     mouseTranslation = false;
+}
+
+void _input::mouseDown(_LandingPage* lp)
+{
+    switch(wParam)
+    {
+        case MK_LBUTTON:    //To continue to game menu from landing page, do a left mouse click
+            if (flag == 0)
+            {
+                flag = 1;
+            }
+            break;
+
+        case MK_RBUTTON:    //To continue to game menu from landing page, do a right mouse click
+            if (flag == 0)
+            {
+                flag = 1;
+            }
+            break;
+    }
+
+}
+
+void _input::keyPressed(_LandingPage* lp)
+{
+     switch(wParam)
+    {
+          case VK_ESCAPE:     //Press Escape to exit from the landing page
+            if (flag == 0)
+            {
+                exit(0);
+            }
+            break;
+
+        case VK_RETURN:     //Press Enter to continue to game menu from landing page
+            if (flag == 0)
+            {
+                flag = 1;
+            }
+            break;
+    }
+
+}
+
+void _input::keyPressed(_MenuPage* mp)
+{
+     switch(wParam)
+    {
+        case 78:  //for key n to start new game
+            if (flag == 1)
+            {
+                flag = 3;
+            }
+            break;
+
+        case 72:  //for key h for help
+            if (flag == 1)
+            {
+                flag = 2;
+            }
+            break;
+
+        case 69:  //for key e to exit
+        if (flag == 1)
+            {
+                exit(0);
+            }
+            break;
+    }
+}
+
+void _input::keyPressed(_HelpPage* hp)
+{
+    switch(wParam)
+    {
+        case VK_ESCAPE:     //Escape key to return to game menu from help page
+            if (flag == 2)
+            {
+                flag = 1;
+            }
+            break;
+    }
+}
+
+void _input::keyPressed(_PopUp* popUp)
+{
+     switch(wParam)
+    {
+        case VK_RETURN:     //Press Enter to exit to game menu from pop up screen
+            if (flag == 4)
+            {
+                flag = 1;
+            }
+            break;
+
+        case VK_ESCAPE:     //Press Escape key to pause the game; press escape again to continue
+            if (flag == 4)
+            {
+                flag = 3;
+            }
+            else if (flag == 3)
+            {
+                flag = 4;
+            }
+            break;
+    }
+
 }
 
 /*

@@ -123,3 +123,143 @@
 1615428375 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_timer.cpp
 	"_timer.h"
 
+1617320382 source:d:\graphics\csci-191t-term-project\termproject\main.cpp
+	<windows.h>
+	<_glScene.h>
+	<GL/glut.h>
+	<stdlib.h>
+	<iostream>
+	<windows.h>
+
+1617316821 d:\graphics\csci-191t-term-project\termproject\include\_glscene.h
+	<windows.h>
+	<GL/glut.h>
+	<iostream>
+	<_input.h>
+	<_texture.h>
+	<_parallax.h>
+	<_player.h>
+	<_timer.h>
+	<_fallingObject.h>
+	<_collision.h>
+	<_gameMessage.h>
+	<_LandingPage.h>
+	<_HelpPage.h>
+	<_MenuPage.h>
+	<_PopUp.h>
+
+1607167179 d:\graphics\common\include\gl\glut.h
+	<windows.h>
+	<stdlib.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1617316802 d:\graphics\csci-191t-term-project\termproject\include\_input.h
+	<windows.h>
+	<_parallax.h>
+	<_player.h>
+	<_LandingPage.h>
+	<_HelpPage.h>
+	<_MenuPage.h>
+	<_PopUp.h>
+
+1617313469 d:\graphics\csci-191t-term-project\termproject\include\_parallax.h
+	<string>
+	<GL/gl.h>
+	<_texture.h>
+
+1617315644 d:\graphics\csci-191t-term-project\termproject\include\_texture.h
+	<SOIL.h>
+	<GL/gl.h>
+	<iostream>
+
+1502817372 d:\graphics\common\include\soil.h
+
+1617313469 d:\graphics\csci-191t-term-project\termproject\include\_player.h
+	<_common.h>
+	<_texture.h>
+	<iostream>
+	<GL/gl.h>
+
+1617313469 d:\graphics\csci-191t-term-project\termproject\include\_common.h
+
+1617313469 d:\graphics\csci-191t-term-project\termproject\include\_timer.h
+	<time.h>
+
+1617313469 d:\graphics\csci-191t-term-project\termproject\include\_fallingobject.h
+	<_common.h>
+	<_timer.h>
+	<_texture.h>
+
+1617313469 d:\graphics\csci-191t-term-project\termproject\include\_collision.h
+	<_player.h>
+	<_fallingObject.h>
+
+1617313469 d:\graphics\csci-191t-term-project\termproject\include\_gamemessage.h
+	<_texture.h>
+	<_common.h>
+
+1617313469 source:d:\graphics\csci-191t-term-project\termproject\src\_collision.cpp
+	"_collision.h"
+	<math.h>
+	<algorithm>
+
+1617313469 source:d:\graphics\csci-191t-term-project\termproject\src\_fallingobject.cpp
+	"_fallingObject.h"
+	<bits/stdc++.h>
+	<stdlib.h>
+
+1617313469 source:d:\graphics\csci-191t-term-project\termproject\src\_gamemessage.cpp
+	"_gameMessage.h"
+
+1617313469 source:d:\graphics\csci-191t-term-project\termproject\src\_gllight.cpp
+	"_glLight.h"
+
+1617313469 d:\graphics\csci-191t-term-project\termproject\include\_gllight.h
+	<_glScene.h>
+
+1617320854 source:d:\graphics\csci-191t-term-project\termproject\src\_glscene.cpp
+	"_glScene.h"
+	<_glLight.h>
+	<SOIL.h>
+	<math.h>
+
+1617318272 source:d:\graphics\csci-191t-term-project\termproject\src\_input.cpp
+	"_input.h"
+
+1617313469 source:d:\graphics\csci-191t-term-project\termproject\src\_parallax.cpp
+	"_parallax.h"
+
+1617313469 source:d:\graphics\csci-191t-term-project\termproject\src\_player.cpp
+	"_player.h"
+
+1617317536 source:d:\graphics\csci-191t-term-project\termproject\src\_texture.cpp
+	"_texture.h"
+
+1617313469 source:d:\graphics\csci-191t-term-project\termproject\src\_timer.cpp
+	"_timer.h"
+
+1616822307 source:d:\graphics\csci-191t-term-project\termproject\src\_helppage.cpp
+	"_HelpPage.h"
+
+1616642946 d:\graphics\csci-191t-term-project\termproject\include\_helppage.h
+	<_texture.h>
+
+1617317471 source:d:\graphics\csci-191t-term-project\termproject\src\_landingpage.cpp
+	"_LandingPage.h"
+
+1616557704 d:\graphics\csci-191t-term-project\termproject\include\_landingpage.h
+	<_texture.h>
+
+1616735002 source:d:\graphics\csci-191t-term-project\termproject\src\_menupage.cpp
+	"_MenuPage.h"
+
+1616546877 d:\graphics\csci-191t-term-project\termproject\include\_menupage.h
+	<_texture.h>
+
+1617320976 source:d:\graphics\csci-191t-term-project\termproject\src\_popup.cpp
+	"_PopUp.h"
+
+1616558451 d:\graphics\csci-191t-term-project\termproject\include\_popup.h
+	<_texture.h>
+

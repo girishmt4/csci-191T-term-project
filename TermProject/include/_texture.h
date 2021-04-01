@@ -16,6 +16,7 @@ class _texture
         unsigned char * image;
         int width, height;
         GLuint tex;
+        void textureBinder();
 
     protected:
 
