@@ -12,6 +12,7 @@ _texture::~_texture()
 
 void _texture::loadTexture(char* fileName)
 {
+
     glGenTextures(1,&tex);
     glTexEnvi(GL_TEXTURE_ENV,GL_TEXTURE_ENV_MODE,GL_MODULATE);
 
@@ -27,4 +28,9 @@ void _texture::loadTexture(char* fileName)
 
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER,GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER,GL_LINEAR);
+}
+
+void _texture::textureBinder()
+{
+    glBindTexture(GL_TEXTURE_2D,tex);
 }

@@ -4,7 +4,10 @@
 #include<windows.h>
 #include<_parallax.h>
 #include<_player.h>
-
+#include <_LandingPage.h>
+#include<_HelpPage.h>
+#include<_MenuPage.h>
+#include<_PopUp.h>
 class _input
 {
     public:
@@ -18,14 +21,21 @@ class _input
 
 
 //         void mouseDown(_model*,float, float);
-         void mouseUp();
+        void mouseUp();
 //         void mouseWheel(_model*,float);
 //         void mouseMove(_model*,float,float);
+        void mouseDown(_LandingPage*);
+
+         void keyPressed(_LandingPage*);
+         void keyPressed(_MenuPage*);
+         void keyPressed(_HelpPage*);
+         void keyPressed(_PopUp*);
 
          float prevMouseX;
          float prevMouseY;
          bool mouseTranslation;
          bool mouseRotate;
+         int flag;
 
          WPARAM wParam;
     protected:

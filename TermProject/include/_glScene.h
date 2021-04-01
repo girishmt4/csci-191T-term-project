@@ -12,6 +12,10 @@
 #include <_fallingObject.h>
 #include <_collision.h>
 #include <_gameMessage.h>
+#include <_LandingPage.h>
+#include<_HelpPage.h>
+#include<_MenuPage.h>
+#include<_PopUp.h>
 
 using namespace std;
 
@@ -39,7 +43,11 @@ class _glScene
         _fallingObject fallObj[20];
         _collision *collision = new _collision();
         _gameMessage *msg = new _gameMessage();
-
+        _LandingPage *landp = new _LandingPage();
+        _LandingPage *lpdecor = new _LandingPage();
+        _MenuPage *menup = new _MenuPage();
+        _HelpPage *helpp = new _HelpPage();
+        _PopUp *pup = new _PopUp();
 
         int winMsg(HWND,UINT,WPARAM,LPARAM);
         WPARAM wParam;

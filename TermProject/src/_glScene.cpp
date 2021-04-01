@@ -78,60 +78,137 @@ GLint _glScene::initGL()
         doneInitializing = true;
 
     }
-
+    landp->landingPageInit("images/landing.png");
+    menup->menuPageInit("images/menu.png");
+    helpp->helpPageInit("images/help.png");
+    pup->popUpInit("images/pause.png");
+    lpdecor->landingPageInit("images/rain.png");
 
     return true;
 }
 
 GLint _glScene::drawScene()
 {
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glClearColor(0.0f,0.2f,0.2f,0.3f);
-    glLoadIdentity();
 
-    glPushMatrix();
-    glScalef(3.33,3.33,1.0);
-    glBindTexture(GL_TEXTURE_2D,background->plxTexture->tex);
-    background->renderBack(screenWidth,screenHeight);
-    glPopMatrix();
-
-    glPushMatrix();
-    glScalef(3.33,3.33,1.0);
-    glBindTexture(GL_TEXTURE_2D,background1->plxTexture->tex);
-    background1->renderBack(screenWidth,screenHeight);
-    glPopMatrix();
-
-    glPushMatrix();
-    glBindTexture(GL_TEXTURE_2D,myPly->plyImage->tex);
-    myPly->drawPlayer();
-    if(timer->getTicks() > 150)
+    if (kbMs->flag == 0)  //Landing page
     {
-        myPly->actions();
-
-        timer->resetTime();
-    }
-    glPopMatrix();
-    for(int i=0;i<20;i++)
-    {
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	//Clear screen and depth buffer
+        glLoadIdentity();
         glPushMatrix();
-        glBindTexture(GL_TEXTURE_2D,fallObj[i].objImage->tex);
-        fallObj[i].drawObj(level1,level2,level3);
+        glTranslated(0,0,-8.0);  //placing objects on screen
+        glScalef(34.5, 34.5, 1.0);  //scale to fit within the screen
 
-        if((collision->isCollision(*myPly,fallObj[i])) && fallObj[i].objActive)
+        landp -> renderBack(screenWidth, screenHeight);       //create background for landing page
+        lpdecor -> renderBack(screenWidth, screenHeight);  //make rainfall on the landing page
+        lpdecor -> scroll(true, "up", 0.0005);  //Rain scrolling on the landing page
+        glPopMatrix();
+    }
+
+    if (kbMs->flag == 1)  //Menu page
+    {
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	//Clear screen and depth buffer
+        glLoadIdentity();
+        glPushMatrix();
+        glTranslated(0,0,-8.0);  //placing objects on screen
+        glScalef(32, 32, 1.0);  //scale to fit within the screen
+        menup -> renderBack(screenWidth, screenHeight);       //create background for game menu screen
+        glPopMatrix();
+    }
+
+    if (kbMs->flag == 2)  //Help page
+    {
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	//Clear screen and depth buffer
+        glLoadIdentity();
+        glPushMatrix();
+        glTranslated(0,0,-8.0);  //placing objects on the screen
+        glScalef(33, 33, 1.0);  //scale to fit within the screen
+        helpp -> renderBack(screenWidth, screenHeight);       //create background for help page
+        glPopMatrix();
+    }
+
+    if (kbMs->flag == 3)  //Game page
+    {
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClearColor(0.0f,0.2f,0.2f,0.3f);
+        glLoadIdentity();
+
+        glPushMatrix();
+        glScalef(3.33,3.33,1.0);
+        glBindTexture(GL_TEXTURE_2D,background->plxTexture->tex);
+        background->renderBack(screenWidth,screenHeight);
+        glPopMatrix();
+
+        glPushMatrix();
+        glScalef(3.33,3.33,1.0);
+        glBindTexture(GL_TEXTURE_2D,background1->plxTexture->tex);
+        background1->renderBack(screenWidth,screenHeight);
+        glPopMatrix();
+
+        glPushMatrix();
+        glBindTexture(GL_TEXTURE_2D,myPly->plyImage->tex);
+        myPly->drawPlayer();
+        if(timer->getTicks() > 150)
         {
-            fallObj[i].objActive = false;
-            myPly->hitCount += 1;
-            //fallObj->objPosition.y -= 0.1;
-            fallObj[i].objSpeed = -0.03;
-            cout<<"Collision happened player hit count is "<<myPly->hitCount<<endl;
-            if(myPly->hitCount == 5)
-            {
-                doneInitializing = false;
-                initGL();
-                myPly->hitCount = 0;
-            }
+            myPly->actions();
+
+            timer->resetTime();
         }
-        fallObj[i].objFallingAction(level1, level2, level3);
+        glPopMatrix();
+        for(int i=0;i<20;i++)
+        {
+            glPushMatrix();
+            glBindTexture(GL_TEXTURE_2D,fallObj[i].objImage->tex);
+            fallObj[i].drawObj(level1,level2,level3);
+
+            if((collision->isCollision(*myPly,fallObj[i])) && fallObj[i].objActive)
+            {
+                fallObj[i].objActive = false;
+                myPly->hitCount += 1;
+                //fallObj->objPosition.y -= 0.1;
+                fallObj[i].objSpeed = -0.03;
+                cout<<"Collision happened player hit count is "<<myPly->hitCount<<endl;
+                if(myPly->hitCount == 5)
+                {
+                    doneInitializing = false;
+                    initGL();
+                    myPly->hitCount = 0;
+                }
+            }
+            fallObj[i].objFallingAction(level1, level2, level3);
+            glPopMatrix();
+        }
+
+        /*
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	//Clear screen and depth buffer
+        glLoadIdentity();
+        glPushMatrix();
+        glTranslated(0,0,-8.0);     //placing objects on the screen
+        glScalef(33, 33, 1.0);  //scale to fit within the screen
+
+        background -> renderBack(screenWidth, screenHeight);       //create first background for game
+        background -> scroll(false, "right", 0.005);      //auto movement of the background for the game background
+
+        background1 -> renderBack(screenWidth, screenHeight);       //create second background for game
+        background1 -> scroll(false, "right", 0.0005);      //auto movement of background for the second game background
+        glPopMatrix();
+
+        glPushMatrix();
+        //glutSolidTeapot(1.5);
+        glTranslated(0,0,-8.0);     //placing objects
+        modelTeapot -> drawModel();     //drawing model
+
+        glPopMatrix();
+        */
+    }
+
+    if (kbMs->flag == 4)  //pause game pop-up page
+    {
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	// Clear Screen and Depth buffer
+        glLoadIdentity();
+        glPushMatrix();
+        glTranslated(30.0, 15.0, -8.0);  //placing objects on the screen
+        glScalef(12.0, 12.0, 1.0);  //pause screen pop-up scaling
+        pup -> renderBack(screenWidth, screenHeight);       //create background for pause pop-up screen
         glPopMatrix();
     }
 
@@ -171,6 +248,11 @@ int _glScene::winMsg(HWND	hWnd,			// Handle For This Window
             kbMs->moveEnv(background1, 0.015);
 
 		    kbMs->keyPressed(myPly);
+		    kbMs->keyPressed(landp);       //Handling key inputs on the landing page
+            kbMs->keyPressed(menup);       //Handling key inputs on the menu page
+            kbMs->keyPressed(helpp);       //Handling key inputs on the help page
+            kbMs->keyPressed(pup);    //Handling key inputs on the game pause pop up screen
+
 
 			break;
 		}
@@ -185,12 +267,14 @@ int _glScene::winMsg(HWND	hWnd,			// Handle For This Window
 		case WM_LBUTTONDOWN:
             {
 //                kbMs ->mouseDown(modelTeapot, LOWORD(lParam),HIWORD(lParam));
+                kbMs ->mouseDown(landp);
 
                 break;
             }
         case WM_RBUTTONDOWN:
             {
 //                kbMs ->mouseDown(modelTeapot, LOWORD(lParam),HIWORD(lParam));
+                kbMs ->mouseDown(landp);
               break;
             }
         case WM_MBUTTONDOWN:
