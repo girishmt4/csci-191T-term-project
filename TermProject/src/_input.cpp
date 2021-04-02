@@ -23,14 +23,14 @@ void _input::keyPressed(_player* ply)
     case VK_LEFT:
         {
             ply->actionTrigger = ply->WALK_LEFT;
-            ply->playerPos.x -= 0.01;
+            ply->playerPos.x -= 0.03;
 
             break;
         }
     case VK_RIGHT:
         {
             ply->actionTrigger = ply->WALK_RIGHT;     //DO ACTION ACCORDING TO YOUR SPRITE
-            ply->playerPos.x += 0.01;
+            ply->playerPos.x += 0.03;
 
             break;
         }

@@ -1,7 +1,7 @@
 #include "_player.h"
 
 #define YSCREEN 0.8
-#define XSCREEN 1.2
+#define XSCREEN 2.5
 
 _player::_player()
 {
@@ -21,12 +21,12 @@ _player::~_player()
 }
 void _player::playerInit(float X, float Y, float yPosition)
 {
-    playerPos.x=-XSCREEN-0.2;
+    playerPos.x=-XSCREEN-0.3;
     playerPos.y=yPosition;
     playerPos.z=-2.0;
 
-    playerScale.x=0.3;
-    playerScale.y=0.3;
+    playerScale.x=0.6;
+    playerScale.y=0.6;
     playerScale.z=1.0;
 
 
