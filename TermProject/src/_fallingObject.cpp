@@ -4,7 +4,7 @@
 
 
 #define YSCREEN 0.8
-#define XSCREEN 1.2
+#define XSCREEN 2.8
 
 _fallingObject::_fallingObject()
 {
@@ -16,7 +16,7 @@ _fallingObject::_fallingObject()
     vert[3].x=-0.5;vert[3].y=0.5;vert[3].z=0.0;
 
     radius = 0.5*0.15;
-    objSpeed = 0.0003;
+    objSpeed = 0.0009;
 
 }
 void _fallingObject::objInit(float X, float Y,float scaleSize, bool level1, bool level2, bool level3)
@@ -28,7 +28,7 @@ void _fallingObject::objInit(float X, float Y,float scaleSize, bool level1, bool
     else if(level2)
     {
         objPosition.x = (2*XSCREEN - (-XSCREEN)) * ((((float) rand()) / (float) RAND_MAX)) + (-XSCREEN) ;
-        xSpeed = 0.0003;
+        xSpeed = 0.0009;
     }
     else if(level3)
     {
@@ -36,11 +36,11 @@ void _fallingObject::objInit(float X, float Y,float scaleSize, bool level1, bool
         int flag = rand() % 2;
         if(flag == 0)
         {
-            xSpeed = 0.0003;
+            xSpeed = 0.0009;
         }
         else if(flag == 1)
         {
-            xSpeed = -0.0003;
+            xSpeed = -0.0009;
         }
     }
     objPosition.y = (YSCREEN*3 - (YSCREEN)) * ((((float) rand()) / (float) RAND_MAX)) + (YSCREEN) ;
@@ -68,7 +68,7 @@ void _fallingObject::drawObj(bool level1, bool level2, bool level3)
     if((objPosition.y < -YSCREEN) || (objPosition.y > YSCREEN*2))
     {
         objPosition.y = (YSCREEN*3 - (YSCREEN)) * ((((float) rand()) / (float) RAND_MAX)) + (YSCREEN) ;
-        objSpeed = 0.0003;
+        objSpeed = 0.0009;
         objActive = true;
     }
     if((objPosition.x < -XSCREEN*2) || (objPosition.x > XSCREEN*2))

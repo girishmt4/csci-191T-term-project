@@ -35,12 +35,12 @@ GLint _glScene::initGL()
         background->parallaxInit("images/parallax1.png");
         background1->parallaxInit("images/level1_pathway.png");
         timer->startTimer();
-        myPly->playerInit(8,2,-0.4);
+        myPly->playerInit(8,2,-0.65);
         myPly->plyImage->loadTexture("images/playerAnimated.png");
         for(int i=0;i<20;i++)
         {
             fallObj[i].objTimer->startTimer();
-            fallObj[i].objInit(6,4,0.2,level1,level2,level3);
+            fallObj[i].objInit(6,4,0.3,level1,level2,level3);
             fallObj[i].objImage->loadTexture("images/fireball.png");
         }
         doneInitializing = true;
@@ -67,7 +67,7 @@ GLint _glScene::initGL()
         background->parallaxInit("images/parallax3.png");
         background1->parallaxInit("images/level3_pathway.png");
         timer->startTimer();
-        myPly->playerInit(8,2,-0.3);
+        myPly->playerInit(8,2,-0.9);
         myPly->plyImage->loadTexture("images/playerAnimated.png");
         for(int i=0;i<20;i++)
         {
@@ -96,7 +96,7 @@ GLint _glScene::drawScene()
         glLoadIdentity();
         glPushMatrix();
         glTranslated(0,0,-8.0);  //placing objects on screen
-        glScalef(34.5, 34.5, 1.0);  //scale to fit within the screen
+        glScalef(1.65, 1.4, 1.0);  //scale to fit within the screen
 
         landp -> renderBack(screenWidth, screenHeight);       //create background for landing page
         lpdecor -> renderBack(screenWidth, screenHeight);  //make rainfall on the landing page
@@ -110,7 +110,7 @@ GLint _glScene::drawScene()
         glLoadIdentity();
         glPushMatrix();
         glTranslated(0,0,-8.0);  //placing objects on screen
-        glScalef(32, 32, 1.0);  //scale to fit within the screen
+        glScalef(1.65, 1.5, 1.0);  //scale to fit within the screen
         menup -> renderBack(screenWidth, screenHeight);       //create background for game menu screen
         glPopMatrix();
     }
@@ -121,7 +121,7 @@ GLint _glScene::drawScene()
         glLoadIdentity();
         glPushMatrix();
         glTranslated(0,0,-8.0);  //placing objects on the screen
-        glScalef(33, 33, 1.0);  //scale to fit within the screen
+        glScalef(1.65, 1.5, 1.0);  //scale to fit within the screen
         helpp -> renderBack(screenWidth, screenHeight);       //create background for help page
         glPopMatrix();
     }
@@ -133,13 +133,13 @@ GLint _glScene::drawScene()
         glLoadIdentity();
 
         glPushMatrix();
-        glScalef(3.33,3.33,1.0);
+        glScalef(1.65, 1.5, 1.0);
         glBindTexture(GL_TEXTURE_2D,background->plxTexture->tex);
         background->renderBack(screenWidth,screenHeight);
         glPopMatrix();
 
         glPushMatrix();
-        glScalef(3.33,3.33,1.0);
+        glScalef(1.65, 1.5, 1.0);
         glBindTexture(GL_TEXTURE_2D,background1->plxTexture->tex);
         background1->renderBack(screenWidth,screenHeight);
         glPopMatrix();
@@ -147,7 +147,7 @@ GLint _glScene::drawScene()
         glPushMatrix();
         glBindTexture(GL_TEXTURE_2D,myPly->plyImage->tex);
         myPly->drawPlayer();
-        if(timer->getTicks() > 150)
+        if(timer->getTicks() > 120)
         {
             myPly->actions();
 
@@ -207,7 +207,7 @@ GLint _glScene::drawScene()
         //glLoadIdentity();
         glPushMatrix();
         //glTranslated(0.0, 0.0, -7.0);  //placing objects on the screen
-        glScalef(0.2, 0.2, 1.0);  //pause screen pop-up scaling
+        glScalef(0.5, 0.5, 1.0);  //pause screen pop-up scaling
         pup -> renderBack(screenWidth, screenHeight);       //create background for pause pop-up screen
         glPopMatrix();
     }
@@ -224,8 +224,8 @@ void _glScene::resizeGLScene(int width, int height)
     glViewport(0,0,width,height);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluPerspective(45.0,aspectRatio,0.1,100);
-
+    //gluPerspective(45.0,aspectRatio,0.1,100);
+    glOrtho(-3.0,3.0,-1.5,1.5,0.1,100);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 }
