@@ -57,7 +57,7 @@ GLint _glScene::initGL()
         str1.str("");
         str1.clear();
         }
-        //background->parallaxInit("images/parallax1.png");
+        background->parallaxInit("images/parallax1.png");
         //background1->parallaxInit("images/level1_pathway.png");
         timer->startTimer();
         myPly->playerInit(8,2,-0.65);
@@ -97,7 +97,7 @@ GLint _glScene::initGL()
         str1.str("");
         str1.clear();
         }
-        //background->parallaxInit("images/parallax2.png");
+        background->parallaxInit("images/parallax2.png");
         //background1->parallaxInit("images/level2_pathway.png");
         timer->startTimer();
         myPly->playerInit(8,2,-0.55);
@@ -120,19 +120,6 @@ GLint _glScene::initGL()
           }
         }
 
-        msg->msgInit();
-        msg->msgImage->loadTexture("images/unnamed.png");
-        //background->parallaxInit("images/parallax3.png");
-        //background1->parallaxInit("images/level3_pathway.png");
-        timer->startTimer();
-        myPly->playerInit(8,2,-0.9);
-        myPly->plyImage->loadTexture("images/playerAnimated.png");
-        /*for(int i=0;i<20;i++)
-        {
-            fallObj[i].objTimer->startTimer();
-            fallObj[i].objInit(8,8,0.1,level1,level2,level3);
-            fallObj[i].objImage->loadTexture("images/kisspng-asteroids-sprite-opengameart-org-2d-computer-graph-asteroid-5ad044da44b1d7.0888766115235985542814.png");
-        }*/
              //Screen Settings Initialization.
         h ="images/tile_";
         j =".png";
@@ -151,6 +138,20 @@ GLint _glScene::initGL()
         str1.str("");
         str1.clear();
         }
+        msg->msgInit();
+        msg->msgImage->loadTexture("images/unnamed.png");
+        background->parallaxInit("images/parallax3.png");
+        //background1->parallaxInit("images/level3_pathway.png");
+        timer->startTimer();
+        myPly->playerInit(8,2,-0.9);
+        myPly->plyImage->loadTexture("images/playerAnimated.png");
+        /*for(int i=0;i<20;i++)
+        {
+            fallObj[i].objTimer->startTimer();
+            fallObj[i].objInit(8,8,0.1,level1,level2,level3);
+            fallObj[i].objImage->loadTexture("images/kisspng-asteroids-sprite-opengameart-org-2d-computer-graph-asteroid-5ad044da44b1d7.0888766115235985542814.png");
+        }*/
+
         doneInitializing = true;
 
     }
@@ -276,26 +277,28 @@ GLint _glScene::drawScene()
 
         glPopMatrix();
         */
+
+
         glPushMatrix(); // group my object
-     for(int imgfile = 0; imgfile < 5; imgfile++)
-    {
-      for(int y=0;y<4;y++)
-      {
-        glBindTexture(GL_TEXTURE_2D, scrnStng[imgfile][y].sceneImg->tex);
-        scrnStng[imgfile][y].drwScn(imgfile,y);
-        clsn = colsn->isBoundedCollision(*myPly,scrnStng[imgfile][y],imgfile,y);
-        if(clsn == true)
+         for(int imgfile = 0; imgfile < 5; imgfile++)
         {
-        //myPly->startWalk=true;
-        cout<<"Collision = true at"<<imgfile<<" "<<y<<endl;
+          for(int y=0;y<4;y++)
+          {
+            glBindTexture(GL_TEXTURE_2D, scrnStng[imgfile][y].sceneImg->tex);
+            scrnStng[imgfile][y].drwScn(imgfile,y);
+            clsn = colsn->isBoundedCollision(*myPly,scrnStng[imgfile][y],imgfile,y);
+            if(clsn == true)
+            {
+            //myPly->startWalk=true;
+            cout<<"Collision = true at"<<imgfile<<" "<<y<<endl;
+            }
+            else
+            {
+               //myPly->startWalk=false;
+            }
+          }
         }
-        else
-        {
-           //myPly->startWalk=false;
-        }
-      }
-    }
-    glPopMatrix(); // exit the group
+        glPopMatrix(); // exit the group
     }
 
     if (kbMs->flag == 4)  //pause game pop-up page
