@@ -32,51 +32,91 @@ GLint _glScene::initGL()
     _glLight myLight(GL_LIGHT0);
     if(level1)
     {
-        background->parallaxInit("images/parallax1.png");
-        background1->parallaxInit("images/level1_pathway.png");
+        for(int i=0;i<7;i++)
+        {
+          for(int j=0;j<7;j++)
+          {
+              scrnStng[i][j].level=1;
+          }
+        }
+
+        //background->parallaxInit("images/parallax1.png");
+        //background1->parallaxInit("images/level1_pathway.png");
         timer->startTimer();
         myPly->playerInit(8,2,-0.65);
         myPly->plyImage->loadTexture("images/playerAnimated.png");
-        for(int i=0;i<20;i++)
+        /*for(int i=0;i<20;i++)
         {
             fallObj[i].objTimer->startTimer();
             fallObj[i].objInit(6,4,0.3,level1,level2,level3);
             fallObj[i].objImage->loadTexture("images/fireball.png");
-        }
+        }*/
         doneInitializing = true;
     }
     if(level2)
     {
-        background->parallaxInit("images/parallax2.png");
-        background1->parallaxInit("images/level2_pathway.png");
+        for(int i=0;i<7;i++)
+        {
+          for(int j=0;j<7;j++)
+          {
+              scrnStng[i][j].level=2;
+          }
+        }
+        //background->parallaxInit("images/parallax2.png");
+        //background1->parallaxInit("images/level2_pathway.png");
         timer->startTimer();
         myPly->playerInit(8,2,-0.55);
         myPly->plyImage->loadTexture("images/playerAnimated.png");
-        for(int i=0;i<20;i++)
+       /* for(int i=0;i<20;i++)
         {
             fallObj[i].objTimer->startTimer();
             fallObj[i].objInit(6,5,0.1,level1,level2,level3);
             fallObj[i].objImage->loadTexture("images/meteor2.png");
-        }
+        }*/
         doneInitializing = true;
     }
     if(level3)
     {
+        for(int i=0;i<7;i++)
+        {
+          for(int j=0;j<7;j++)
+          {
+              scrnStng[i][j].level=3;
+          }
+        }
         msg->msgInit();
         msg->msgImage->loadTexture("images/unnamed.png");
-        background->parallaxInit("images/parallax3.png");
-        background1->parallaxInit("images/level3_pathway.png");
+        //background->parallaxInit("images/parallax3.png");
+        //background1->parallaxInit("images/level3_pathway.png");
         timer->startTimer();
         myPly->playerInit(8,2,-0.9);
         myPly->plyImage->loadTexture("images/playerAnimated.png");
-        for(int i=0;i<20;i++)
+        /*for(int i=0;i<20;i++)
         {
             fallObj[i].objTimer->startTimer();
             fallObj[i].objInit(8,8,0.1,level1,level2,level3);
             fallObj[i].objImage->loadTexture("images/kisspng-asteroids-sprite-opengameart-org-2d-computer-graph-asteroid-5ad044da44b1d7.0888766115235985542814.png");
-        }
+        }*/
         doneInitializing = true;
 
+    }
+    //Screen Settings Initialization.
+    h ="images/tile_";
+    j =".png";
+    for(int imgfile = 0; imgfile < 5; imgfile++)
+    {
+    str1<<imgfile;
+    c = str1.str();
+    k = h+c+j;
+    t=&k[0];
+      for(int y=0;y<4;y++)
+      {
+        scrnStng[imgfile][y].sceneInit(imgfile,y);
+        scrnStng[imgfile][y].sceneImg->loadTexture(t);
+
+      }
+    str1.str("");
+    str1.clear();
     }
     landp->landingPageInit("images/landing.png");
     menup->menuPageInit("images/menu.png");
@@ -154,7 +194,7 @@ GLint _glScene::drawScene()
             timer->resetTime();
         }
         glPopMatrix();
-        for(int i=0;i<20;i++)
+      /*  for(int i=0;i<20;i++)
         {
             glPushMatrix();
             glBindTexture(GL_TEXTURE_2D,fallObj[i].objImage->tex);
@@ -176,7 +216,7 @@ GLint _glScene::drawScene()
             }
             fallObj[i].objFallingAction(level1, level2, level3);
             glPopMatrix();
-        }
+        }*/
 
         /*
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	//Clear screen and depth buffer
@@ -199,6 +239,7 @@ GLint _glScene::drawScene()
 
         glPopMatrix();
         */
+
     }
 
     if (kbMs->flag == 4)  //pause game pop-up page
@@ -212,6 +253,26 @@ GLint _glScene::drawScene()
         glPopMatrix();
     }
 
+    glPushMatrix(); // group my object
+     for(int imgfile = 0; imgfile < 5; imgfile++)
+    {
+      for(int y=0;y<4;y++)
+      {
+        glBindTexture(GL_TEXTURE_2D, scrnStng[imgfile][y].sceneImg->tex);
+        scrnStng[imgfile][y].drwScn(imgfile,y);
+        clsn = colsn->isBoundedCollision(*myPly,scrnStng[imgfile][y],imgfile,y);
+        if(clsn == true)
+        {
+        //myPly->startWalk=true;
+        cout<<"Collision = true at"<<imgfile<<" "<<y<<endl;
+        }
+        else
+        {
+           //myPly->startWalk=false;
+        }
+      }
+    }
+    glPopMatrix(); // exit the group
 }
 
 

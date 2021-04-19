@@ -1,8 +1,4 @@
 #include "_collision.h"
-#include <math.h>
-#include <algorithm>
-
-using namespace std;
 
 _collision::_collision()
 {
@@ -13,10 +9,50 @@ _collision::~_collision()
 {
     //dtor
 }
-bool _collision::isCollision(_player ply,_fallingObject obj)
+
+bool _collision::isLinearCollision(float x1, float x2)
 {
-    if(sqrt(pow(ply.playerPos.x-obj.objPosition.x,2)+pow(ply.playerPos.y-obj.objPosition.y,2))<ply.radius+obj.radius)
-        return true;
+   if(fabs(x1-x2<0.1))return true;
+   return false;
+}
+
+bool _collision::isRadialCollision(float x1, float y1, float x2, float y2, float r1, float r2)
+{
+    if(sqrt(pow(x1-x2,2)+pow(y1-y2,2))<r1+r2)return true;
     return false;
 }
+
+bool _collision::isCircleRayCollision(float, float, float, float, float)
+{
+
+}
+
+bool _collision::isCubic(float, float, float, float)
+{
+
+}
+
+bool _collision::isSphereCollision(float, float, float, float)
+{
+
+}
+
+bool _collision::isCollisionFloor(float, float, float)
+{
+
+}
+bool _collision::isBoundedCollision(_player &one,_screenSettings a,int i, int j)
+{
+
+         // collision x-axis?
+        bool collisionX = (one.playerPos.x + (one.playerScale.x/2.0)) >= ((a.scenePos[i][j].x)-(a.sceneScale[i].x/2.0)) && (a.scenePos[i][j].x + (a.sceneScale[i].x/2.0)) >= (one.playerPos.x -(one.playerScale.x/2.0));
+        // collision y-axis?
+
+        bool collisionY = (one.playerPos.y + (one.playerScale.y/2.0)) >= ((a.scenePos[i][j].y)-(a.sceneScale[i].y/2.0)) && (a.scenePos[i][j].y + (a.sceneScale[i].y/2.0)) >= (one.playerPos.y -(one.playerScale.y/2.0));
+        // collision only if on both axes
+
+    return collisionX && collisionY;
+
+}
+
 
