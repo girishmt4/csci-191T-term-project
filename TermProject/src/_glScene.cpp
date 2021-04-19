@@ -39,7 +39,24 @@ GLint _glScene::initGL()
               scrnStng[i][j].level=1;
           }
         }
+         //Screen Settings Initialization.
+        h ="images/tile_";
+        j =".png";
+        for(int imgfile = 0; imgfile < 5; imgfile++)
+        {
+        str1<<imgfile;
+        c = str1.str();
+        k = h+c+j;
+        t=&k[0];
+          for(int y=0;y<4;y++)
+          {
+            scrnStng[imgfile][y].sceneInit(imgfile,y);
+            scrnStng[imgfile][y].sceneImg->loadTexture(t);
 
+          }
+        str1.str("");
+        str1.clear();
+        }
         //background->parallaxInit("images/parallax1.png");
         //background1->parallaxInit("images/level1_pathway.png");
         timer->startTimer();
@@ -61,6 +78,24 @@ GLint _glScene::initGL()
           {
               scrnStng[i][j].level=2;
           }
+        }
+         //Screen Settings Initialization.
+        h ="images/tile_";
+        j =".png";
+        for(int imgfile = 0; imgfile < 5; imgfile++)
+        {
+        str1<<imgfile;
+        c = str1.str();
+        k = h+c+j;
+        t=&k[0];
+          for(int y=0;y<4;y++)
+          {
+            scrnStng[imgfile][y].sceneInit(imgfile,y);
+            scrnStng[imgfile][y].sceneImg->loadTexture(t);
+
+          }
+        str1.str("");
+        str1.clear();
         }
         //background->parallaxInit("images/parallax2.png");
         //background1->parallaxInit("images/level2_pathway.png");
@@ -84,6 +119,7 @@ GLint _glScene::initGL()
               scrnStng[i][j].level=3;
           }
         }
+
         msg->msgInit();
         msg->msgImage->loadTexture("images/unnamed.png");
         //background->parallaxInit("images/parallax3.png");
@@ -97,27 +133,28 @@ GLint _glScene::initGL()
             fallObj[i].objInit(8,8,0.1,level1,level2,level3);
             fallObj[i].objImage->loadTexture("images/kisspng-asteroids-sprite-opengameart-org-2d-computer-graph-asteroid-5ad044da44b1d7.0888766115235985542814.png");
         }*/
+             //Screen Settings Initialization.
+        h ="images/tile_";
+        j =".png";
+        for(int imgfile = 0; imgfile < 5; imgfile++)
+        {
+        str1<<imgfile;
+        c = str1.str();
+        k = h+c+j;
+        t=&k[0];
+          for(int y=0;y<4;y++)
+          {
+            scrnStng[imgfile][y].sceneInit(imgfile,y);
+            scrnStng[imgfile][y].sceneImg->loadTexture(t);
+
+          }
+        str1.str("");
+        str1.clear();
+        }
         doneInitializing = true;
 
     }
-    //Screen Settings Initialization.
-    h ="images/tile_";
-    j =".png";
-    for(int imgfile = 0; imgfile < 5; imgfile++)
-    {
-    str1<<imgfile;
-    c = str1.str();
-    k = h+c+j;
-    t=&k[0];
-      for(int y=0;y<4;y++)
-      {
-        scrnStng[imgfile][y].sceneInit(imgfile,y);
-        scrnStng[imgfile][y].sceneImg->loadTexture(t);
 
-      }
-    str1.str("");
-    str1.clear();
-    }
     landp->landingPageInit("images/landing.png");
     menup->menuPageInit("images/menu.png");
     helpp->helpPageInit("images/help.png");
@@ -239,21 +276,7 @@ GLint _glScene::drawScene()
 
         glPopMatrix();
         */
-
-    }
-
-    if (kbMs->flag == 4)  //pause game pop-up page
-    {
-        //glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	// Clear Screen and Depth buffer
-        //glLoadIdentity();
-        glPushMatrix();
-        //glTranslated(0.0, 0.0, -7.0);  //placing objects on the screen
-        glScalef(0.5, 0.5, 1.0);  //pause screen pop-up scaling
-        pup -> renderBack(screenWidth, screenHeight);       //create background for pause pop-up screen
-        glPopMatrix();
-    }
-
-    glPushMatrix(); // group my object
+        glPushMatrix(); // group my object
      for(int imgfile = 0; imgfile < 5; imgfile++)
     {
       for(int y=0;y<4;y++)
@@ -273,6 +296,19 @@ GLint _glScene::drawScene()
       }
     }
     glPopMatrix(); // exit the group
+    }
+
+    if (kbMs->flag == 4)  //pause game pop-up page
+    {
+        //glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	// Clear Screen and Depth buffer
+        //glLoadIdentity();
+        glPushMatrix();
+        //glTranslated(0.0, 0.0, -7.0);  //placing objects on the screen
+        glScalef(0.5, 0.5, 1.0);  //pause screen pop-up scaling
+        pup -> renderBack(screenWidth, screenHeight);       //create background for pause pop-up screen
+        glPopMatrix();
+    }
+
 }
 
 
