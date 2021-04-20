@@ -37,6 +37,9 @@ void _player::playerInit(float X, float Y, float yPosition)
     yMin=0.0;
     yMax=1.0/framesY;
     hitCount = 0;
+
+    timer->startTimer();
+
 }
 
 void _player::drawPlayer()
@@ -44,7 +47,6 @@ void _player::drawPlayer()
     glTranslatef(playerPos.x,playerPos.y,playerPos.z);
 
     glScalef(playerScale.x,playerScale.y,playerScale.z);
-
     glBegin(GL_QUADS);
     glTexCoord2f(xMin,yMax);
     glVertex3f(vert[0].x,vert[0].y,vert[0].z);
@@ -55,7 +57,6 @@ void _player::drawPlayer()
     glTexCoord2f(xMin,yMin);
     glVertex3f(vert[3].x,vert[3].y,vert[3].z);
     glEnd();
-
 }
 
 void _player::actions()
@@ -72,30 +73,91 @@ void _player::actions()
         {
             yMin=0.0;
             yMax=1.0/framesY;
-            xMin += 1/framesX;
-            xMax += 1/framesX;
-
+            if(timer->getTicks() > 100)
+            {
+                xMin += 1/framesX;
+                xMax += 1/framesX;
+                timer->resetTime();
+            }
             break;
         }
         case WALK_LEFT:
         {
             yMin=1.0/framesY;
             yMax=1.0;
-            xMin -= 1/framesX;
-            xMax -= 1/framesX;
-
+            if(timer->getTicks() > 100)
+            {
+                xMin -= 1/framesX;
+                xMax -= 1/framesX;
+                timer->resetTime();
+            }
             break;
         }
         case JUMP:
         {
+            cout<<playerPos.y<<endl;
+            playerPos.y += jumpSpeed;
+            if(jumpSpeed != 0.00)
+            {
+                jumpSpeed -= gravity;
+            }
+            if(playerPos.y < -1.475)
+            {
+                playerPos.y = -1.475;
+                actionTrigger = STAND;
+                jumpSpeed = 0.560;
+            }
+            break;
+        }
+        case WALK_LEFT_JUMP:
+        {
+            playerPos.y += jumpSpeed;
+            if(jumpSpeed != 0.00)
+            {
+                jumpSpeed -= gravity;
+            }
+            if(playerPos.y < -1.475)
+            {
+                playerPos.y = -1.475;
+                actionTrigger = STAND;
+                jumpSpeed = 0.560;
+            }
+            yMin=1.0/framesY;
+            yMax=1.0;
+            if(timer->getTicks() > 100)
+            {
+                xMin -= 1/framesX;
+                xMax -= 1/framesX;
+                timer->resetTime();
+            }
+            break;
+        }
+        case WALK_RIGHT_JUMP:
+        {
+            playerPos.y += jumpSpeed;
+            if(jumpSpeed != 0.00)
+            {
+                jumpSpeed -= gravity;
+            }
+            if(playerPos.y < -1.475)
+            {
+                playerPos.y = -1.475;
+                actionTrigger = STAND;
+                jumpSpeed = 0.560;
+            }
+            yMin=0.0;
+            yMax=1.0/framesY;
+            if(timer->getTicks() > 100)
+            {
+                xMin += 1/framesX;
+                xMax += 1/framesX;
+                timer->resetTime();
+            }
             break;
         }
         case DIED:
         {
-            while(1)
-            {
-
-            }
+            break;
         }
     }
 }

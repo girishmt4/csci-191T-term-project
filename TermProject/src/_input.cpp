@@ -8,6 +8,10 @@ _input::_input()
         mouseTranslation =0;
         mouseRotate =0;
         flag =0;
+        for(int i=0;i<256;i++)
+        {
+            keys[i] = false;
+        }
 }
 
 _input::~_input()
@@ -18,7 +22,46 @@ _input::~_input()
 
 void _input::keyPressed(_player* ply)
 {
-    switch(wParam)
+    if(keys[VK_RIGHT])
+    {
+        if(keys[VK_UP])
+        {
+            ply->actionTrigger = ply->WALK_RIGHT_JUMP;
+        }
+        else
+        {
+            ply->actionTrigger = ply->WALK_RIGHT;
+        }
+        ply->playerPos.x += 0.01;
+    }
+    else if(keys[VK_LEFT])
+    {
+        if(keys[VK_LEFT] && keys[VK_UP])
+        {
+            ply->actionTrigger = ply->WALK_LEFT_JUMP;
+        }
+        else
+        {
+            ply->actionTrigger = ply->WALK_LEFT;
+        }
+        ply->playerPos.x -= 0.01;
+    }
+    else if(keys[VK_UP])
+    {
+        if(keys[VK_UP] && keys[VK_LEFT])
+        {
+            ply->actionTrigger = ply->WALK_LEFT_JUMP;
+        }
+        else if(keys[VK_RIGHT])
+        {
+            ply->actionTrigger = ply->WALK_RIGHT_JUMP;
+        }
+        else
+        {
+            ply->actionTrigger = ply->JUMP;
+        }
+    }
+    /*switch(wParam)
     {
     case VK_LEFT:
         {
@@ -44,7 +87,7 @@ void _input::keyPressed(_player* ply)
 
             break;
         }
-    }
+    }*/
 }
 
 void _input::moveEnv(_parallax* plx, float speed)
@@ -86,7 +129,12 @@ void _input::keyUp()
 
 void _input::keyUp(_player* ply)
 {
-    ply->actionTrigger = ply->STAND;
+    //ply->actionTrigger = ply->STAND;
+    if(ply->actionTrigger == ply->WALK_LEFT || ply->actionTrigger == ply->WALK_RIGHT)
+    {
+        ply->actionTrigger = ply->STAND;
+    }
+    keys[wParam] = false;
 }
 
 /*

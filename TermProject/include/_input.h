@@ -36,6 +36,7 @@ class _input
          bool mouseTranslation;
          bool mouseRotate;
          int flag;
+         bool keys[256];
 
          WPARAM wParam;
     protected:
