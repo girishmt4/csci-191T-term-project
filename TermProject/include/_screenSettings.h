@@ -7,6 +7,8 @@
 #include<GL/gl.h>
 
 using namespace std;
+
+
 class _screenSettings
 {
     public:

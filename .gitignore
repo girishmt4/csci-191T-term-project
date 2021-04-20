@@ -31,7 +31,3 @@
 *.out
 *.app
 
-# Codeblocks Specific
-*.depend
-*.cbp
-*.layout
