@@ -30,54 +30,73 @@ GLint _glScene::initGL()
     glDepthFunc(GL_LEQUAL);
     glEnable(GL_COLOR_MATERIAL);
     _glLight myLight(GL_LIGHT0);
+//--------------------------------------Game Level Control-------------------------------------------------------------------------
     if(level1)
     {
-        background->parallaxInit("images/parallax1.png");
-        background1->parallaxInit("images/level1_pathway.png");
-        timer->startTimer();
-        myPly->playerInit(8,2,-0.65);
-        myPly->plyImage->loadTexture("images/playerAnimated.png");
-        for(int i=0;i<20;i++)
+        for(int i=0;i<7;i++)
         {
-            fallObj[i].objTimer->startTimer();
-            fallObj[i].objInit(6,4,0.3,level1,level2,level3);
-            fallObj[i].objImage->loadTexture("images/fireball.png");
+          for(int j=0;j<7;j++)
+          {
+              scrnStng[i][j].level=1;
+          }
         }
+        background->parallaxInit("images/BG.png");
+        timer->startTimer();
+        myPly->playerInit(8,2,-1.5);
+        myPly->plyImage->loadTexture("images/playerAnimated.png");
         doneInitializing = true;
     }
     if(level2)
     {
-        background->parallaxInit("images/parallax2.png");
-        background1->parallaxInit("images/level2_pathway.png");
-        timer->startTimer();
-        myPly->playerInit(8,2,-0.55);
-        myPly->plyImage->loadTexture("images/playerAnimated.png");
-        for(int i=0;i<20;i++)
+        for(int i=0;i<7;i++)
         {
-            fallObj[i].objTimer->startTimer();
-            fallObj[i].objInit(6,5,0.1,level1,level2,level3);
-            fallObj[i].objImage->loadTexture("images/meteor2.png");
+          for(int j=0;j<7;j++)
+          {
+              scrnStng[i][j].level=2;
+          }
         }
+        background->parallaxInit("images/BG.png");
+        timer->startTimer();
+        myPly->playerInit(8,2,-1.5);
+        myPly->plyImage->loadTexture("images/playerAnimated.png");
         doneInitializing = true;
     }
-    if(level3)
+    else if(level3)
     {
+        for(int i=0;i<7;i++)
+        {
+          for(int j=0;j<7;j++)
+          {
+              scrnStng[i][j].level=3;
+          }
+        }
         msg->msgInit();
         msg->msgImage->loadTexture("images/unnamed.png");
-        background->parallaxInit("images/parallax3.png");
-        background1->parallaxInit("images/level3_pathway.png");
+        background->parallaxInit("images/BG.png");
         timer->startTimer();
-        myPly->playerInit(8,2,-0.9);
+        myPly->playerInit(8,2,-1.125);
         myPly->plyImage->loadTexture("images/playerAnimated.png");
-        for(int i=0;i<20;i++)
-        {
-            fallObj[i].objTimer->startTimer();
-            fallObj[i].objInit(8,8,0.1,level1,level2,level3);
-            fallObj[i].objImage->loadTexture("images/kisspng-asteroids-sprite-opengameart-org-2d-computer-graph-asteroid-5ad044da44b1d7.0888766115235985542814.png");
-        }
         doneInitializing = true;
-
     }
+//-----------------------Screen Settings Initialization for Game.--------------------------------------
+        h ="images/tile_";
+        j =".png";
+        for(int imgfile = 0; imgfile < 5; imgfile++)
+        {
+        str1<<imgfile;
+        c = str1.str();
+        k = h+c+j;
+        t=&k[0];
+          for(int y=0;y<4;y++)
+          {
+            scrnStng[imgfile][y].sceneInit(imgfile,y);
+            scrnStng[imgfile][y].sceneImg->loadTexture(t);
+
+          }
+        str1.str("");
+        str1.clear();
+        }
+//----------------------------Other Pages---------------------------------------
     landp->landingPageInit("images/landing.png");
     menup->menuPageInit("images/menu.png");
     helpp->helpPageInit("images/help.png");
@@ -96,7 +115,7 @@ GLint _glScene::drawScene()
         glLoadIdentity();
         glPushMatrix();
         glTranslated(0,0,-8.0);  //placing objects on screen
-        glScalef(1.65, 1.4, 1.0);  //scale to fit within the screen
+        glScalef(2.60, 2.45, 1.0);  //scale to fit within the screen
 
         landp -> renderBack(screenWidth, screenHeight);       //create background for landing page
         lpdecor -> renderBack(screenWidth, screenHeight);  //make rainfall on the landing page
@@ -110,7 +129,7 @@ GLint _glScene::drawScene()
         glLoadIdentity();
         glPushMatrix();
         glTranslated(0,0,-8.0);  //placing objects on screen
-        glScalef(1.65, 1.5, 1.0);  //scale to fit within the screen
+        glScalef(2.60, 2.45, 1.0);  //scale to fit within the screen
         menup -> renderBack(screenWidth, screenHeight);       //create background for game menu screen
         glPopMatrix();
     }
@@ -121,7 +140,7 @@ GLint _glScene::drawScene()
         glLoadIdentity();
         glPushMatrix();
         glTranslated(0,0,-8.0);  //placing objects on the screen
-        glScalef(1.65, 1.5, 1.0);  //scale to fit within the screen
+        glScalef(2.60, 2.45, 1.0);  //scale to fit within the screen
         helpp -> renderBack(screenWidth, screenHeight);       //create background for help page
         glPopMatrix();
     }
@@ -133,15 +152,9 @@ GLint _glScene::drawScene()
         glLoadIdentity();
 
         glPushMatrix();
-        glScalef(1.65, 1.5, 1.0);
+        glScalef(2.60, 2.45, 1.0);
         glBindTexture(GL_TEXTURE_2D,background->plxTexture->tex);
         background->renderBack(screenWidth,screenHeight);
-        glPopMatrix();
-
-        glPushMatrix();
-        glScalef(1.65, 1.5, 1.0);
-        glBindTexture(GL_TEXTURE_2D,background1->plxTexture->tex);
-        background1->renderBack(screenWidth,screenHeight);
         glPopMatrix();
 
         glPushMatrix();
@@ -154,51 +167,27 @@ GLint _glScene::drawScene()
             timer->resetTime();
         }
         glPopMatrix();
-        for(int i=0;i<20;i++)
+
+        glPushMatrix(); // group my object
+         for(int imgfile = 0; imgfile < 5; imgfile++)
         {
-            glPushMatrix();
-            glBindTexture(GL_TEXTURE_2D,fallObj[i].objImage->tex);
-            fallObj[i].drawObj(level1,level2,level3);
-
-            if((collision->isCollision(*myPly,fallObj[i])) && fallObj[i].objActive)
+          for(int y=0;y<4;y++)
+          {
+            glBindTexture(GL_TEXTURE_2D, scrnStng[imgfile][y].sceneImg->tex);
+            scrnStng[imgfile][y].drwScn(imgfile,y);
+            clsn = colsn->isBoundedCollision(*myPly,scrnStng[imgfile][y],imgfile,y);
+            if(clsn == true)
             {
-                fallObj[i].objActive = false;
-                myPly->hitCount += 1;
-                //fallObj->objPosition.y -= 0.1;
-                fallObj[i].objSpeed = -0.03;
-                cout<<"Collision happened player hit count is "<<myPly->hitCount<<endl;
-                if(myPly->hitCount == 5)
-                {
-                    doneInitializing = false;
-                    initGL();
-                    myPly->hitCount = 0;
-                }
+            //myPly->startWalk=true;
+            cout<<"Collision = true at"<<imgfile<<" "<<y+1<<endl;
             }
-            fallObj[i].objFallingAction(level1, level2, level3);
-            glPopMatrix();
+            else
+            {
+               //myPly->startWalk=false;
+            }
+          }
         }
-
-        /*
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	//Clear screen and depth buffer
-        glLoadIdentity();
-        glPushMatrix();
-        glTranslated(0,0,-8.0);     //placing objects on the screen
-        glScalef(33, 33, 1.0);  //scale to fit within the screen
-
-        background -> renderBack(screenWidth, screenHeight);       //create first background for game
-        background -> scroll(false, "right", 0.005);      //auto movement of the background for the game background
-
-        background1 -> renderBack(screenWidth, screenHeight);       //create second background for game
-        background1 -> scroll(false, "right", 0.0005);      //auto movement of background for the second game background
-        glPopMatrix();
-
-        glPushMatrix();
-        //glutSolidTeapot(1.5);
-        glTranslated(0,0,-8.0);     //placing objects
-        modelTeapot -> drawModel();     //drawing model
-
-        glPopMatrix();
-        */
+        glPopMatrix(); // exit the group
     }
 
     if (kbMs->flag == 4)  //pause game pop-up page
@@ -225,7 +214,8 @@ void _glScene::resizeGLScene(int width, int height)
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     //gluPerspective(45.0,aspectRatio,0.1,100);
-    glOrtho(-3.0,3.0,-1.5,1.5,0.1,100);
+    //glOrtho(-3.0,3.0,-1.5,1.5,0.1,100);
+    glOrtho(-width/350.0,width/350.0,-height/350.0,height/350.0,0.1,100);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 }

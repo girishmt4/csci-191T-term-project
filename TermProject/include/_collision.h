@@ -1,16 +1,27 @@
 #ifndef _COLLISION_H
 #define _COLLISION_H
 
-#include <_player.h>
-#include <_fallingObject.h>
+#include<math.h>
+#include<iostream>
+#include<conio.h>
+#include<_screenSettings.h>
+#include<_player.h>
+#include<GL/gl.h>
 
+using namespace std;
 class _collision
 {
     public:
         _collision();
         virtual ~_collision();
 
-        bool isCollision(_player,_fallingObject);
+        bool isLinearCollision(float,float);
+        bool isRadialCollision(float,float,float,float,float,float);
+        bool isCircleRayCollision(float,float,float,float,float);
+        bool isCubic(float,float,float,float);
+        bool isSphereCollision(float,float, float,float);
+        bool isCollisionFloor(float,float,float);
+        bool isBoundedCollision(_player &,_screenSettings, int, int);
 
     protected:
 

@@ -405,11 +405,11 @@ int WINAPI WinMain(	HINSTANCE	hInstance,			// Instance
                     Scene->level2 = !Scene->level2;
                     Scene->level3 = !Scene->level3;
                 }
-                /*else if(Scene->level3)
+                else if(Scene->level3)
                 {
                     Scene->level1 = !Scene->level1;
                     Scene->level3 = !Scene->level3;
-                }*/
+                }
                 Scene->doneInitializing = false;
             }
 		}

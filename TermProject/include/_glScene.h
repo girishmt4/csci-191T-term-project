@@ -16,6 +16,10 @@
 #include<_HelpPage.h>
 #include<_MenuPage.h>
 #include<_PopUp.h>
+#include <_screenSettings.h>
+#include <conio.h>
+#include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -41,13 +45,21 @@ class _glScene
         _timer *timer = new _timer();
         _player *myPly = new _player();
         _fallingObject fallObj[20];
-        _collision *collision = new _collision();
+        //_collision *collision = new _collision();
         _gameMessage *msg = new _gameMessage();
         _LandingPage *landp = new _LandingPage();
         _LandingPage *lpdecor = new _LandingPage();
         _MenuPage *menup = new _MenuPage();
         _HelpPage *helpp = new _HelpPage();
         _PopUp *pup = new _PopUp();
+        _screenSettings scrnStng[7][7];
+        _collision *colsn = new _collision();
+        string c;
+        string h,j,k;
+        char* t;
+        bool clsn = false;
+        //char p[50];
+        ostringstream str1;
 
         int winMsg(HWND,UINT,WPARAM,LPARAM);
         WPARAM wParam;
