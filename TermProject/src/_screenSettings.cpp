@@ -45,6 +45,11 @@ if(level==1)
      scenePos[U][V].x = 3.825; scenePos[U][V].y = 0.0;  scenePos[U][V].z = -1.0;
      sceneScale[U].x = 0.9; sceneScale[U].y = 0.45; sceneScale[U].z = 1.0;
     }
+     else if(V == 1)
+     {
+        scenePos[U][V].x = 3.825; scenePos[U][V].y = 0.0;  scenePos[U][V].z = -1.0;
+        sceneScale[U].x = 0.9; sceneScale[U].y = 0.45; sceneScale[U].z = 1.0;
+     }
  }
  else if(U == 2)//8*3 tile
  {
@@ -60,6 +65,15 @@ if(level==1)
      scenePos[U][V].x = -3.825; scenePos[U][V].y = -1.9;  scenePos[U][V].z = -1.0;
      sceneScale[U].x = 1.0; sceneScale[U].y = 0.45; sceneScale[U].z = 1.0;
     }
+    else if(V == 1)
+     {
+        scenePos[U][V].x = -3.825; scenePos[U][V].y = -1.9;  scenePos[U][V].z = -1.0;
+        sceneScale[U].x = 1.0; sceneScale[U].y = 0.45; sceneScale[U].z = 1.0;
+     } else if(V == 2)
+     {
+        scenePos[U][V].x = -3.825; scenePos[U][V].y = -1.9;  scenePos[U][V].z = -1.0;
+        sceneScale[U].x = 1.0; sceneScale[U].y = 0.45; sceneScale[U].z = 1.0;
+     }
  }
  else if(U == 4)//4*4 tile
  {
@@ -111,6 +125,11 @@ else if(level==2)
      scenePos[U][V].x = 0.3; scenePos[U][V].y = 1.8;  scenePos[U][V].z = -1.0;
      sceneScale[U].x = 0.9; sceneScale[U].y = 0.45; sceneScale[U].z = 1.0;
      }
+     else if(V == 1)
+     {
+        scenePos[U][V].x = 0.3; scenePos[U][V].y = 1.8;  scenePos[U][V].z = -1.0;
+        sceneScale[U].x = 0.9; sceneScale[U].y = 0.45; sceneScale[U].z = 1.0;
+     }
  }
  else if(U == 2)//8*3 tile(center down)
  {
@@ -123,6 +142,15 @@ else if(level==2)
  else if(U == 3)//3*2 tile(down left)
  {
      if(V == 0)
+     {
+         scenePos[U][V].x = -3.825; scenePos[U][V].y = -1.9;  scenePos[U][V].z = -1.0;
+         sceneScale[U].x = 1.0; sceneScale[U].y = 0.45; sceneScale[U].z = 1.0;
+     }
+     else if(V == 1)
+     {
+         scenePos[U][V].x = -3.825; scenePos[U][V].y = -1.9;  scenePos[U][V].z = -1.0;
+         sceneScale[U].x = 1.0; sceneScale[U].y = 0.45; sceneScale[U].z = 1.0;
+     } else if(V == 2)
      {
          scenePos[U][V].x = -3.825; scenePos[U][V].y = -1.9;  scenePos[U][V].z = -1.0;
          sceneScale[U].x = 1.0; sceneScale[U].y = 0.45; sceneScale[U].z = 1.0;
