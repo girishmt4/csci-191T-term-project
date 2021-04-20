@@ -95,15 +95,16 @@ void _player::actions()
         }
         case JUMP:
         {
-            cout<<playerPos.y<<endl;
+            //cout<<playerPos.y<<endl;
+            //cout<<colPlyTrue<<colPlyUp<<endl;
             playerPos.y += jumpSpeed;
             if(jumpSpeed != 0.00)
             {
                 jumpSpeed -= gravity;
             }
-            if(playerPos.y < -1.475)
+            if(playerPos.y<plyPosY)        //if(isBoundedCollision() && colUp)
             {
-                playerPos.y = -1.475;
+                playerPos.y = plyPosY;
                 actionTrigger = STAND;
                 jumpSpeed = 0.560;
             }
@@ -116,9 +117,9 @@ void _player::actions()
             {
                 jumpSpeed -= gravity;
             }
-            if(playerPos.y < -1.475)
+            if(playerPos.y<plyPosY)
             {
-                playerPos.y = -1.475;
+                playerPos.y = plyPosY;
                 actionTrigger = STAND;
                 jumpSpeed = 0.560;
             }
@@ -139,9 +140,12 @@ void _player::actions()
             {
                 jumpSpeed -= gravity;
             }
-            if(playerPos.y < -1.475)
+            //cout<<<<endl;
+            if(playerPos.y<plyPosY)
             {
-                playerPos.y = -1.475;
+
+                //playerPos.y = -1.475;
+                playerPos.y = plyPosY;
                 actionTrigger = STAND;
                 jumpSpeed = 0.560;
             }

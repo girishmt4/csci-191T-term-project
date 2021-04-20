@@ -50,6 +50,40 @@ bool _collision::isBoundedCollision(_player &one,_screenSettings a,int i, int j)
 
         bool collisionY = (one.playerPos.y + (one.playerScale.y/2.0)) >= ((a.scenePos[i][j].y)-(a.sceneScale[i].y/2.0)) && (a.scenePos[i][j].y + (a.sceneScale[i].y/2.0)) >= (one.playerPos.y -(one.playerScale.y/2.0));
         // collision only if on both axes
+        colTrue= collisionX && collisionY;
+        one.colPlyTrue= colTrue;
+        if(colTrue)
+        {
+            if((one.playerPos.x + (one.playerScale.x/2.0)) >=  ((a.scenePos[i][j].x)-(a.sceneScale[i].x/2.0)) )         //from left
+            {
+                colLeft= true;
+            }
+            else if((a.scenePos[i][j].x + (a.sceneScale[i].x/2.0)) >= (one.playerPos.x -(one.playerScale.x/2.0)))   //from right
+            {
+                colRight= true;
+            }
+            else if((one.playerPos.y + (one.playerScale.y/2.0)) >= ((a.scenePos[i][j].y)-(a.sceneScale[i].y/2.0)))   //from bottom
+            {
+                colBottom= true;
+            }
+            else if((a.scenePos[i][j].y + (a.sceneScale[i].y/2.0)) >= (one.playerPos.y -(one.playerScale.y/2.0)))   //from top
+            {
+                colUp=true;
+                one.colPlyUp=true;
+                one.colPlyAllTrue=false;
+            }
+            else
+            {
+                colLeft= false;
+                colRight= false;
+                colUp= false;
+                colBottom= false;
+                one.colPlyTrue=false;
+                one.colPlyUp=false;
+
+            }
+        }
+
 
     return collisionX && collisionY;
 

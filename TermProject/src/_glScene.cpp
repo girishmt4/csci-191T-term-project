@@ -180,10 +180,12 @@ GLint _glScene::drawScene()
             {
             //myPly->startWalk=true;
             cout<<"Collision = true at"<<imgfile<<" "<<y+1<<endl;
-            }
-            else
+            cout<<colsn->colUp<<endl;
+            if(colsn->colUp&&!colsn->colBottom)
             {
-               //myPly->startWalk=false;
+               myPly->plyPosY = scrnStng[imgfile][y].scenePos[imgfile][y].y;
+            }
+            else{myPly->plyPosY= myPly->playerPos.y;}
             }
           }
         }

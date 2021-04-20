@@ -37,6 +37,8 @@ class _player
 
         _timer *timer = new _timer();
         _texture *plyImage = new _texture();
+        bool colPlyTrue, colPlyUp, colPlyAllTrue;
+        float plyPosY;
 
     protected:
 

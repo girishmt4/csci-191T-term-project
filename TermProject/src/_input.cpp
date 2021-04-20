@@ -32,7 +32,7 @@ void _input::keyPressed(_player* ply)
         {
             ply->actionTrigger = ply->WALK_RIGHT;
         }
-        ply->playerPos.x += 0.01;
+        ply->playerPos.x += 0.02;
     }
     else if(keys[VK_LEFT])
     {
@@ -44,17 +44,19 @@ void _input::keyPressed(_player* ply)
         {
             ply->actionTrigger = ply->WALK_LEFT;
         }
-        ply->playerPos.x -= 0.01;
+        ply->playerPos.x -= 0.02;
     }
     else if(keys[VK_UP])
     {
         if(keys[VK_UP] && keys[VK_LEFT])
         {
             ply->actionTrigger = ply->WALK_LEFT_JUMP;
+            ply->playerPos.x -= 0.02;
         }
         else if(keys[VK_RIGHT])
         {
             ply->actionTrigger = ply->WALK_RIGHT_JUMP;
+            ply->playerPos.x += 0.02;
         }
         else
         {
