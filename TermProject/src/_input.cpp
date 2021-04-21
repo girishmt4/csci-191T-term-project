@@ -60,7 +60,11 @@ void _input::keyPressed(_player* ply)
         {
             ply->actionTrigger = ply->WALK_RIGHT;
         }
-        ply->playerPos.x += 0.02;
+        if(!ply->colLeft)
+        {
+            ply->playerPos.x += 0.02;
+        }
+
     }
     else if(leftKey)
     {

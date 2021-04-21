@@ -41,44 +41,52 @@ bool _collision::isCollisionFloor(float, float, float)
 {
 
 }
-bool _collision::isBoundedCollision(_player &one,_screenSettings a,int i, int j)
+bool _collision::isBoundedCollision(_player &one,_screenSettings *a,int i, int j)
 {
+    float playerXmin = one.playerPos.x - (one.playerScale.x/2.0);
+    float playerXmax = one.playerPos.x + (one.playerScale.x/2.0);
+    float playerYmin = one.playerPos.y - (one.playerScale.y/2.0);
+    float playerYmax = one.playerPos.y + (one.playerScale.y/2.0);
+    float tileXmin = (a->scenePos[i][j].x)-(a->sceneScale[i].x/2.0);
+    float tileXmax = (a->scenePos[i][j].x)+(a->sceneScale[i].x/2.0);
+    float tileYmin = (a->scenePos[i][j].y) - (a->sceneScale[i].y/2.0);
+    float tileYmax = (a->scenePos[i][j].y) + (a->sceneScale[i].y/2.0);
 
          // collision x-axis?
-        bool collisionX = (one.playerPos.x + (one.playerScale.x/2.0)) >= ((a.scenePos[i][j].x)-(a.sceneScale[i].x/2.0)) && (a.scenePos[i][j].x + (a.sceneScale[i].x/2.0)) >= (one.playerPos.x -(one.playerScale.x/2.0));
+        bool collisionX = (one.playerPos.x + (one.playerScale.x/2.0)) >= ((a->scenePos[i][j].x)-(a->sceneScale[i].x/2.0)) && (a->scenePos[i][j].x + (a->sceneScale[i].x/2.0)) >= (one.playerPos.x -(one.playerScale.x/2.0));
         // collision y-axis?
 
-        bool collisionY = (one.playerPos.y + (one.playerScale.y/2.0)) >= ((a.scenePos[i][j].y)-(a.sceneScale[i].y/2.0)) && (a.scenePos[i][j].y + (a.sceneScale[i].y/2.0)) >= (one.playerPos.y -(one.playerScale.y/2.0));
+        bool collisionY = (one.playerPos.y + (one.playerScale.y/2.0)) >= ((a->scenePos[i][j].y)-(a->sceneScale[i].y/2.0)) && (a->scenePos[i][j].y + (a->sceneScale[i].y/2.0)) >= (one.playerPos.y -(one.playerScale.y/2.0));
         // collision only if on both axes
         colTrue= collisionX && collisionY;
-        one.colPlyTrue= colTrue;
+        //one.colPlyTrue= colTrue;
         if(colTrue)
         {
-            if((one.playerPos.x + (one.playerScale.x/2.0)) >=  ((a.scenePos[i][j].x)-(a.sceneScale[i].x/2.0)) )         //from left
+            if((playerXmax >= tileXmin) && (playerXmin < tileXmin) && (one.playerPos.y >= tileYmin) && (one.playerPos.y <= tileYmax))          //from left
             {
-                one.colLeft= true;
+                a->colLeft= true;
             }
-            else if((a.scenePos[i][j].x + (a.sceneScale[i].x/2.0)) >= (one.playerPos.x -(one.playerScale.x/2.0)))   //from right
+            if((playerXmax > tileXmax) && (playerXmin <= tileXmax) && (one.playerPos.y >= tileYmin) && (one.playerPos.y <= tileYmax))           //from right
             {
-                one.colRight= true;
+                a->colRight= true;
             }
-            else if((one.playerPos.y + (one.playerScale.y/2.0)) >= ((a.scenePos[i][j].y)-(a.sceneScale[i].y/2.0)))   //from bottom
+            if((playerYmax > tileYmax) && (playerYmin <= tileYmax) && (one.playerPos.x >= tileXmin) && (one.playerPos.x <= tileXmax))           //from top
             {
-                one.colBottom= true;
+                a->colUp= true;
             }
-            else if((a.scenePos[i][j].y + (a.sceneScale[i].y/2.0)) >= (one.playerPos.y -(one.playerScale.y/2.0)))   //from top
+            if((playerYmax >= tileYmin) && (playerYmin < tileYmin) && (one.playerPos.x >= tileXmin) && (one.playerPos.x <= tileXmax))           //from bottom
             {
-                one.colUp=true;
+                a->colBottom=true;
             }
 
         }
         else
         {
-            one.colLeft= false;
-            one.colRight= false;
-            one.colUp= false;
-            one.colBottom= false;
-            one.colPlyTrue=false;
+            a->colLeft= false;
+            a->colRight= false;
+            a->colUp= false;
+            a->colBottom= false;
+            //a.colPlyTrue=false;
         }
 
 

@@ -23,6 +23,7 @@ void _player::playerInit(float X, float Y, float yPosition)
 {
     playerPos.x=-XSCREEN;
     playerPos.y=yPosition+0.025;
+    plyPosY=playerPos.y;
     playerPos.z=-2.0;
 
     playerScale.x=0.6;
@@ -39,7 +40,9 @@ void _player::playerInit(float X, float Y, float yPosition)
     hitCount = 0;
 
     timer->startTimer();
-
+    //actionTrigger = STAND;
+    colLeft=colRight=colUp=colBottom=false;
+    playerLanded=0;
 }
 
 void _player::drawPlayer()
@@ -97,7 +100,14 @@ void _player::actions()
         {
             //cout<<playerPos.y<<endl;
             //cout<<colPlyTrue<<colPlyUp<<endl;
+
             playerPos.y += jumpSpeed;
+            cout<<"Bottom "<<colBottom<<endl;
+            cout<<"Up "<<colUp<<endl;
+            if(colBottom)
+            {
+                playerPos.y -= jumpSpeed;
+            }
             if(jumpSpeed != 0.00)
             {
                 jumpSpeed -= gravity;
@@ -108,7 +118,6 @@ void _player::actions()
                 actionTrigger = STAND;
                 jumpSpeed = 0.360;
             }
-
             break;
         }
         case WALK_LEFT_JUMP:
@@ -132,6 +141,15 @@ void _player::actions()
                 xMax -= 1/framesX;
                 timer->resetTime();
             }
+            break;
+        }
+        case FALL_DOWN:
+        {
+            //cout<<colUp;
+
+            playerPos.y -= gravity;
+
+
             break;
         }
         case WALK_RIGHT_JUMP:
