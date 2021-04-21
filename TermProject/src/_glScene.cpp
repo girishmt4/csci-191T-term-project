@@ -44,6 +44,8 @@ GLint _glScene::initGL()
         timer->startTimer();
         myPly->playerInit(8,2,-1.5);
         myPly->plyImage->loadTexture("images/playerAnimated.png");
+        enmy->enemyInit(10,1,2.15);//---------------------------------Enemy Initialization----
+        enmy->enemyImage->loadTexture("images/zombie_walk.png");//---Enemy Image-------------
         doneInitializing = true;
     }
     if(level2)
@@ -59,6 +61,8 @@ GLint _glScene::initGL()
         timer->startTimer();
         myPly->playerInit(8,2,-1.5);
         myPly->plyImage->loadTexture("images/playerAnimated.png");
+        enmy->enemyInit(10,1,2.05);//---------------------------------Enemy Initialization----
+        enmy->enemyImage->loadTexture("images/zombie_walk.png");//---Enemy Image-------------
         doneInitializing = true;
     }
     else if(level3)
@@ -76,6 +80,8 @@ GLint _glScene::initGL()
         timer->startTimer();
         myPly->playerInit(8,2,-1.125);
         myPly->plyImage->loadTexture("images/playerAnimated.png");
+        enmy->enemyInit(10,1,1.95);//---------------------------------Enemy Initialization----
+        enmy->enemyImage->loadTexture("images/zombie_walk.png");//---Enemy Image-------------
         doneInitializing = true;
     }
 //-----------------------Screen Settings Initialization for Game.--------------------------------------
@@ -102,6 +108,8 @@ GLint _glScene::initGL()
     helpp->helpPageInit("images/help.png");
     pup->popUpInit("images/pause.png");
     lpdecor->landingPageInit("images/rain.png");
+    cp->creditsPageInit("images/credits.jpg");
+    cpname->creditsPageInit("images/names.png");
 
     return true;
 }
@@ -115,7 +123,7 @@ GLint _glScene::drawScene()
         glLoadIdentity();
         glPushMatrix();
         glTranslated(0,0,-8.0);  //placing objects on screen
-        glScalef(2.60, 2.45, 1.0);  //scale to fit within the screen
+        glScalef(2.5, 2.5, 1.0);  //scale to fit within the screen
 
         landp -> renderBack(screenWidth, screenHeight);       //create background for landing page
         lpdecor -> renderBack(screenWidth, screenHeight);  //make rainfall on the landing page
@@ -129,7 +137,7 @@ GLint _glScene::drawScene()
         glLoadIdentity();
         glPushMatrix();
         glTranslated(0,0,-8.0);  //placing objects on screen
-        glScalef(2.60, 2.45, 1.0);  //scale to fit within the screen
+        glScalef(2.5, 2.4, 1.0);  //scale to fit within the screen
         menup -> renderBack(screenWidth, screenHeight);       //create background for game menu screen
         glPopMatrix();
     }
@@ -140,7 +148,7 @@ GLint _glScene::drawScene()
         glLoadIdentity();
         glPushMatrix();
         glTranslated(0,0,-8.0);  //placing objects on the screen
-        glScalef(2.60, 2.45, 1.0);  //scale to fit within the screen
+        glScalef(2.4, 2.4, 1.0);  //scale to fit within the screen
         helpp -> renderBack(screenWidth, screenHeight);       //create background for help page
         glPopMatrix();
     }
@@ -164,10 +172,18 @@ GLint _glScene::drawScene()
         {
             myPly->actions();
 
+            enmy->actions();
             timer->resetTime();
         }
         glPopMatrix();
+//------------------------------------Enemy Settings------------------------------------------------------
+        glPushMatrix();
+        glBindTexture(GL_TEXTURE_2D,enmy->enemyImage->tex);
+        enmy->drawEnemy();
 
+
+        glPopMatrix();
+//------------------------------------Screen Settings Draw + Collision------------------------------------
         glPushMatrix(); // group my object
 
 
@@ -185,6 +201,17 @@ GLint _glScene::drawScene()
             scrnStng[imgfile][y].drwScn(imgfile,y);
 
             clsn = colsn->isBoundedCollision(*myPly,&scrnStng[imgfile][y],imgfile,y);
+            //clsn = colsn->isBoundedCollision(*myPly,scrnStng[imgfile][y],imgfile,y);
+            enmClsn = colsn->isBoundedCollision2(*enmy,scrnStng[imgfile][y],imgfile,y);
+            enmy->colEnmTrue=enmClsn;
+            if(enmClsn)
+            {
+                enmy->autoScroll();
+            }
+            else //if(enmy->colEnmUp)
+            {
+                //enmy->autoScrollCol();
+            }
             if(clsn == true)
             {
                 //myPly->playerLanded += 1;
@@ -213,6 +240,7 @@ GLint _glScene::drawScene()
                 }
 
                 if(scrnStng[imgfile][y].colLeft)
+
                 {
                     //cout<<"left collision";
                     if(kbMs->rightKey)
@@ -258,6 +286,11 @@ GLint _glScene::drawScene()
                 //scrnStng[imgfile][y].colPlyTrue=false;
                 //myPly->actionTrigger = myPly->FALL_DOWN;
             }
+            if(enmClsn == true)
+            {
+
+                cout<<"Collision of enemy = true at"<<imgfile+1<<" "<<y+1<<endl;
+            }
           }
         }
 
@@ -278,9 +311,24 @@ GLint _glScene::drawScene()
         //glLoadIdentity();
         glPushMatrix();
         //glTranslated(0.0, 0.0, -7.0);  //placing objects on the screen
-        glScalef(0.5, 0.5, 1.0);  //pause screen pop-up scaling
+        glScalef(1.0, 1.0, 1.0);  //pause screen pop-up scaling
         pup -> renderBack(screenWidth, screenHeight);       //create background for pause pop-up screen
         glPopMatrix();
+    }
+
+    if (kbMs->flag == 5)  //credits page
+    {
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	// Clear Screen And Depth Buffer
+	glLoadIdentity();
+    glPushMatrix();
+    glTranslated(0,0,-8.0);     //placing objects
+    glScalef(2.5, 2.5, 1.0);  //scaling to fit on the screen
+    cp -> renderBack(screenWidth, screenHeight);       //create background for credits page
+
+    glScalef(1/1.1, 1/1.1, 1.0);  //de-scaling for credits name
+    cpname -> renderBack(screenWidth, screenHeight);  //create background for names
+    cpname -> cpscroll(true, "down", 0.0005);  //scrolling the names
+    glPopMatrix();
     }
 
 }
@@ -307,7 +355,7 @@ int _glScene::winMsg(HWND	hWnd,			// Handle For This Window
                      UINT	uMsg,			// Message For This Window
 					 WPARAM	wParam,			// Additional Message Information
 					 LPARAM	lParam)
-{kbMs->wParam = wParam;
+{   kbMs->wParam = wParam;
 
     switch (uMsg)									// Check For Windows Messages
 	{
@@ -324,9 +372,8 @@ int _glScene::winMsg(HWND	hWnd,			// Handle For This Window
 		    kbMs->keyPressed(landp);       //Handling key inputs on the landing page
             kbMs->keyPressed(menup);       //Handling key inputs on the menu page
             kbMs->keyPressed(helpp);       //Handling key inputs on the help page
-            kbMs->keyPressed(pup);    //Handling key inputs on the game pause pop up screen
-
-
+            kbMs->keyPressed(pup);      //Handling key inputs on the game pause pop up screen
+            kbMs->keyPressed(cp);       //handling key inputs on credits page
 			break;
 		}
 

@@ -78,7 +78,6 @@ bool _collision::isBoundedCollision(_player &one,_screenSettings *a,int i, int j
             {
                 a->colBottom=true;
             }
-
         }
         else
         {
@@ -89,8 +88,48 @@ bool _collision::isBoundedCollision(_player &one,_screenSettings *a,int i, int j
             //a.colPlyTrue=false;
         }
 
-
     return collisionX && collisionY;
+
+}
+bool _collision::isBoundedCollision2(_enemies &e, _screenSettings b, int i, int j)
+{
+     // collision x-axis?
+        bool ecollisionX = (e.enemyPos.x + (e.enemyScale.x/2.0)) >= ((b.scenePos[i][j].x)-(b.sceneScale[i].x/2.0)) && (b.scenePos[i][j].x + (b.sceneScale[i].x/2.0)) >= (e.enemyPos.x -(e.enemyScale.x/2.0));
+        // collision y-axis?
+
+        bool ecollisionY = (e.enemyPos.y + (e.enemyScale.y/2.0)) >= ((b.scenePos[i][j].y)-(b.sceneScale[i].y/2.0)) && (b.scenePos[i][j].y + (b.sceneScale[i].y/2.0)) >= (e.enemyPos.y -(e.enemyScale.y/2.0));
+        // collision only if on both axes
+        colEnmyTrue= ecollisionX && ecollisionY;
+        e.colEnmTrue= colEnmyTrue;
+        if(colEnmyTrue)
+        {
+            if((e.enemyPos.x + (e.enemyScale.x/2.0)) >=  ((b.scenePos[i][j].x)-(b.sceneScale[i].x/2.0)) )         //from left
+            {
+                e.colEnmLeft= true;
+            }
+            else if((b.scenePos[i][j].x + (b.sceneScale[i].x/2.0)) >= (e.enemyPos.x -(e.enemyScale.x/2.0)))   //from right
+            {
+                e.colEnmRight= true;
+            }
+            else if((e.enemyPos.y + (e.enemyScale.y/2.0)) >= ((b.scenePos[i][j].y)-(b.sceneScale[i].y/2.0)))   //from bottom
+            {
+                e.colEnmBottom= true;
+            }
+            else if((b.scenePos[i][j].y + (b.sceneScale[i].y/2.0)) >= (e.enemyPos.y -(e.enemyScale.y/2.0)))   //from top
+            {
+                e.colEnmUp=true;
+            }
+        }
+        else
+        {
+            e.colEnmLeft= false;
+            e.colEnmRight= false;
+            e.colEnmUp= false;
+            e.colEnmBottom= false;
+            e.colEnmTrue=false;
+        }
+
+    return ecollisionX && ecollisionY;
 
 }
 
