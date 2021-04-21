@@ -22,7 +22,9 @@ class _collision
         bool isCubic(float,float,float,float);
         bool isSphereCollision(float,float, float,float);
         bool isCollisionFloor(float,float,float);
-        bool isBoundedCollision(_player &,_screenSettings, int, int);
+        bool isBoundedCollision(_player &,_screenSettings *, int, int);
+        bool colLeft, colRight, colUp, colBottom;
+       // bool isBoundedCollision(_player &,_screenSettings, int, int);
         bool isBoundedCollision2(_enemies &,_screenSettings, int, int);
         bool colTrue,colEnmyTrue;
 
