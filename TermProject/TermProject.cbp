@@ -51,6 +51,7 @@
 		<Unit filename="include/_PopUp.h" />
 		<Unit filename="include/_collision.h" />
 		<Unit filename="include/_common.h" />
+		<Unit filename="include/_enemies.h" />
 		<Unit filename="include/_credits.h" />
 		<Unit filename="include/_fallingObject.h" />
 		<Unit filename="include/_gameMessage.h" />
@@ -68,6 +69,7 @@
 		<Unit filename="src/_MenuPage.cpp" />
 		<Unit filename="src/_PopUp.cpp" />
 		<Unit filename="src/_collision.cpp" />
+		<Unit filename="src/_enemies.cpp" />
 		<Unit filename="src/_credits.cpp" />
 		<Unit filename="src/_fallingObject.cpp" />
 		<Unit filename="src/_gameMessage.cpp" />

@@ -44,6 +44,8 @@ GLint _glScene::initGL()
         timer->startTimer();
         myPly->playerInit(8,2,-1.5);
         myPly->plyImage->loadTexture("images/playerAnimated.png");
+        enmy->enemyInit(10,1,2.15);//---------------------------------Enemy Initialization----
+        enmy->enemyImage->loadTexture("images/zombie_walk.png");//---Enemy Image-------------
         doneInitializing = true;
     }
     if(level2)
@@ -59,6 +61,8 @@ GLint _glScene::initGL()
         timer->startTimer();
         myPly->playerInit(8,2,-1.5);
         myPly->plyImage->loadTexture("images/playerAnimated.png");
+        enmy->enemyInit(10,1,2.05);//---------------------------------Enemy Initialization----
+        enmy->enemyImage->loadTexture("images/zombie_walk.png");//---Enemy Image-------------
         doneInitializing = true;
     }
     else if(level3)
@@ -76,6 +80,8 @@ GLint _glScene::initGL()
         timer->startTimer();
         myPly->playerInit(8,2,-1.125);
         myPly->plyImage->loadTexture("images/playerAnimated.png");
+        enmy->enemyInit(10,1,1.95);//---------------------------------Enemy Initialization----
+        enmy->enemyImage->loadTexture("images/zombie_walk.png");//---Enemy Image-------------
         doneInitializing = true;
     }
 //-----------------------Screen Settings Initialization for Game.--------------------------------------
@@ -166,10 +172,18 @@ GLint _glScene::drawScene()
         {
             myPly->actions();
 
+            enmy->actions();
             timer->resetTime();
         }
         glPopMatrix();
+//------------------------------------Enemy Settings------------------------------------------------------
+        glPushMatrix();
+        glBindTexture(GL_TEXTURE_2D,enmy->enemyImage->tex);
+        enmy->drawEnemy();
 
+
+        glPopMatrix();
+//------------------------------------Screen Settings Draw + Collision------------------------------------
         glPushMatrix(); // group my object
          for(int imgfile = 0; imgfile < 5; imgfile++)
         {
@@ -178,10 +192,20 @@ GLint _glScene::drawScene()
             glBindTexture(GL_TEXTURE_2D, scrnStng[imgfile][y].sceneImg->tex);
             scrnStng[imgfile][y].drwScn(imgfile,y);
             clsn = colsn->isBoundedCollision(*myPly,scrnStng[imgfile][y],imgfile,y);
+            enmClsn = colsn->isBoundedCollision2(*enmy,scrnStng[imgfile][y],imgfile,y);
+            enmy->colEnmTrue=enmClsn;
+            if(enmClsn)
+            {
+                enmy->autoScroll();
+            }
+            else //if(enmy->colEnmUp)
+            {
+                //enmy->autoScrollCol();
+            }
             if(clsn == true)
             {
                 //myPly->startWalk=true;
-                cout<<"Collision = true at"<<imgfile<<" "<<y+1<<endl;
+                //cout<<"Collision = true at"<<imgfile<<" "<<y+1<<endl;
                 cout<<myPly->colUp<<endl;
                 if(myPly->colUp)
                 {
@@ -191,6 +215,11 @@ GLint _glScene::drawScene()
                 {
                     myPly->plyPosY = myPly->playerPos.y;
                 }
+            }
+            if(enmClsn == true)
+            {
+
+                cout<<"Collision of enemy = true at"<<imgfile+1<<" "<<y+1<<endl;
             }
           }
         }

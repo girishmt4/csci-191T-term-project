@@ -7,6 +7,7 @@
 #include<_screenSettings.h>
 #include<_player.h>
 #include<GL/gl.h>
+#include<_enemies.h>
 
 using namespace std;
 class _collision
@@ -22,7 +23,8 @@ class _collision
         bool isSphereCollision(float,float, float,float);
         bool isCollisionFloor(float,float,float);
         bool isBoundedCollision(_player &,_screenSettings, int, int);
-        bool colLeft, colRight, colUp, colBottom, colTrue;
+        bool isBoundedCollision2(_enemies &,_screenSettings, int, int);
+        bool colTrue,colEnmyTrue;
 
     protected:
 
