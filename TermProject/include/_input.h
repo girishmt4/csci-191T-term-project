@@ -20,6 +20,8 @@ class _input
          void moveEnv(_parallax *,float);
          void keyUp();
          void keyUp(_player*);
+         //enum {UP,DOWN,RIGHT,LEFT,SPACE};
+         bool upKey,downKey,rightKey,leftKey,spaceKey;
 
 
 //         void mouseDown(_model*,float, float);
@@ -40,6 +42,7 @@ class _input
          bool mouseTranslation;
          bool mouseRotate;
          int flag;
+         //bool keys[5];
 
          WPARAM wParam;
     protected:

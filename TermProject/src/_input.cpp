@@ -10,6 +10,8 @@ _input::_input()
         mouseTranslation =0;
         mouseRotate =0;
         flag =0;
+        upKey=false,downKey=false,rightKey=false,leftKey=false,spaceKey=false;
+
 }
 
 _input::~_input()
@@ -20,33 +22,78 @@ _input::~_input()
 
 void _input::keyPressed(_player* ply)
 {
+
     switch(wParam)
     {
     case VK_LEFT:
         {
-            ply->actionTrigger = ply->WALK_LEFT;
-            ply->playerPos.x -= 0.03;
-
+            leftKey=true;
             break;
         }
     case VK_RIGHT:
         {
-            ply->actionTrigger = ply->WALK_RIGHT;     //DO ACTION ACCORDING TO YOUR SPRITE
-            ply->playerPos.x += 0.03;
-
+            rightKey=true;
             break;
         }
     case VK_UP:
         {
-
+            upKey=true;
             break;
         }
     case VK_DOWN:
         {
-
+            downKey=true;
+            break;
+        }
+    case VK_SPACE:
+        {
+            spaceKey=true;
             break;
         }
     }
+
+    if(rightKey)
+    {
+        if(upKey)
+        {
+            ply->actionTrigger = ply->WALK_RIGHT_JUMP;
+        }
+        else
+        {
+            ply->actionTrigger = ply->WALK_RIGHT;
+        }
+        ply->playerPos.x += 0.02;
+    }
+    else if(leftKey)
+    {
+        if(upKey)
+        {
+            ply->actionTrigger = ply->WALK_LEFT_JUMP;
+        }
+        else
+        {
+            ply->actionTrigger = ply->WALK_LEFT;
+        }
+        ply->playerPos.x -= 0.02;
+    }
+    else if(upKey)
+    {
+        if(leftKey)
+        {
+            ply->actionTrigger = ply->WALK_LEFT_JUMP;
+            ply->playerPos.x -= 0.02;
+        }
+        else if(rightKey)
+        {
+            ply->actionTrigger = ply->WALK_RIGHT_JUMP;
+            ply->playerPos.x += 0.02;
+        }
+        else
+        {
+            ply->actionTrigger = ply->JUMP;
+        }
+    }
+
 }
 
 void _input::moveEnv(_parallax* plx, float speed)
@@ -88,7 +135,40 @@ void _input::keyUp()
 
 void _input::keyUp(_player* ply)
 {
-    ply->actionTrigger = ply->STAND;
+    //ply->actionTrigger = ply->STAND;
+    if(ply->actionTrigger == ply->WALK_LEFT || ply->actionTrigger == ply->WALK_RIGHT)
+    {
+        ply->actionTrigger = ply->STAND;
+    }
+    switch(wParam)
+    {
+    case VK_LEFT:
+        {
+            leftKey=false;
+            break;
+        }
+    case VK_RIGHT:
+        {
+            rightKey=false;
+            break;
+        }
+    case VK_UP:
+        {
+            upKey=false;
+            break;
+        }
+    case VK_DOWN:
+        {
+            downKey=false;
+            break;
+        }
+    case VK_SPACE:
+        {
+            spaceKey=false;
+            break;
+        }
+    }
+    //keys[wParam] = false;
 }
 
 /*
