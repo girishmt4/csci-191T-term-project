@@ -8,6 +8,8 @@
 #include<_HelpPage.h>
 #include<_MenuPage.h>
 #include<_PopUp.h>
+#include<_credits.h>
+
 class _input
 {
     public:
@@ -26,10 +28,12 @@ class _input
 //         void mouseMove(_model*,float,float);
         void mouseDown(_LandingPage*);
 
-         void keyPressed(_LandingPage*);
-         void keyPressed(_MenuPage*);
-         void keyPressed(_HelpPage*);
-         void keyPressed(_PopUp*);
+         void keyPressed(_LandingPage*);     //input handling for landing page
+         void keyPressed(_MenuPage*);        //input handling for menu page
+         void keyPressed(_HelpPage*);        //input handling for help page
+         void keyPressed(_PopUp*);           //input handling for Pop-up page
+         void keyPressed(_credits *);        //input handling for credits page
+
 
          float prevMouseX;
          float prevMouseY;
