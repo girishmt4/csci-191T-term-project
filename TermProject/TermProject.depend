@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1617322363 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\main.cpp
+1618902214 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\main.cpp
 	<windows.h>
 	<_glScene.h>
 	<GL/glut.h>
@@ -7,7 +7,7 @@
 	<iostream>
 	<windows.h>
 
-1617322363 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_glscene.h
+1618902214 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_glscene.h
 	<windows.h>
 	<GL/glut.h>
 	<iostream>
@@ -23,6 +23,10 @@
 	<_HelpPage.h>
 	<_MenuPage.h>
 	<_PopUp.h>
+	<_screenSettings.h>
+	<conio.h>
+	<string>
+	<sstream>
 
 1612228921 c:\users\giris\desktop\csci191games\common\include\gl\glut.h
 	<windows.h>
@@ -35,7 +39,7 @@
 	<GL/glut.h>
 	<iostream>
 
-1617322363 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_input.h
+1618970762 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_input.h
 	<windows.h>
 	<_parallax.h>
 	<_player.h>
@@ -56,9 +60,10 @@
 
 1613613288 c:\users\giris\desktop\csci191games\common\include\soil.h
 
-1616734990 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_player.h
+1618972323 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_player.h
 	<_common.h>
 	<_texture.h>
+	<_timer.h>
 	<iostream>
 	<GL/gl.h>
 
@@ -72,9 +77,13 @@
 	<_timer.h>
 	<_texture.h>
 
-1617224219 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_collision.h
+1618954834 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_collision.h
+	<math.h>
+	<iostream>
+	<conio.h>
+	<_screenSettings.h>
 	<_player.h>
-	<_fallingObject.h>
+	<GL/gl.h>
 
 1616791904 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_finishflag.h
 	<_common.h>
@@ -85,10 +94,8 @@
 	<_texture.h>
 	<_common.h>
 
-1616629877 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_collision.cpp
+1618972392 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_collision.cpp
 	"_collision.h"
-	<math.h>
-	<algorithm>
 
 1617351112 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_fallingobject.cpp
 	"_fallingObject.h"
@@ -107,13 +114,13 @@
 1616103990 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_gllight.h
 	<_glScene.h>
 
-1617351112 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_glscene.cpp
+1618973666 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_glscene.cpp
 	"_glScene.h"
 	<_glLight.h>
 	<SOIL.h>
 	<math.h>
 
-1617351112 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_input.cpp
+1618972891 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_input.cpp
 	"_input.h"
 
 1616103990 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_model.cpp
@@ -122,7 +129,7 @@
 1617351559 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_parallax.cpp
 	"_parallax.h"
 
-1617351568 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_player.cpp
+1618973890 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_player.cpp
 	"_player.h"
 
 1617322363 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_texture.cpp
@@ -271,7 +278,7 @@
 1616558451 d:\graphics\csci-191t-term-project\termproject\include\_popup.h
 	<_texture.h>
 
-1617326466 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\main.cpp
+1618902210 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\main.cpp
 	<windows.h>
 	<_glScene.h>
 	<GL/glut.h>
@@ -279,7 +286,7 @@
 	<iostream>
 	<windows.h>
 
-1617326466 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_glscene.h
+1618902210 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_glscene.h
 	<windows.h>
 	<GL/glut.h>
 	<iostream>
@@ -295,6 +302,10 @@
 	<_HelpPage.h>
 	<_MenuPage.h>
 	<_PopUp.h>
+	<_screenSettings.h>
+	<conio.h>
+	<string>
+	<sstream>
 
 1612228940 c:\chetan files\gamedevelop\common\include\gl\glut.h
 	<windows.h>
@@ -302,7 +313,7 @@
 	<GL/gl.h>
 	<GL/glu.h>
 
-1617326466 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_input.h
+1618945963 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_input.h
 	<windows.h>
 	<_parallax.h>
 	<_player.h>
@@ -323,9 +334,10 @@
 
 1613613471 c:\chetan files\gamedevelop\common\include\soil.h
 
-1617326466 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_player.h
+1618952998 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_player.h
 	<_common.h>
 	<_texture.h>
+	<_timer.h>
 	<iostream>
 	<GL/gl.h>
 
@@ -351,18 +363,20 @@
 	<_timer.h>
 	<_texture.h>
 
-1617326466 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_collision.h
+1618949293 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_collision.h
+	<math.h>
+	<iostream>
+	<conio.h>
+	<_screenSettings.h>
 	<_player.h>
-	<_fallingObject.h>
+	<GL/gl.h>
 
 1617326466 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_gamemessage.h
 	<_texture.h>
 	<_common.h>
 
-1617326466 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_collision.cpp
+1618953146 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_collision.cpp
 	"_collision.h"
-	<math.h>
-	<algorithm>
 
 1617349043 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_fallingobject.cpp
 	"_fallingObject.h"
@@ -378,19 +392,19 @@
 1617326466 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_gllight.h
 	<_glScene.h>
 
-1617348954 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_glscene.cpp
+1618952813 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_glscene.cpp
 	"_glScene.h"
 	<_glLight.h>
 	<SOIL.h>
 	<math.h>
 
-1617326466 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_input.cpp
+1618946821 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_input.cpp
 	"_input.h"
 
 1617326466 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_parallax.cpp
 	"_parallax.h"
 
-1617348560 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_player.cpp
+1618953155 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_player.cpp
 	"_player.h"
 
 1617326466 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_texture.cpp
@@ -434,4 +448,22 @@
 
 1617322363 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_popup.cpp
 	"_PopUp.h"
+
+1618902214 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_screensettings.h
+	<iostream>
+	<_common.h>
+	<_texture.h>
+	<GL/gl.h>
+
+1618962782 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_screensettings.cpp
+	"_screenSettings.h"
+
+1618902210 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_screensettings.h
+	<iostream>
+	<_common.h>
+	<_texture.h>
+	<GL/gl.h>
+
+1618946656 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_screensettings.cpp
+	"_screenSettings.h"
 

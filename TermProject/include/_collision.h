@@ -22,6 +22,7 @@ class _collision
         bool isSphereCollision(float,float, float,float);
         bool isCollisionFloor(float,float,float);
         bool isBoundedCollision(_player &,_screenSettings, int, int);
+        bool colLeft, colRight, colUp, colBottom, colTrue;
 
     protected:
 
