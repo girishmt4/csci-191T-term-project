@@ -277,22 +277,29 @@ int _glScene::winMsg(HWND	hWnd,			// Handle For This Window
 		}
 
 		case WM_LBUTTONDOWN:
-            {
+        {
+                GetOGLPos(LOWORD(lParam),HIWORD(lParam));
+
+                cout<<"Mouse Click location:" << posmX<<" "<< posmY<<endl;        //print out grid value
+
 //                kbMs ->mouseDown(modelTeapot, LOWORD(lParam),HIWORD(lParam));
                 kbMs ->mouseDown(landp);
 
                 break;
-            }
+        }
+
         case WM_RBUTTONDOWN:
             {
 //                kbMs ->mouseDown(modelTeapot, LOWORD(lParam),HIWORD(lParam));
                 kbMs ->mouseDown(landp);
               break;
             }
+
         case WM_MBUTTONDOWN:
             {
                 break;
             }
+
         case WM_LBUTTONUP:
         case WM_RBUTTONUP:
         case WM_MBUTTONUP:
@@ -300,6 +307,7 @@ int _glScene::winMsg(HWND	hWnd,			// Handle For This Window
                 kbMs->mouseUp();
                break;
             }
+
         case WM_MOUSEMOVE:
             {
 //                kbMs ->mouseMove(modelTeapot, LOWORD(lParam),HIWORD(lParam));
