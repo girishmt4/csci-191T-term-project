@@ -303,6 +303,28 @@ GLint _glScene::drawScene()
             myPly->actionTrigger=myPly->FALL_DOWN;
         }*/
         glPopMatrix(); // exit the group
+
+        if(myPly->playerPos.x > 4.2)
+        {
+            if(level1)
+            {
+                level1 = !level1;
+                level2 = !level2;
+            }
+            else if(level2)
+            {
+                level2 = !level2;
+                level3 = !level3;
+            }
+            else if(level3)
+            {
+                level1 = !level1;
+                level3 = !level3;
+            }
+            doneInitializing = false;
+        }
+
+
     }
 
     if (kbMs->flag == 4)  //pause game pop-up page
