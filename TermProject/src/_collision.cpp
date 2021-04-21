@@ -91,7 +91,7 @@ bool _collision::isBoundedCollision(_player &one,_screenSettings *a,int i, int j
     return collisionX && collisionY;
 
 }
-bool _collision::isBoundedCollision2(_enemies &e, _screenSettings b, int i, int j)
+bool _collision::isBoundedCollision2(_enemies e, _screenSettings b, int i, int j)
 {
      // collision x-axis?
         bool ecollisionX = (e.enemyPos.x + (e.enemyScale.x/2.0)) >= ((b.scenePos[i][j].x)-(b.sceneScale[i].x/2.0)) && (b.scenePos[i][j].x + (b.sceneScale[i].x/2.0)) >= (e.enemyPos.x -(e.enemyScale.x/2.0));

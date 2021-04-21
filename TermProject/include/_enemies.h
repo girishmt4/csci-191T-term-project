@@ -20,7 +20,7 @@ class _enemies
         vec3 enemyScale;       //enemy size
         vec3 vert[4];           //rectangle around enemy
 
-        void enemyInit(float, float, float);      //initialize enemy - passing horizontal and vertical frames from sprite sheet
+        void enemyInit(float, float,float, float);      //initialize enemy - passing horizontal and vertical frames from sprite sheet
         void drawEnemy();      //rendering the enemy
         void actions();         //enemy actions
         void autoScroll();

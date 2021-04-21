@@ -15,9 +15,9 @@ _enemies::~_enemies()
 {
     //dtor
 }
-void _enemies::enemyInit(float X, float Y, float yPosition)
+void _enemies::enemyInit(float X, float Y,float xPosition,float yPosition)
 {
-    enemyPos.x=XSCREEN;
+    enemyPos.x=xPosition;
     enemyPos.y=yPosition+0.025;
     enemyPos.z=-2.0;
 

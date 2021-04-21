@@ -44,8 +44,12 @@ GLint _glScene::initGL()
         timer->startTimer();
         myPly->playerInit(8,2,-1.5);
         myPly->plyImage->loadTexture("images/playerAnimated.png");
-        enmy->enemyInit(10,1,2.15);//---------------------------------Enemy Initialization----
-        enmy->enemyImage->loadTexture("images/zombie_walk.png");//---Enemy Image-------------
+        enmy[0].enemyInit(10,1,3.8,2.15);//---------------------------------Enemy Initialization----
+        enmy[0].enemyImage->loadTexture("images/zombie_walk.png");//---Enemy Image-------------
+        enmy[1].enemyInit(10,1,-2.0,2.15);//---------------------------------Enemy Initialization----
+        enmy[1].enemyImage->loadTexture("images/zombie_walk.png");//---Enemy Image-------------
+        enmy[2].enemyInit(10,1,-3.0,1.15);//---------------------------------Enemy Initialization----
+        enmy[2].enemyImage->loadTexture("images/zombie_walk.png");//---Enemy Image-------------
         doneInitializing = true;
     }
     if(level2)
@@ -61,8 +65,12 @@ GLint _glScene::initGL()
         timer->startTimer();
         myPly->playerInit(8,2,-1.5);
         myPly->plyImage->loadTexture("images/playerAnimated.png");
-        enmy->enemyInit(10,1,2.05);//---------------------------------Enemy Initialization----
-        enmy->enemyImage->loadTexture("images/zombie_walk.png");//---Enemy Image-------------
+        enmy[0].enemyInit(10,1,3.8,2.05);//---------------------------------Enemy Initialization----
+        enmy[0].enemyImage->loadTexture("images/zombie_walk.png");//---Enemy Image-------------
+        enmy[1].enemyInit(10,1,-3.8,2.15);//---------------------------------Enemy Initialization----
+        enmy[1].enemyImage->loadTexture("images/zombie_walk.png");//---Enemy Image-------------
+        enmy[2].enemyInit(10,1,-3.8,1.15);//---------------------------------Enemy Initialization----
+        enmy[2].enemyImage->loadTexture("images/zombie_walk.png");//---Enemy Image-------------
         doneInitializing = true;
     }
     else if(level3)
@@ -80,8 +88,12 @@ GLint _glScene::initGL()
         timer->startTimer();
         myPly->playerInit(8,2,-1.125);
         myPly->plyImage->loadTexture("images/playerAnimated.png");
-        enmy->enemyInit(10,1,1.95);//---------------------------------Enemy Initialization----
-        enmy->enemyImage->loadTexture("images/zombie_walk.png");//---Enemy Image-------------
+        enmy[0].enemyInit(10,1,3.8,1.95);//---------------------------------Enemy Initialization----
+        enmy[0].enemyImage->loadTexture("images/zombie_walk.png");//---Enemy Image-------------
+        enmy[1].enemyInit(10,1,-3.5,2.15);//---------------------------------Enemy Initialization----
+        enmy[1].enemyImage->loadTexture("images/zombie_walk.png");//---Enemy Image-------------
+        enmy[2].enemyInit(10,1,-3.5,1.15);//---------------------------------Enemy Initialization----
+        enmy[2].enemyImage->loadTexture("images/zombie_walk.png");//---Enemy Image-------------
         doneInitializing = true;
     }
 //-----------------------Screen Settings Initialization for Game.--------------------------------------
@@ -168,20 +180,25 @@ GLint _glScene::drawScene()
         glPushMatrix();
         glBindTexture(GL_TEXTURE_2D,myPly->plyImage->tex);
         myPly->drawPlayer();
+
         if(timer->getTicks() > 120)
         {
             myPly->actions();
-
-            enmy->actions();
+            for(int i=0;i<3;i++)
+            {
+                enmy[i].actions();
+            }
             timer->resetTime();
         }
         glPopMatrix();
 //------------------------------------Enemy Settings------------------------------------------------------
         glPushMatrix();
-        glBindTexture(GL_TEXTURE_2D,enmy->enemyImage->tex);
-        enmy->drawEnemy();
 
-
+        for(int i=0;i<3;i++)
+            {
+                glBindTexture(GL_TEXTURE_2D,enmy[i].enemyImage->tex);
+                enmy[i].drawEnemy();
+            }
         glPopMatrix();
 //------------------------------------Screen Settings Draw + Collision------------------------------------
         glPushMatrix(); // group my object
@@ -202,15 +219,18 @@ GLint _glScene::drawScene()
 
             clsn = colsn->isBoundedCollision(*myPly,&scrnStng[imgfile][y],imgfile,y);
             //clsn = colsn->isBoundedCollision(*myPly,scrnStng[imgfile][y],imgfile,y);
-            enmClsn = colsn->isBoundedCollision2(*enmy,scrnStng[imgfile][y],imgfile,y);
-            enmy->colEnmTrue=enmClsn;
-            if(enmClsn)
+            for(int i=0;i<3;i++)
             {
-                enmy->autoScroll();
-            }
-            else //if(enmy->colEnmUp)
-            {
-                //enmy->autoScrollCol();
+                enmClsn = colsn->isBoundedCollision2(enmy[i],scrnStng[imgfile][y],imgfile,y);
+                enmy[i].colEnmTrue=enmClsn;
+                if(enmClsn)
+                {
+                    enmy[i].autoScroll();
+                }
+                else //if(enmy->colEnmUp)
+                {
+                    //enmy->autoScrollCol();
+                }
             }
             if(clsn == true)
             {

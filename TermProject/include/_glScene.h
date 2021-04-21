@@ -54,7 +54,7 @@ class _glScene
         _HelpPage *helpp = new _HelpPage();
         _PopUp *pup = new _PopUp();
         _collision *colsn = new _collision();
-        _enemies *enmy = new _enemies();
+        _enemies enmy[3];
         _credits * cp = new _credits();
         _credits * cpname = new _credits();
         _screenSettings scrnStng[7][7];
