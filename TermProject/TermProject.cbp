@@ -8,7 +8,7 @@
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/Debug/TermProject" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="C:/Chetan Files/GameDevelop/common/bin" />
+				<Option working_dir="../../common/bin" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -34,11 +34,11 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
-			<Add directory="C:/Chetan Files/GameDevelop/common/include" />
+			<Add directory="../../common/include" />
 		</Compiler>
 		<Linker>
 			<Add library="../../common/lib/libSOIL.a" />
-			<Add library="glut32" />
+			<Add library="../../common/lib/glut32.lib" />
 			<Add library="opengl32" />
 			<Add library="glu32" />
 			<Add library="winmm" />

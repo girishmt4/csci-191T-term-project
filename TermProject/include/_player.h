@@ -33,7 +33,7 @@ class _player
         float radius;
         int hitCount;
         float gravity = 0.2;
-        float jumpSpeed = 0.560;
+        float jumpSpeed = 0.360;
 
         _timer *timer = new _timer();
         _texture *plyImage = new _texture();

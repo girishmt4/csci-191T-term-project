@@ -106,7 +106,7 @@ void _player::actions()
             {
                 playerPos.y = plyPosY;
                 actionTrigger = STAND;
-                jumpSpeed = 0.560;
+                jumpSpeed = 0.360;
             }
             break;
         }
@@ -121,7 +121,7 @@ void _player::actions()
             {
                 playerPos.y = plyPosY;
                 actionTrigger = STAND;
-                jumpSpeed = 0.560;
+                jumpSpeed = 0.360;
             }
             yMin=1.0/framesY;
             yMax=1.0;
@@ -147,7 +147,7 @@ void _player::actions()
                 //playerPos.y = -1.475;
                 playerPos.y = plyPosY;
                 actionTrigger = STAND;
-                jumpSpeed = 0.560;
+                jumpSpeed = 0.360;
             }
             yMin=0.0;
             yMax=1.0/framesY;

@@ -183,7 +183,7 @@ GLint _glScene::drawScene()
             cout<<colsn->colUp<<endl;
             if(colsn->colUp&&!colsn->colBottom)
             {
-               myPly->plyPosY = scrnStng[imgfile][y].scenePos[imgfile][y].y;
+               myPly->plyPosY = (scrnStng[imgfile][y].scenePos[imgfile][y].y + (scrnStng[imgfile][y].sceneScale[imgfile].y/2.0)) + (myPly->playerScale.y/2.0);
             }
             else{myPly->plyPosY= myPly->playerPos.y;}
             }
