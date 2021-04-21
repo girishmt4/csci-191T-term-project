@@ -20,6 +20,7 @@
 #include <conio.h>
 #include <string>
 #include <sstream>
+#include <_enemies.h>
 
 using namespace std;
 
@@ -54,11 +55,11 @@ class _glScene
         _PopUp *pup = new _PopUp();
         _screenSettings scrnStng[7][7];
         _collision *colsn = new _collision();
+        _enemies *enmy = new _enemies();
         string c;
         string h,j,k;
         char* t;
-        bool clsn = false;
-        //char p[50];
+        bool clsn = false, enmClsn = false;
         ostringstream str1;
 
         int winMsg(HWND,UINT,WPARAM,LPARAM);
