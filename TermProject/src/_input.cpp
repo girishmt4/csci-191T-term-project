@@ -8,10 +8,7 @@ _input::_input()
         mouseTranslation =0;
         mouseRotate =0;
         flag =0;
-        for(int i=0;i<256;i++)
-        {
-            keys[i] = false;
-        }
+
 }
 
 _input::~_input()
@@ -22,9 +19,39 @@ _input::~_input()
 
 void _input::keyPressed(_player* ply)
 {
-    if(keys[VK_RIGHT])
+
+    switch(wParam)
     {
-        if(keys[VK_UP])
+    case VK_LEFT:
+        {
+            leftKey=true;
+            break;
+        }
+    case VK_RIGHT:
+        {
+            rightKey=true;
+            break;
+        }
+    case VK_UP:
+        {
+            upKey=true;
+            break;
+        }
+    case VK_DOWN:
+        {
+            downKey=true;
+            break;
+        }
+    case VK_SPACE:
+        {
+            spaceKey=true;
+            break;
+        }
+    }
+
+    if(rightKey)
+    {
+        if(upKey)
         {
             ply->actionTrigger = ply->WALK_RIGHT_JUMP;
         }
@@ -34,9 +61,9 @@ void _input::keyPressed(_player* ply)
         }
         ply->playerPos.x += 0.02;
     }
-    else if(keys[VK_LEFT])
+    else if(leftKey)
     {
-        if(keys[VK_LEFT] && keys[VK_UP])
+        if(upKey)
         {
             ply->actionTrigger = ply->WALK_LEFT_JUMP;
         }
@@ -46,14 +73,14 @@ void _input::keyPressed(_player* ply)
         }
         ply->playerPos.x -= 0.02;
     }
-    else if(keys[VK_UP])
+    else if(upKey)
     {
-        if(keys[VK_UP] && keys[VK_LEFT])
+        if(leftKey)
         {
             ply->actionTrigger = ply->WALK_LEFT_JUMP;
             ply->playerPos.x -= 0.02;
         }
-        else if(keys[VK_RIGHT])
+        else if(rightKey)
         {
             ply->actionTrigger = ply->WALK_RIGHT_JUMP;
             ply->playerPos.x += 0.02;
@@ -63,33 +90,7 @@ void _input::keyPressed(_player* ply)
             ply->actionTrigger = ply->JUMP;
         }
     }
-    /*switch(wParam)
-    {
-    case VK_LEFT:
-        {
-            ply->actionTrigger = ply->WALK_LEFT;
-            ply->playerPos.x -= 0.03;
 
-            break;
-        }
-    case VK_RIGHT:
-        {
-            ply->actionTrigger = ply->WALK_RIGHT;     //DO ACTION ACCORDING TO YOUR SPRITE
-            ply->playerPos.x += 0.03;
-
-            break;
-        }
-    case VK_UP:
-        {
-
-            break;
-        }
-    case VK_DOWN:
-        {
-
-            break;
-        }
-    }*/
 }
 
 void _input::moveEnv(_parallax* plx, float speed)
@@ -136,7 +137,35 @@ void _input::keyUp(_player* ply)
     {
         ply->actionTrigger = ply->STAND;
     }
-    keys[wParam] = false;
+    switch(wParam)
+    {
+    case VK_LEFT:
+        {
+            leftKey=false;
+            break;
+        }
+    case VK_RIGHT:
+        {
+            rightKey=false;
+            break;
+        }
+    case VK_UP:
+        {
+            upKey=false;
+            break;
+        }
+    case VK_DOWN:
+        {
+            downKey=false;
+            break;
+        }
+    case VK_SPACE:
+        {
+            spaceKey=false;
+            break;
+        }
+    }
+    //keys[wParam] = false;
 }
 
 /*

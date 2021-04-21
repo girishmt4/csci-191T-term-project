@@ -239,7 +239,7 @@ int _glScene::winMsg(HWND	hWnd,			// Handle For This Window
 		    kbMs->moveEnv(background, 0.005);
             kbMs->moveEnv(background1, 0.015);
 
-            kbMs->keys[wParam] = true;
+            //kbMs->keys[wParam] = true;
 		    kbMs->keyPressed(myPly);
 		    kbMs->keyPressed(landp);       //Handling key inputs on the landing page
             kbMs->keyPressed(menup);       //Handling key inputs on the menu page
