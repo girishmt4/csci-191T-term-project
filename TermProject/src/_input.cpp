@@ -8,6 +8,7 @@ _input::_input()
         mouseTranslation =0;
         mouseRotate =0;
         flag =0;
+        upKey=false,downKey=false,rightKey=false,leftKey=false,spaceKey=false;
 
 }
 

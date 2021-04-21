@@ -178,14 +178,17 @@ GLint _glScene::drawScene()
             clsn = colsn->isBoundedCollision(*myPly,scrnStng[imgfile][y],imgfile,y);
             if(clsn == true)
             {
-            //myPly->startWalk=true;
-            cout<<"Collision = true at"<<imgfile<<" "<<y+1<<endl;
-            cout<<colsn->colUp<<endl;
-            if(colsn->colUp&&!colsn->colBottom)
-            {
-               myPly->plyPosY = (scrnStng[imgfile][y].scenePos[imgfile][y].y + (scrnStng[imgfile][y].sceneScale[imgfile].y/2.0)) + (myPly->playerScale.y/2.0);
-            }
-            else{myPly->plyPosY= myPly->playerPos.y;}
+                //myPly->startWalk=true;
+                cout<<"Collision = true at"<<imgfile<<" "<<y+1<<endl;
+                cout<<myPly->colUp<<endl;
+                if(myPly->colUp)
+                {
+                   myPly->plyPosY = (scrnStng[imgfile][y].scenePos[imgfile][y].y + (scrnStng[imgfile][y].sceneScale[imgfile].y/2.0)) + (myPly->playerScale.y/2.0);
+                }
+                else
+                {
+                    myPly->plyPosY = myPly->playerPos.y;
+                }
             }
           }
         }

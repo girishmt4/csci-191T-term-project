@@ -108,6 +108,7 @@ void _player::actions()
                 actionTrigger = STAND;
                 jumpSpeed = 0.360;
             }
+
             break;
         }
         case WALK_LEFT_JUMP:

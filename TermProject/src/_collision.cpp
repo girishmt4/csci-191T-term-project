@@ -56,32 +56,29 @@ bool _collision::isBoundedCollision(_player &one,_screenSettings a,int i, int j)
         {
             if((one.playerPos.x + (one.playerScale.x/2.0)) >=  ((a.scenePos[i][j].x)-(a.sceneScale[i].x/2.0)) )         //from left
             {
-                colLeft= true;
+                one.colLeft= true;
             }
             else if((a.scenePos[i][j].x + (a.sceneScale[i].x/2.0)) >= (one.playerPos.x -(one.playerScale.x/2.0)))   //from right
             {
-                colRight= true;
+                one.colRight= true;
             }
             else if((one.playerPos.y + (one.playerScale.y/2.0)) >= ((a.scenePos[i][j].y)-(a.sceneScale[i].y/2.0)))   //from bottom
             {
-                colBottom= true;
+                one.colBottom= true;
             }
             else if((a.scenePos[i][j].y + (a.sceneScale[i].y/2.0)) >= (one.playerPos.y -(one.playerScale.y/2.0)))   //from top
             {
-                colUp=true;
-                one.colPlyUp=true;
-                one.colPlyAllTrue=false;
+                one.colUp=true;
             }
-            else
-            {
-                colLeft= false;
-                colRight= false;
-                colUp= false;
-                colBottom= false;
-                one.colPlyTrue=false;
-                one.colPlyUp=false;
 
-            }
+        }
+        else
+        {
+            one.colLeft= false;
+            one.colRight= false;
+            one.colUp= false;
+            one.colBottom= false;
+            one.colPlyTrue=false;
         }
 
 
