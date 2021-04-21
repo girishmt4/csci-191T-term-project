@@ -24,12 +24,13 @@ class _enemies
         void drawEnemy();      //rendering the enemy
         void actions();         //enemy actions
         void autoScroll();
+        void autoScrollCol();
 
         float xMin,xMax,yMin,yMax;
         float framesX, framesY;
         _timer *timerEnemy = new _timer();
         _texture *enemyImage = new _texture();
-        int dir=1;
+        int dir=1,dir1=1;
         bool colEnmTrue, colEnmLeft, colEnmRight, colEnmUp, colEnmBottom;
 
     protected:

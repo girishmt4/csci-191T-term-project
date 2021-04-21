@@ -169,10 +169,8 @@ GLint _glScene::drawScene()
         if(timer->getTicks() > 120)
         {
             myPly->actions();
-            if(enmClsn == false)
-            {
-                enmy->actions();
-            }
+
+            enmy->actions();
             timer->resetTime();
         }
         glPopMatrix();
@@ -180,7 +178,8 @@ GLint _glScene::drawScene()
         glPushMatrix();
         glBindTexture(GL_TEXTURE_2D,enmy->enemyImage->tex);
         enmy->drawEnemy();
-        enmy->autoScroll();
+
+
         glPopMatrix();
 //------------------------------------Screen Settings Draw + Collision------------------------------------
         glPushMatrix(); // group my object
@@ -193,6 +192,14 @@ GLint _glScene::drawScene()
             clsn = colsn->isBoundedCollision(*myPly,scrnStng[imgfile][y],imgfile,y);
             enmClsn = colsn->isBoundedCollision2(*enmy,scrnStng[imgfile][y],imgfile,y);
             enmy->colEnmTrue=enmClsn;
+            if(enmClsn)
+            {
+                enmy->autoScroll();
+            }
+            else //if(enmy->colEnmUp)
+            {
+                //enmy->autoScrollCol();
+            }
             if(clsn == true)
             {
                 //myPly->startWalk=true;

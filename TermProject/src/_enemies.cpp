@@ -58,12 +58,6 @@ void _enemies::actions()
 
 void _enemies::autoScroll()
 {
-    if(colEnmTrue)
-    {
-        enemyPos.y -=0.003;
-    }
-    else
-    {
     if(enemyPos.x <= -4.2)
     {
         enemyPos.x = 3.8;
@@ -74,10 +68,16 @@ void _enemies::autoScroll()
     {
         enemyPos.x -=0.003;
     }
-    else if(dir == 0)// 0 is false
+}
+void _enemies::autoScrollCol()
+{
+       if(enemyPos.y <= -2.2)
     {
-        enemyPos.x +=0.003;
+        //enemyPos.x = 3.8;
+        enemyPos.y = 2.15;
     }
+    else
+    {
+        enemyPos.y -=0.003;
     }
-
 }

@@ -286,7 +286,7 @@
 	<iostream>
 	<windows.h>
 
-1618992799 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_glscene.h
+1619032057 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_glscene.h
 	<windows.h>
 	<GL/glut.h>
 	<iostream>
@@ -394,7 +394,7 @@
 1617326466 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_gllight.h
 	<_glScene.h>
 
-1619024783 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_glscene.cpp
+1619038770 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_glscene.cpp
 	"_glScene.h"
 	<_glLight.h>
 	<SOIL.h>
@@ -460,7 +460,7 @@
 1618962782 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_screensettings.cpp
 	"_screenSettings.h"
 
-1618902210 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_screensettings.h
+1619038683 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_screensettings.h
 	<iostream>
 	<_common.h>
 	<_texture.h>
@@ -469,13 +469,13 @@
 1618974617 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_screensettings.cpp
 	"_screenSettings.h"
 
-1618992327 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_enemies.h
+1619032381 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_enemies.h
 	<_common.h>
 	<_texture.h>
 	<_timer.h>
 	<iostream>
 	<GL/gl.h>
 
-1619024857 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_enemies.cpp
+1619037029 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_enemies.cpp
 	"_enemies.h"
 
