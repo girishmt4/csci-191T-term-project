@@ -53,9 +53,12 @@ class _glScene
         _MenuPage *menup = new _MenuPage();
         _HelpPage *helpp = new _HelpPage();
         _PopUp *pup = new _PopUp();
-        _screenSettings scrnStng[7][7];
         _collision *colsn = new _collision();
         _enemies *enmy = new _enemies();
+        _credits * cp = new _credits();
+        _credits * cpname = new _credits();
+        _screenSettings scrnStng[7][7];
+
         string c;
         string h,j,k;
         char* t;

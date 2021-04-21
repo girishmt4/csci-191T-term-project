@@ -1,5 +1,7 @@
 #include "_input.h"
 
+#include <windows.h>
+
 _input::_input()
 {
     //ctor
@@ -249,14 +251,21 @@ void _input::keyPressed(_MenuPage* mp)
             }
             break;
 
-        case 72:  //for key h for help
+        case 72:  //value for key h for help
             if (flag == 1)
             {
                 flag = 2;
             }
             break;
 
-        case 69:  //for key e to exit
+        case 67:    //value for key c for credits
+            if (flag == 1)
+            {
+                flag = 5;
+            }
+            break;
+
+        case 69:  //value for key e to exit
         if (flag == 1)
             {
                 exit(0);
@@ -301,6 +310,20 @@ void _input::keyPressed(_PopUp* popUp)
             break;
     }
 
+}
+
+
+void _input::keyPressed(_credits* cp)
+{
+     switch(wParam)
+    {
+        case VK_ESCAPE:     //Escape key to return to the menu page from credits page
+            if (flag == 5)
+            {
+                flag = 1;
+            }
+            break;
+    }
 }
 
 /*

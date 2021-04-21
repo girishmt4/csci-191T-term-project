@@ -108,6 +108,8 @@ GLint _glScene::initGL()
     helpp->helpPageInit("images/help.png");
     pup->popUpInit("images/pause.png");
     lpdecor->landingPageInit("images/rain.png");
+    cp->creditsPageInit("images/credits.jpg");
+    cpname->creditsPageInit("images/names.png");
 
     return true;
 }
@@ -121,7 +123,7 @@ GLint _glScene::drawScene()
         glLoadIdentity();
         glPushMatrix();
         glTranslated(0,0,-8.0);  //placing objects on screen
-        glScalef(2.60, 2.45, 1.0);  //scale to fit within the screen
+        glScalef(2.5, 2.5, 1.0);  //scale to fit within the screen
 
         landp -> renderBack(screenWidth, screenHeight);       //create background for landing page
         lpdecor -> renderBack(screenWidth, screenHeight);  //make rainfall on the landing page
@@ -135,7 +137,7 @@ GLint _glScene::drawScene()
         glLoadIdentity();
         glPushMatrix();
         glTranslated(0,0,-8.0);  //placing objects on screen
-        glScalef(2.60, 2.45, 1.0);  //scale to fit within the screen
+        glScalef(2.5, 2.4, 1.0);  //scale to fit within the screen
         menup -> renderBack(screenWidth, screenHeight);       //create background for game menu screen
         glPopMatrix();
     }
@@ -146,7 +148,7 @@ GLint _glScene::drawScene()
         glLoadIdentity();
         glPushMatrix();
         glTranslated(0,0,-8.0);  //placing objects on the screen
-        glScalef(2.60, 2.45, 1.0);  //scale to fit within the screen
+        glScalef(2.4, 2.4, 1.0);  //scale to fit within the screen
         helpp -> renderBack(screenWidth, screenHeight);       //create background for help page
         glPopMatrix();
     }
@@ -230,9 +232,24 @@ GLint _glScene::drawScene()
         //glLoadIdentity();
         glPushMatrix();
         //glTranslated(0.0, 0.0, -7.0);  //placing objects on the screen
-        glScalef(0.5, 0.5, 1.0);  //pause screen pop-up scaling
+        glScalef(1.0, 1.0, 1.0);  //pause screen pop-up scaling
         pup -> renderBack(screenWidth, screenHeight);       //create background for pause pop-up screen
         glPopMatrix();
+    }
+
+    if (kbMs->flag == 5)  //credits page
+    {
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	// Clear Screen And Depth Buffer
+	glLoadIdentity();
+    glPushMatrix();
+    glTranslated(0,0,-8.0);     //placing objects
+    glScalef(2.5, 2.5, 1.0);  //scaling to fit on the screen
+    cp -> renderBack(screenWidth, screenHeight);       //create background for credits page
+
+    glScalef(1/1.1, 1/1.1, 1.0);  //de-scaling for credits name
+    cpname -> renderBack(screenWidth, screenHeight);  //create background for names
+    cpname -> cpscroll(true, "down", 0.0005);  //scrolling the names
+    glPopMatrix();
     }
 
 }
@@ -259,7 +276,7 @@ int _glScene::winMsg(HWND	hWnd,			// Handle For This Window
                      UINT	uMsg,			// Message For This Window
 					 WPARAM	wParam,			// Additional Message Information
 					 LPARAM	lParam)
-{kbMs->wParam = wParam;
+{   kbMs->wParam = wParam;
 
     switch (uMsg)									// Check For Windows Messages
 	{
@@ -276,9 +293,8 @@ int _glScene::winMsg(HWND	hWnd,			// Handle For This Window
 		    kbMs->keyPressed(landp);       //Handling key inputs on the landing page
             kbMs->keyPressed(menup);       //Handling key inputs on the menu page
             kbMs->keyPressed(helpp);       //Handling key inputs on the help page
-            kbMs->keyPressed(pup);    //Handling key inputs on the game pause pop up screen
-
-
+            kbMs->keyPressed(pup);      //Handling key inputs on the game pause pop up screen
+            kbMs->keyPressed(cp);       //handling key inputs on credits page
 			break;
 		}
 
