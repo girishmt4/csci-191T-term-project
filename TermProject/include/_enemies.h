@@ -30,8 +30,8 @@ class _enemies
         float framesX, framesY;
         _timer *timerEnemy = new _timer();
         _texture *enemyImage = new _texture();
-        int dir=1,dir1=1;
-        bool colEnmTrue, colEnmLeft, colEnmRight, colEnmUp, colEnmBottom;
+        int dir=1,dir1=1, colCount=0;
+        bool colEnmTrue, colEnmLeft, colEnmRight, colEnmUp, colEnmBottom, colEnmTileXPos, colEnmTileYPos;
 
     protected:
 

@@ -27,6 +27,7 @@ class _player
         void playerInit(float, float, float);      //initialize player - passing horizontal and vertical frames from sprite sheet
         void drawPlayer();      //rendering the player
         void actions();         //player actions
+        void falldown();
 
         float xMin,xMax,yMin,yMax;
         float framesX, framesY;
@@ -38,8 +39,9 @@ class _player
         _timer *timer = new _timer();
         _texture *plyImage = new _texture();
         int playerLanded;
-        bool colLeft, colRight, colUp, colBottom;
+        bool colLeft, colRight, colUp, colBottom, colPlyTrue;
         float plyPosY,plyPosX;
+        int colCount=0;
 
     protected:
 

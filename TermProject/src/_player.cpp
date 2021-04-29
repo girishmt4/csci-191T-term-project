@@ -102,8 +102,8 @@ void _player::actions()
             //cout<<colPlyTrue<<colPlyUp<<endl;
 
             playerPos.y += jumpSpeed;
-            cout<<"Bottom "<<colBottom<<endl;
-            cout<<"Up "<<colUp<<endl;
+            //cout<<"Bottom "<<colBottom<<endl;
+            //cout<<"Up "<<colUp<<endl;
             if(colBottom)
             {
                 playerPos.y -= jumpSpeed;
@@ -147,9 +147,6 @@ void _player::actions()
         {
             //cout<<colUp;
 
-            playerPos.y -= gravity;
-
-
             break;
         }
         case WALK_RIGHT_JUMP:
@@ -183,4 +180,18 @@ void _player::actions()
             break;
         }
     }
+}
+void _player::falldown()
+{
+    if(!colPlyTrue||colRight||colLeft||colBottom)
+        {
+           if(playerPos.y <= -2.2)
+            {
+            playerPos.y = 2.15;
+            }
+            else
+            {
+            playerPos.y -=0.001;
+            }
+        }
 }

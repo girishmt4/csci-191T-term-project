@@ -135,7 +135,7 @@ else if(level==2)
  {
      if(V == 0)
      {
-     scenePos[U][V].x = 0.1; scenePos[U][V].y = -1.7;  scenePos[U][V].z = -1.0;
+     scenePos[U][V].x = 0.4; scenePos[U][V].y = -1.7;  scenePos[U][V].z = -1.0;
      sceneScale[U].x = 3.0; sceneScale[U].y = 0.9; sceneScale[U].z = 1.0;
      }
  }

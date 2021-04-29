@@ -59,24 +59,28 @@ bool _collision::isBoundedCollision(_player &one,_screenSettings *a,int i, int j
         bool collisionY = (one.playerPos.y + (one.playerScale.y/2.0)) >= ((a->scenePos[i][j].y)-(a->sceneScale[i].y/2.0)) && (a->scenePos[i][j].y + (a->sceneScale[i].y/2.0)) >= (one.playerPos.y -(one.playerScale.y/2.0));
         // collision only if on both axes
         colTrue= collisionX && collisionY;
-        //one.colPlyTrue= colTrue;
+        one.colPlyTrue= colTrue;
         if(colTrue)
         {
             if((playerXmax >= tileXmin) && (playerXmin < tileXmin) && (one.playerPos.y >= tileYmin) && (one.playerPos.y <= tileYmax))          //from left
             {
                 a->colLeft= true;
+                one.colLeft= true;
             }
             if((playerXmax > tileXmax) && (playerXmin <= tileXmax) && (one.playerPos.y >= tileYmin) && (one.playerPos.y <= tileYmax))           //from right
             {
                 a->colRight= true;
+                one.colRight= true;
             }
             if((playerYmax > tileYmax) && (playerYmin <= tileYmax) && (one.playerPos.x >= tileXmin) && (one.playerPos.x <= tileXmax))           //from top
             {
                 a->colUp= true;
+                one.colUp= true;
             }
             if((playerYmax >= tileYmin) && (playerYmin < tileYmin) && (one.playerPos.x >= tileXmin) && (one.playerPos.x <= tileXmax))           //from bottom
             {
                 a->colBottom=true;
+                one.colBottom=true;
             }
         }
         else
@@ -85,37 +89,50 @@ bool _collision::isBoundedCollision(_player &one,_screenSettings *a,int i, int j
             a->colRight= false;
             a->colUp= false;
             a->colBottom= false;
+            one.colLeft= false;
+            one.colRight= false;
+            one.colUp= false;
+            one.colBottom= false;
             //a.colPlyTrue=false;
         }
 
     return collisionX && collisionY;
 
 }
-bool _collision::isBoundedCollision2(_enemies e, _screenSettings b, int i, int j)
+bool _collision::isBoundedCollision2(_enemies e, _screenSettings *b, int i, int j)
 {
+    float enemyXmin = e.enemyPos.x - (e.enemyScale.x/2.0);
+    float enemyXmax = e.enemyPos.x + (e.enemyScale.x/2.0);
+    float enemyYmin = e.enemyPos.y - (e.enemyScale.y/2.0);
+    float enemyYmax = e.enemyPos.y + (e.enemyScale.y/2.0);
+    float tileEnmXmin = (b->scenePos[i][j].x)-(b->sceneScale[i].x/2.0);
+    float tileEnmXmax = (b->scenePos[i][j].x)+(b->sceneScale[i].x/2.0);
+    float tileEnmYmin = (b->scenePos[i][j].y) - (b->sceneScale[i].y/2.0);
+    float tileEnmYmax = (b->scenePos[i][j].y) + (b->sceneScale[i].y/2.0);
      // collision x-axis?
-        bool ecollisionX = (e.enemyPos.x + (e.enemyScale.x/2.0)) >= ((b.scenePos[i][j].x)-(b.sceneScale[i].x/2.0)) && (b.scenePos[i][j].x + (b.sceneScale[i].x/2.0)) >= (e.enemyPos.x -(e.enemyScale.x/2.0));
+        bool ecollisionX = (e.enemyPos.x + (e.enemyScale.x/2.0)) >= ((b->scenePos[i][j].x)-(b->sceneScale[i].x/2.0)) && (b->scenePos[i][j].x + (b->sceneScale[i].x/2.0)) >= (e.enemyPos.x -(e.enemyScale.x/2.0));
         // collision y-axis?
 
-        bool ecollisionY = (e.enemyPos.y + (e.enemyScale.y/2.0)) >= ((b.scenePos[i][j].y)-(b.sceneScale[i].y/2.0)) && (b.scenePos[i][j].y + (b.sceneScale[i].y/2.0)) >= (e.enemyPos.y -(e.enemyScale.y/2.0));
+        bool ecollisionY = (e.enemyPos.y + (e.enemyScale.y/2.0)) >= ((b->scenePos[i][j].y)-(b->sceneScale[i].y/2.0)) && (b->scenePos[i][j].y + (b->sceneScale[i].y/2.0)) >= (e.enemyPos.y -(e.enemyScale.y/2.0));
         // collision only if on both axes
+
         colEnmyTrue= ecollisionX && ecollisionY;
         e.colEnmTrue= colEnmyTrue;
         if(colEnmyTrue)
         {
-            if((e.enemyPos.x + (e.enemyScale.x/2.0)) >=  ((b.scenePos[i][j].x)-(b.sceneScale[i].x/2.0)) )         //from left
+            if((enemyXmax >= tileEnmXmin) && (enemyXmin < tileEnmXmin) && (e.enemyPos.y >= tileEnmYmin) && (e.enemyPos.y <= tileEnmYmax) )         //from left
             {
                 e.colEnmLeft= true;
             }
-            else if((b.scenePos[i][j].x + (b.sceneScale[i].x/2.0)) >= (e.enemyPos.x -(e.enemyScale.x/2.0)))   //from right
+            else if((enemyXmax > tileEnmXmax) && (enemyXmin <= tileEnmXmax) && (e.enemyPos.y >= tileEnmYmin) && (e.enemyPos.y <= tileEnmYmax))   //from right
             {
                 e.colEnmRight= true;
             }
-            else if((e.enemyPos.y + (e.enemyScale.y/2.0)) >= ((b.scenePos[i][j].y)-(b.sceneScale[i].y/2.0)))   //from bottom
+            else if((enemyYmax >= tileEnmYmin) && (enemyYmin < tileEnmYmin) && (e.enemyPos.x >= tileEnmXmin) && (e.enemyPos.x <= tileEnmXmax))   //from bottom
             {
                 e.colEnmBottom= true;
             }
-            else if((b.scenePos[i][j].y + (b.sceneScale[i].y/2.0)) >= (e.enemyPos.y -(e.enemyScale.y/2.0)))   //from top
+            else if((enemyYmax > tileEnmYmax) && (enemyYmin <= tileEnmYmax) && (e.enemyPos.x >= tileEnmXmin) && (e.enemyPos.x <= tileEnmXmax))   //from top
             {
                 e.colEnmUp=true;
             }
@@ -126,7 +143,7 @@ bool _collision::isBoundedCollision2(_enemies e, _screenSettings b, int i, int j
             e.colEnmRight= false;
             e.colEnmUp= false;
             e.colEnmBottom= false;
-            e.colEnmTrue=false;
+            //e.colEnmTrue=false;
         }
 
     return ecollisionX && ecollisionY;

@@ -61,7 +61,7 @@ GLint _glScene::initGL()
               scrnStng[i][j].level=2;
           }
         }
-        background->parallaxInit("images/BG.png");
+        background->parallaxInit("images/BG3.png");
         timer->startTimer();
         myPly->playerInit(8,2,-1.5);
         myPly->plyImage->loadTexture("images/playerAnimated.png");
@@ -84,7 +84,7 @@ GLint _glScene::initGL()
         }
         msg->msgInit();
         msg->msgImage->loadTexture("images/unnamed.png");
-        background->parallaxInit("images/BG.png");
+        background->parallaxInit("images/BG4.png");
         timer->startTimer();
         myPly->playerInit(8,2,-1.125);
         myPly->plyImage->loadTexture("images/playerAnimated.png");
@@ -209,29 +209,43 @@ GLint _glScene::drawScene()
                 //cout<<"Left "<<myPly->colLeft<<endl;
                 //cout<<"Right "<<myPly->colRight<<endl;
                 //myPly->playerLanded = 0;
-         for(int imgfile = 0; imgfile < 5; imgfile++)
+
+         for(int imgfile = 0; imgfile < 7; imgfile++)
         {
 
-          for(int y=0;y<4;y++)
+          for(int y=0;y<7;y++)
           {
             glBindTexture(GL_TEXTURE_2D, scrnStng[imgfile][y].sceneImg->tex);
             scrnStng[imgfile][y].drwScn(imgfile,y);
 
             clsn = colsn->isBoundedCollision(*myPly,&scrnStng[imgfile][y],imgfile,y);
             //clsn = colsn->isBoundedCollision(*myPly,scrnStng[imgfile][y],imgfile,y);
-            for(int i=0;i<3;i++)
-            {
-                enmClsn = colsn->isBoundedCollision2(enmy[i],scrnStng[imgfile][y],imgfile,y);
-                enmy[i].colEnmTrue=enmClsn;
-                if(enmClsn)
+
+                for(int i=0;i<3;i++)
                 {
+                enmy[i].colEnmTrue = colsn->isBoundedCollision2(enmy[i],&scrnStng[imgfile][y],imgfile,y);
+                /*enmy[1].colEnmTrue = colsn->isBoundedCollision2(enmy[1],scrnStng[imgfile][y],imgfile,y);
+                enmy[2].colEnmTrue = colsn->isBoundedCollision2(enmy[2],scrnStng[imgfile][y],imgfile,y);
+                */
+                if(enmy[i].colEnmTrue)
+                {
+
                     enmy[i].autoScroll();
+
+                    enmy[i].colCount=0;
                 }
-                else //if(enmy->colEnmUp)
+                else
                 {
-                    //enmy->autoScrollCol();
+                    enmy[i].colCount++;
+                    //cout<<colEnmCount<<endl;
+                    if(enmy[i].colCount==49)
+                    {
+                        enmy[i].autoScrollCol();
+                        enmy[i].colCount=0;
+                    }
                 }
-            }
+
+                }
             if(clsn == true)
             {
                 //myPly->playerLanded += 1;
@@ -244,7 +258,7 @@ GLint _glScene::drawScene()
                 //myPly->startWalk=true;
                 //cout<<"Collision = true at"<<imgfile<<" "<<y+1<<endl;
                 //cout<<myPly->colUp<<endl;
-
+                myPly->colCount=0;
                 if(scrnStng[imgfile][y].colUp)
                 {
                     //myPly->playerLanded = true;
@@ -298,7 +312,12 @@ GLint _glScene::drawScene()
             }
             else
             {
-
+                myPly->colCount++;
+                if(myPly->colCount==49)
+                {
+                    myPly->falldown();
+                    myPly->colCount=0;
+                }
                 scrnStng[imgfile][y].colLeft= false;
                 scrnStng[imgfile][y].colRight= false;
                 scrnStng[imgfile][y].colUp= false;
@@ -309,11 +328,11 @@ GLint _glScene::drawScene()
             if(enmClsn == true)
             {
 
-                cout<<"Collision of enemy = true at"<<imgfile+1<<" "<<y+1<<endl;
+                //cout<<"Collision of enemy = true at"<<imgfile+1<<" "<<y+1<<endl;
             }
           }
-        }
 
+        }
         /*if(myPly->playerLanded == 0)
         {
             myPly->actionTrigger=myPly->FALL_DOWN;

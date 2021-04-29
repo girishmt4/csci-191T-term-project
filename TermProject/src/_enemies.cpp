@@ -36,6 +36,7 @@ void _enemies::enemyInit(float X, float Y,float xPosition,float yPosition)
 
 void _enemies::drawEnemy()
 {
+    glLoadIdentity();
     glTranslatef(enemyPos.x,enemyPos.y,enemyPos.z);
     glScalef(enemyScale.x,enemyScale.y,enemyScale.z);
     glBegin(GL_QUADS);
@@ -71,13 +72,15 @@ void _enemies::autoScroll()
 }
 void _enemies::autoScrollCol()
 {
-       if(enemyPos.y <= -2.2)
+       if(!colEnmTrue||colEnmRight||colEnmBottom)
+       {
+           if(enemyPos.y <= -2.2)
     {
-        //enemyPos.x = 3.8;
         enemyPos.y = 2.15;
     }
     else
     {
         enemyPos.y -=0.003;
     }
+       }
 }

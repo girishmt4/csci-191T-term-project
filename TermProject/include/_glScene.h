@@ -4,6 +4,8 @@
 #include <windows.h>
 #include <GL/glut.h>
 #include <iostream>
+#include <vector>
+#include <algorithm>
 #include <_input.h>
 #include <_texture.h>
 #include <_parallax.h>
@@ -64,6 +66,7 @@ class _glScene
         char* t;
         bool clsn = false, enmClsn = false;
         ostringstream str1;
+        int colEnmCount=0;
 
         int winMsg(HWND,UINT,WPARAM,LPARAM);
         WPARAM wParam;
