@@ -69,10 +69,11 @@ void _enemies::autoScroll()
     {
         enemyPos.x -=0.003;
     }
+
 }
 void _enemies::autoScrollCol()
 {
-       if(!colEnmTrue||colEnmRight||colEnmBottom)
+       if(!colEnmTrue||colEnmRight||colEnmBottom||colEnmLeft)
        {
            if(enemyPos.y <= -2.2)
     {

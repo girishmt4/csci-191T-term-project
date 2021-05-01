@@ -229,9 +229,7 @@ GLint _glScene::drawScene()
                 */
                 if(enmy[i].colEnmTrue)
                 {
-
                     enmy[i].autoScroll();
-
                     enmy[i].colCount=0;
                 }
                 else

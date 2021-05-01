@@ -183,7 +183,7 @@ void _player::actions()
 }
 void _player::falldown()
 {
-    if(!colPlyTrue||colRight||colLeft||colBottom)
+    if(!colUp)
         {
            if(playerPos.y <= -2.2)
             {
