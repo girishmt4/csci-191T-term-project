@@ -16,7 +16,7 @@ class _player
         _player();
         virtual ~_player();
 
-        enum {STAND, WALK_LEFT, WALK_RIGHT, JUMP, WALK_LEFT_JUMP,WALK_RIGHT_JUMP, DIED};
+        enum {STAND, WALK_LEFT, WALK_RIGHT, JUMP, WALK_LEFT_JUMP,WALK_RIGHT_JUMP, DIED,FALL_DOWN};
         int actionTrigger;
 
 
@@ -33,13 +33,13 @@ class _player
         float radius;
         int hitCount;
         float gravity = 0.2;
-        float jumpSpeed = 0.360;
+        float jumpSpeed = 0.450;
 
         _timer *timer = new _timer();
         _texture *plyImage = new _texture();
-        bool colPlyTrue;
+        int playerLanded;
         bool colLeft, colRight, colUp, colBottom;
-        float plyPosY;
+        float plyPosY,plyPosX;
 
     protected:
 

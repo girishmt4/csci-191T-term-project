@@ -44,6 +44,8 @@ GLint _glScene::initGL()
         timer->startTimer();
         myPly->playerInit(8,2,-1.5);
         myPly->plyImage->loadTexture("images/playerAnimated.png");
+        enmy->enemyInit(10,1,2.15);//---------------------------------Enemy Initialization----
+        enmy->enemyImage->loadTexture("images/zombie_walk.png");//---Enemy Image-------------
         doneInitializing = true;
     }
     if(level2)
@@ -59,6 +61,8 @@ GLint _glScene::initGL()
         timer->startTimer();
         myPly->playerInit(8,2,-1.5);
         myPly->plyImage->loadTexture("images/playerAnimated.png");
+        enmy->enemyInit(10,1,2.05);//---------------------------------Enemy Initialization----
+        enmy->enemyImage->loadTexture("images/zombie_walk.png");//---Enemy Image-------------
         doneInitializing = true;
     }
     else if(level3)
@@ -76,6 +80,8 @@ GLint _glScene::initGL()
         timer->startTimer();
         myPly->playerInit(8,2,-1.125);
         myPly->plyImage->loadTexture("images/playerAnimated.png");
+        enmy->enemyInit(10,1,1.95);//---------------------------------Enemy Initialization----
+        enmy->enemyImage->loadTexture("images/zombie_walk.png");//---Enemy Image-------------
         doneInitializing = true;
     }
 //-----------------------Screen Settings Initialization for Game.--------------------------------------
@@ -166,35 +172,159 @@ GLint _glScene::drawScene()
         {
             myPly->actions();
 
+            enmy->actions();
             timer->resetTime();
         }
         glPopMatrix();
+//------------------------------------Enemy Settings------------------------------------------------------
+        glPushMatrix();
+        glBindTexture(GL_TEXTURE_2D,enmy->enemyImage->tex);
+        enmy->drawEnemy();
 
+
+        glPopMatrix();
+//------------------------------------Screen Settings Draw + Collision------------------------------------
         glPushMatrix(); // group my object
+
+
+        //cout<<"Bottom "<<myPly->colBottom<<endl;
+                //cout<<"Up "<<myPly->colUp<<endl;
+                //cout<<"Left "<<myPly->colLeft<<endl;
+                //cout<<"Right "<<myPly->colRight<<endl;
+                //myPly->playerLanded = 0;
          for(int imgfile = 0; imgfile < 5; imgfile++)
         {
+
           for(int y=0;y<4;y++)
           {
             glBindTexture(GL_TEXTURE_2D, scrnStng[imgfile][y].sceneImg->tex);
             scrnStng[imgfile][y].drwScn(imgfile,y);
-            clsn = colsn->isBoundedCollision(*myPly,scrnStng[imgfile][y],imgfile,y);
+
+            clsn = colsn->isBoundedCollision(*myPly,&scrnStng[imgfile][y],imgfile,y);
+            //clsn = colsn->isBoundedCollision(*myPly,scrnStng[imgfile][y],imgfile,y);
+            enmClsn = colsn->isBoundedCollision2(*enmy,scrnStng[imgfile][y],imgfile,y);
+            enmy->colEnmTrue=enmClsn;
+            if(enmClsn)
+            {
+                enmy->autoScroll();
+            }
+            else //if(enmy->colEnmUp)
+            {
+                //enmy->autoScrollCol();
+            }
             if(clsn == true)
             {
+                //myPly->playerLanded += 1;
+                //cout<<"Bottom "<<myPly->colBottom<<endl;
+                //cout<<"Up "<<myPly->colUp<<endl;
+                //cout<<"Bottom "<<myPly->colBottom<<endl;
+                //cout<<"Up "<<myPly->colUp<<endl;
+                //cout<<"Left "<<myPly->colLeft<<endl;
+                //cout<<"Right "<<myPly->colRight<<endl;
                 //myPly->startWalk=true;
-                cout<<"Collision = true at"<<imgfile<<" "<<y+1<<endl;
-                cout<<myPly->colUp<<endl;
-                if(myPly->colUp)
+                //cout<<"Collision = true at"<<imgfile<<" "<<y+1<<endl;
+                //cout<<myPly->colUp<<endl;
+
+                if(scrnStng[imgfile][y].colUp)
                 {
-                   myPly->plyPosY = (scrnStng[imgfile][y].scenePos[imgfile][y].y + (scrnStng[imgfile][y].sceneScale[imgfile].y/2.0)) + (myPly->playerScale.y/2.0);
+                    //myPly->playerLanded = true;
+                    //myPly->actionTrigger=myPly->STAND;
+                    //cout<<"Collision happened"<<endl;
+
+
+                    //jumpSpeed = 0.360;
+                    //myPly->playerLanded += 1;
+                    myPly->plyPosY = (scrnStng[imgfile][y].scenePos[imgfile][y].y + (scrnStng[imgfile][y].sceneScale[imgfile].y/2.0)) + (myPly->playerScale.y/2.0) - 0.1;
+                   //myPly->playerPos.y = myPly->plyPosY;
+                    //myPly->actionTrigger = myPly->STAND;
                 }
-                else
+
+                if(scrnStng[imgfile][y].colLeft)
+
+                {
+                    //cout<<"left collision";
+                    if(kbMs->rightKey)
+                    {
+                        myPly->playerPos.x = (scrnStng[imgfile][y].scenePos[imgfile][y].x - (scrnStng[imgfile][y].sceneScale[imgfile].x/2.0)) - (myPly->playerScale.x/2.0) - 0.1;
+                    }
+                }
+                if(scrnStng[imgfile][y].colRight)
+                {
+                    if(kbMs->leftKey)
+                    {
+                        myPly->playerPos.x = (scrnStng[imgfile][y].scenePos[imgfile][y].x + (scrnStng[imgfile][y].sceneScale[imgfile].x/2.0)) + (myPly->playerScale.x/2.0) - 0.1;
+                        //myPly->playerPos.x -= 0.02;
+                    }
+                }
+                if(scrnStng[imgfile][y].colBottom)
+                {
+                    if(kbMs->upKey)
+                    {
+                        myPly->playerPos.y = (scrnStng[imgfile][y].scenePos[imgfile][y].y - (scrnStng[imgfile][y].sceneScale[imgfile].y/2.0)) - (myPly->playerScale.y/2.0);
+                    }
+                }
+                /*if(scrnStng[imgfile][y].colRight)
+                {
+                    if(kbMs->leftKey)
+                    {
+                        myPly->playerPos.x += 0.02;
+                    }
+                }*/
+
+                /*else
                 {
                     myPly->plyPosY = myPly->playerPos.y;
-                }
+                }*/
+            }
+            else
+            {
+
+                scrnStng[imgfile][y].colLeft= false;
+                scrnStng[imgfile][y].colRight= false;
+                scrnStng[imgfile][y].colUp= false;
+                scrnStng[imgfile][y].colBottom= false;
+                //scrnStng[imgfile][y].colPlyTrue=false;
+                //myPly->actionTrigger = myPly->FALL_DOWN;
+            }
+            if(enmClsn == true)
+            {
+
+                cout<<"Collision of enemy = true at"<<imgfile+1<<" "<<y+1<<endl;
             }
           }
         }
+
+        /*if(myPly->playerLanded == 0)
+        {
+            myPly->actionTrigger=myPly->FALL_DOWN;
+        }*/
+        /*if((!myPly->playerLanded) && (myPly->actionTrigger!= myPly->JUMP) && (myPly->actionTrigger!= myPly->WALK_LEFT_JUMP) && (myPly->actionTrigger!= myPly->WALK_RIGHT_JUMP))
+        {
+            myPly->actionTrigger=myPly->FALL_DOWN;
+        }*/
         glPopMatrix(); // exit the group
+
+        if(myPly->playerPos.x > 4.2)
+        {
+            if(level1)
+            {
+                level1 = !level1;
+                level2 = !level2;
+            }
+            else if(level2)
+            {
+                level2 = !level2;
+                level3 = !level3;
+            }
+            else if(level3)
+            {
+                level1 = !level1;
+                level3 = !level3;
+            }
+            doneInitializing = false;
+        }
+
+
     }
 
     if (kbMs->flag == 4)  //pause game pop-up page

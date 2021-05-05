@@ -21,6 +21,7 @@
 #include <conio.h>
 #include <string>
 #include <sstream>
+#include <_enemies.h>
 
 using namespace std;
 
@@ -54,6 +55,7 @@ class _glScene
         _HelpPage *helpp = new _HelpPage();
         _PopUp *pup = new _PopUp();
         _collision *colsn = new _collision();
+        _enemies *enmy = new _enemies();
         _credits * cp = new _credits();
         _credits * cpname = new _credits();
         _screenSettings scrnStng[7][7];
@@ -61,8 +63,7 @@ class _glScene
         string c;
         string h,j,k;
         char* t;
-        bool clsn = false;
-        //char p[50];
+        bool clsn = false, enmClsn = false;
         ostringstream str1;
 
         int winMsg(HWND,UINT,WPARAM,LPARAM);

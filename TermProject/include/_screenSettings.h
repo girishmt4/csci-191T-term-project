@@ -23,6 +23,7 @@ class _screenSettings
         void drwScn(int,int); //Rendering the Scene
 
         float xMin, xMax, yMin, yMax;
+        bool colLeft, colRight, colUp, colBottom;
         _texture *sceneImg = new _texture();
         int level =0;
 
