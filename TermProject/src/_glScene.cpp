@@ -284,6 +284,7 @@ int _glScene::winMsg(HWND	hWnd,			// Handle For This Window
 
 //                kbMs ->mouseDown(modelTeapot, LOWORD(lParam),HIWORD(lParam));
                 kbMs ->mouseDown(landp);
+                kbMs ->mouseDown(menup,posmX,posmY);
 
                 break;
         }

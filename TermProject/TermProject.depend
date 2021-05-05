@@ -7,7 +7,7 @@
 	<iostream>
 	<windows.h>
 
-1618902214 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_glscene.h
+1620109556 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_glscene.h
 	<windows.h>
 	<GL/glut.h>
 	<iostream>
@@ -23,6 +23,7 @@
 	<_HelpPage.h>
 	<_MenuPage.h>
 	<_PopUp.h>
+	<_credits.h>
 	<_screenSettings.h>
 	<conio.h>
 	<string>
@@ -39,7 +40,7 @@
 	<GL/glut.h>
 	<iostream>
 
-1618970762 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_input.h
+1620248456 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_input.h
 	<windows.h>
 	<_parallax.h>
 	<_player.h>
@@ -47,6 +48,7 @@
 	<_HelpPage.h>
 	<_MenuPage.h>
 	<_PopUp.h>
+	<_credits.h>
 
 1616103990 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_parallax.h
 	<string>
@@ -60,7 +62,7 @@
 
 1613613288 c:\users\giris\desktop\csci191games\common\include\soil.h
 
-1618972323 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_player.h
+1620109556 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_player.h
 	<_common.h>
 	<_texture.h>
 	<_timer.h>
@@ -77,7 +79,7 @@
 	<_timer.h>
 	<_texture.h>
 
-1618954834 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_collision.h
+1620109556 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_collision.h
 	<math.h>
 	<iostream>
 	<conio.h>
@@ -94,7 +96,7 @@
 	<_texture.h>
 	<_common.h>
 
-1618972392 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_collision.cpp
+1620109556 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_collision.cpp
 	"_collision.h"
 
 1617351112 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_fallingobject.cpp
@@ -114,22 +116,23 @@
 1616103990 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_gllight.h
 	<_glScene.h>
 
-1618973666 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_glscene.cpp
+1620248459 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_glscene.cpp
 	"_glScene.h"
 	<_glLight.h>
 	<SOIL.h>
 	<math.h>
 
-1618972891 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_input.cpp
+1620248403 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_input.cpp
 	"_input.h"
+	<windows.h>
 
 1616103990 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_model.cpp
 	"_model.h"
 
-1617351559 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_parallax.cpp
+1619842379 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_parallax.cpp
 	"_parallax.h"
 
-1618973890 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_player.cpp
+1620109556 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_player.cpp
 	"_player.h"
 
 1617322363 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_texture.cpp
@@ -459,13 +462,13 @@
 1617322363 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_popup.cpp
 	"_PopUp.h"
 
-1618902214 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_screensettings.h
+1620109556 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_screensettings.h
 	<iostream>
 	<_common.h>
 	<_texture.h>
 	<GL/gl.h>
 
-1618962782 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_screensettings.cpp
+1620109556 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_screensettings.cpp
 	"_screenSettings.h"
 
 1618902210 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_screensettings.h
@@ -492,5 +495,11 @@
 	<_texture.h>
 
 1618989923 source:d:\graphics\csci-191t-term-project\termproject\src\_credits.cpp
+	"_credits.h"
+
+1619041514 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_credits.h
+	<_texture.h>
+
+1619041514 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_credits.cpp
 	"_credits.h"
 

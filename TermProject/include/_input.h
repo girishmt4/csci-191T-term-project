@@ -29,6 +29,7 @@ class _input
 //         void mouseWheel(_model*,float);
 //         void mouseMove(_model*,float,float);
         void mouseDown(_LandingPage*);
+        void mouseDown(_MenuPage*,GLdouble,GLdouble);
 
          void keyPressed(_LandingPage*);     //input handling for landing page
          void keyPressed(_MenuPage*);        //input handling for menu page

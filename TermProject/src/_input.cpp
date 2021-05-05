@@ -240,6 +240,27 @@ void _input::keyPressed(_LandingPage* lp)
 
 }
 
+void _input::mouseDown(_MenuPage* mp,GLdouble mouseX,GLdouble mouseY)
+{
+    //x y position conditions for the different menu options
+    if(mouseX >= -4.05 && mouseX <= -0.01 && flag == 1 && mouseY >= 0.4 && mouseY <= 1.0)
+    {
+        flag = 3;
+    }
+    else if(mouseX >= -3.23 && mouseX <= -0.97 && flag == 1 && mouseY >= -0.32 && mouseY <= 0.27)
+    {
+        flag = 2;
+    }
+    else if(mouseX >= -3.63 && mouseX <= -0.56 && flag == 1 && mouseY >= -1.03 && mouseY <= -0.44)
+    {
+        flag = 5;
+    }
+    else if(mouseX >= -3.21 && mouseX <= -0.99 && flag == 1 && mouseY >= -1.78 && mouseY <= -1.15)
+    {
+        exit(0);
+    }
+}
+
 void _input::keyPressed(_MenuPage* mp)
 {
      switch(wParam)
