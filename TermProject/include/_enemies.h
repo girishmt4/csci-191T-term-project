@@ -30,8 +30,14 @@ class _enemies
         float framesX, framesY;
         _timer *timerEnemy = new _timer();
         _texture *enemyImage = new _texture();
+        _texture *enemyImageDead = new _texture();
+        _texture *enemyImageAttack = new _texture();
         int dir=1,dir1=1, colCount=0;
         bool colEnmTrue, colEnmLeft, colEnmRight, colEnmUp, colEnmBottom, colEnmTileXPos, colEnmTileYPos;
+        float radius;
+        int spriteChangeEnm=0;
+        bool colEnmAtck;
+        bool level1,level2,level3;
 
     protected:
 

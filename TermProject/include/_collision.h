@@ -8,6 +8,7 @@
 #include<_player.h>
 #include<GL/gl.h>
 #include<_enemies.h>
+#include<_bullet.h>
 
 using namespace std;
 class _collision
@@ -17,7 +18,8 @@ class _collision
         virtual ~_collision();
 
         bool isLinearCollision(float,float);
-        bool isRadialCollision(float,float,float,float,float,float);
+        bool isRadialCollision(_player &,_enemies);
+        bool isRadialCollision(_enemies,_bullet);
         bool isCircleRayCollision(float,float,float,float,float);
         bool isCubic(float,float,float,float);
         bool isSphereCollision(float,float, float,float);

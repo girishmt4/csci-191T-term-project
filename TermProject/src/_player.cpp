@@ -10,7 +10,7 @@ _player::_player()
     vert[1].x=0.5;vert[1].y=-0.5;vert[1].z=0.0;
     vert[2].x=0.5;vert[2].y=0.5;vert[2].z=0.0;
     vert[3].x=-0.5;vert[3].y=0.5;vert[3].z=0.0;
-    radius = 0.5*0.2;
+    radius = 1.0*0.2;
 
 
 }

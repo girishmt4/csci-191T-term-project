@@ -96,6 +96,16 @@ void _input::keyPressed(_player* ply)
         {
             ply->actionTrigger = ply->JUMP;
         }
+    }else if(spaceKey)
+    {
+        ply->colPlyShoot=true;
+        if(ply->cntNumShoot<3)
+        {
+            ply->cntNumShoot++;
+        } else
+        {
+            ply->cntNumShoot=0;
+        }
     }
 
 }

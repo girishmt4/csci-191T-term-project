@@ -23,6 +23,8 @@
 #include <string>
 #include <sstream>
 #include <_enemies.h>
+#include <_health.h>
+#include <_bullet.h>
 
 using namespace std;
 
@@ -60,7 +62,8 @@ class _glScene
         _credits * cp = new _credits();
         _credits * cpname = new _credits();
         _screenSettings scrnStng[7][7];
-
+        _health hlth[3];
+        _bullet blet[3];
         string c;
         string h,j,k;
         char* t;

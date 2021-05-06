@@ -30,7 +30,18 @@ GLint _glScene::initGL()
     glDepthFunc(GL_LEQUAL);
     glEnable(GL_COLOR_MATERIAL);
     _glLight myLight(GL_LIGHT0);
+
 //--------------------------------------Game Level Control-------------------------------------------------------------------------
+    enmy->level1 = level1;
+    enmy->level2 = level2;
+    enmy->level3 = level3;
+    for(int i=0;i<3;i++)
+    {
+        hlth[i].healthInit(i);
+        hlth[i].healthImg->loadTexture("images/health.png");
+        blet[i].bulletInit(7);
+        blet[i].bulletImg->loadTexture("images/gun.png");
+    }
     if(level1)
     {
         for(int i=0;i<7;i++)
@@ -44,12 +55,16 @@ GLint _glScene::initGL()
         timer->startTimer();
         myPly->playerInit(8,2,-1.5);
         myPly->plyImage->loadTexture("images/playerAnimated.png");
-        enmy[0].enemyInit(10,1,3.8,2.15);//---------------------------------Enemy Initialization----
-        enmy[0].enemyImage->loadTexture("images/zombie_walk.png");//---Enemy Image-------------
-        enmy[1].enemyInit(10,1,-2.0,2.15);//---------------------------------Enemy Initialization----
-        enmy[1].enemyImage->loadTexture("images/zombie_walk.png");//---Enemy Image-------------
-        enmy[2].enemyInit(10,1,-3.0,1.15);//---------------------------------Enemy Initialization----
-        enmy[2].enemyImage->loadTexture("images/zombie_walk.png");//---Enemy Image-------------
+
+        enmy[0].enemyInit(12,3,3.8,2.15);//---------------------------------Enemy Initialization----
+        enmy[1].enemyInit(12,3,-2.0,2.15);//---------------------------------Enemy Initialization----
+        enmy[2].enemyInit(12,3,-3.0,1.15);//---------------------------------Enemy Initialization----
+
+        for(int i=0;i<3;i++)
+        {
+                enmy[i].enemyImage->loadTexture("images/zombie_spritesheet.png");//---Enemy Image-------------
+        }
+
         doneInitializing = true;
     }
     if(level2)
@@ -65,12 +80,13 @@ GLint _glScene::initGL()
         timer->startTimer();
         myPly->playerInit(8,2,-1.5);
         myPly->plyImage->loadTexture("images/playerAnimated.png");
-        enmy[0].enemyInit(10,1,3.8,2.05);//---------------------------------Enemy Initialization----
-        enmy[0].enemyImage->loadTexture("images/zombie_walk.png");//---Enemy Image-------------
-        enmy[1].enemyInit(10,1,-3.8,2.15);//---------------------------------Enemy Initialization----
-        enmy[1].enemyImage->loadTexture("images/zombie_walk.png");//---Enemy Image-------------
-        enmy[2].enemyInit(10,1,-3.8,1.15);//---------------------------------Enemy Initialization----
-        enmy[2].enemyImage->loadTexture("images/zombie_walk.png");//---Enemy Image-------------
+        enmy[0].enemyInit(12,3,3.8,2.05);//---------------------------------Enemy Initialization----
+        enmy[1].enemyInit(12,3,-3.8,2.15);//---------------------------------Enemy Initialization----
+        enmy[2].enemyInit(12,3,-3.8,1.15);//---------------------------------Enemy Initialization----
+        for(int i=0;i<3;i++)
+        {
+                enmy[i].enemyImage->loadTexture("images/zombie_spritesheet.png");//---Enemy Image-------------
+        }
         doneInitializing = true;
     }
     else if(level3)
@@ -88,12 +104,13 @@ GLint _glScene::initGL()
         timer->startTimer();
         myPly->playerInit(8,2,-1.125);
         myPly->plyImage->loadTexture("images/playerAnimated.png");
-        enmy[0].enemyInit(10,1,3.8,1.95);//---------------------------------Enemy Initialization----
-        enmy[0].enemyImage->loadTexture("images/zombie_walk.png");//---Enemy Image-------------
-        enmy[1].enemyInit(10,1,-3.5,2.15);//---------------------------------Enemy Initialization----
-        enmy[1].enemyImage->loadTexture("images/zombie_walk.png");//---Enemy Image-------------
-        enmy[2].enemyInit(10,1,-3.5,1.15);//---------------------------------Enemy Initialization----
-        enmy[2].enemyImage->loadTexture("images/zombie_walk.png");//---Enemy Image-------------
+        enmy[0].enemyInit(12,3,3.8,1.95);//---------------------------------Enemy Initialization----
+        enmy[1].enemyInit(12,3,-3.5,2.15);//---------------------------------Enemy Initialization----
+        enmy[2].enemyInit(12,3,-3.5,1.15);//---------------------------------Enemy Initialization----
+        for(int i=0;i<3;i++)
+        {
+                enmy[i].enemyImage->loadTexture("images/zombie_spritesheet.png");//---Enemy Image-------------
+        }
         doneInitializing = true;
     }
 //-----------------------Screen Settings Initialization for Game.--------------------------------------
@@ -187,7 +204,9 @@ GLint _glScene::drawScene()
             for(int i=0;i<3;i++)
             {
                 enmy[i].actions();
+                blet[i].action();
             }
+
             timer->resetTime();
         }
         glPopMatrix();
@@ -196,8 +215,18 @@ GLint _glScene::drawScene()
 
         for(int i=0;i<3;i++)
             {
-                glBindTexture(GL_TEXTURE_2D,enmy[i].enemyImage->tex);
-                enmy[i].drawEnemy();
+                    glBindTexture(GL_TEXTURE_2D,enmy[i].enemyImage->tex);
+                    enmy[i].drawEnemy();
+                    glBindTexture(GL_TEXTURE_2D,hlth[i].healthImg->tex);
+                    hlth[i].drawHlth(i);
+                    if(myPly->colPlyShoot)
+                    {
+                        blet[myPly->cntNumShoot].shoot = myPly->colPlyShoot;
+                        blet[myPly->cntNumShoot].bulletPos.x=(myPly->playerPos.x + myPly->playerScale.x/2.0);
+                        blet[myPly->cntNumShoot].bulletPos.y=(myPly->playerPos.y);
+                        glBindTexture(GL_TEXTURE_2D,blet[i].bulletImg->tex);
+                        blet[i].drawBlt();
+                    }
             }
         glPopMatrix();
 //------------------------------------Screen Settings Draw + Collision------------------------------------
@@ -223,25 +252,39 @@ GLint _glScene::drawScene()
 
                 for(int i=0;i<3;i++)
                 {
-                enmy[i].colEnmTrue = colsn->isBoundedCollision2(enmy[i],&scrnStng[imgfile][y],imgfile,y);
-                /*enmy[1].colEnmTrue = colsn->isBoundedCollision2(enmy[1],scrnStng[imgfile][y],imgfile,y);
-                enmy[2].colEnmTrue = colsn->isBoundedCollision2(enmy[2],scrnStng[imgfile][y],imgfile,y);
-                */
-                if(enmy[i].colEnmTrue)
-                {
-                    enmy[i].autoScroll();
-                    enmy[i].colCount=0;
-                }
-                else
-                {
-                    enmy[i].colCount++;
-                    //cout<<colEnmCount<<endl;
-                    if(enmy[i].colCount==49)
+                    enmy[i].colEnmTrue = colsn->isBoundedCollision2(enmy[i],&scrnStng[imgfile][y],imgfile,y);
+                    /*enmy[1].colEnmTrue = colsn->isBoundedCollision2(enmy[1],scrnStng[imgfile][y],imgfile,y);
+                    enmy[2].colEnmTrue = colsn->isBoundedCollision2(enmy[2],scrnStng[imgfile][y],imgfile,y);
+                    */
+                    if(enmy[i].colEnmTrue)
                     {
-                        enmy[i].autoScrollCol();
+                        enmy[i].autoScroll();
                         enmy[i].colCount=0;
                     }
-                }
+                    else
+                    {
+                        enmy[i].colCount++;
+                        //cout<<colEnmCount<<endl;
+                        if(enmy[i].colCount==49)
+                        {
+                            enmy[i].autoScrollCol();
+                            enmy[i].colCount=0;
+                        }
+                    }
+
+                    myPly->colPlyEnm = colsn->isRadialCollision(*myPly,enmy[i]);
+                    if(enmy[i].colEnmAtck)
+                    {
+                        enmy[i].spriteChangeEnm=1;
+                    }else if(myPly->colPlyEnm)
+                    {
+                        //cout<<"\nThere is a collision"<<endl;
+                        enmy[i].spriteChangeEnm=2;
+                    }
+                    else
+                    {
+                        enmy[i].spriteChangeEnm=3;
+                    }
 
                 }
             if(clsn == true)

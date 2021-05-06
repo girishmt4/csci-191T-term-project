@@ -298,7 +298,7 @@
 	<iostream>
 	<windows.h>
 
-1619664823 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_glscene.h
+1620169424 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_glscene.h
 	<windows.h>
 	<GL/glut.h>
 	<iostream>
@@ -321,6 +321,8 @@
 	<string>
 	<sstream>
 	<_enemies.h>
+	<_health.h>
+	<_bullet.h>
 
 1612228940 c:\chetan files\gamedevelop\common\include\gl\glut.h
 	<windows.h>
@@ -328,7 +330,7 @@
 	<GL/gl.h>
 	<GL/glu.h>
 
-1619041046 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_input.h
+1620242341 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_input.h
 	<windows.h>
 	<_parallax.h>
 	<_player.h>
@@ -350,7 +352,7 @@
 
 1613613471 c:\chetan files\gamedevelop\common\include\soil.h
 
-1619722445 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_player.h
+1620242549 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_player.h
 	<_common.h>
 	<_texture.h>
 	<_timer.h>
@@ -379,7 +381,7 @@
 	<_timer.h>
 	<_texture.h>
 
-1619719684 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_collision.h
+1620241147 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_collision.h
 	<math.h>
 	<iostream>
 	<conio.h>
@@ -387,12 +389,13 @@
 	<_player.h>
 	<GL/gl.h>
 	<_enemies.h>
+	<_bullet.h>
 
 1617326466 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_gamemessage.h
 	<_texture.h>
 	<_common.h>
 
-1619722137 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_collision.cpp
+1620265827 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_collision.cpp
 	"_collision.h"
 
 1617349043 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_fallingobject.cpp
@@ -409,20 +412,20 @@
 1617326466 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_gllight.h
 	<_glScene.h>
 
-1619753820 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_glscene.cpp
+1620244749 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_glscene.cpp
 	"_glScene.h"
 	<_glLight.h>
 	<SOIL.h>
 	<math.h>
 
-1619041053 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_input.cpp
+1620244705 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_input.cpp
 	"_input.h"
 	<windows.h>
 
 1617326466 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_parallax.cpp
 	"_parallax.h"
 
-1619835928 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_player.cpp
+1620065639 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_player.cpp
 	"_player.h"
 
 1617326466 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_texture.cpp
@@ -482,17 +485,17 @@
 	<_texture.h>
 	<GL/gl.h>
 
-1619057968 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_screensettings.cpp
+1620174505 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_screensettings.cpp
 	"_screenSettings.h"
 
-1619664723 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_enemies.h
+1620156804 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_enemies.h
 	<_common.h>
 	<_texture.h>
 	<_timer.h>
 	<iostream>
 	<GL/gl.h>
 
-1619836246 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_enemies.cpp
+1620157847 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_enemies.cpp
 	"_enemies.h"
 
 1618905378 d:\graphics\csci-191t-term-project\termproject\include\_screensettings.h
@@ -533,4 +536,22 @@
 
 1619041046 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_credits.cpp
 	"_credits.h"
+
+1620265701 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_bullet.cpp
+	"_bullet.h"
+
+1620243440 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_bullet.h
+	<iostream>
+	<_common.h>
+	<_texture.h>
+	<GL/gl.h>
+
+1620176696 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_health.cpp
+	"_health.h"
+
+1620173288 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_health.h
+	<iostream>
+	<_common.h>
+	<_texture.h>
+	<GL/gl.h>
 

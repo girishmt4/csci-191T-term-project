@@ -9,6 +9,7 @@ _enemies::_enemies()
     vert[1].x=0.5;vert[1].y=-0.5;vert[1].z=0.0;
     vert[2].x=0.5;vert[2].y=0.5;vert[2].z=0.0;
     vert[3].x=-0.5;vert[3].y=0.5;vert[3].z=0.0;
+    radius = 1.0*0.2;
 }
 
 _enemies::~_enemies()
@@ -30,8 +31,8 @@ void _enemies::enemyInit(float X, float Y,float xPosition,float yPosition)
 
     xMin=1.0/framesX;
     xMax=0.0;
-    yMin=0.0;
-    yMax=1.0/framesY;
+    yMin=2.0/framesY;
+    yMax=1.0;
 }
 
 void _enemies::drawEnemy()
@@ -53,8 +54,62 @@ void _enemies::drawEnemy()
 
 void _enemies::actions()
 {
-    xMin += 1/framesX;
-    xMax += 1/framesX;
+    if(spriteChangeEnm==1)
+    {
+        enemyScale.x=0.6;
+        enemyScale.y=0.6;
+        yMin=0;
+        yMax=1.0/framesY;
+        if(xMin<7/framesX)
+        {
+            xMin += 1/framesX;
+            xMax += 1/framesX;
+        } else
+        {
+            xMin=1.0/framesX;
+            xMax=0.0;
+        }
+    } else if(spriteChangeEnm==2)
+    {
+        enemyScale.x=0.7;
+        enemyScale.y=0.7;
+        yMin=(1.0/framesY) +0.05;
+        yMax=2.0/framesY - 0.05;
+        xMin += 1/framesX;
+        xMax += 1/framesX;
+        if(xMax>=1.0)
+        {
+            if(level1)
+            {
+                enemyPos.x=3.8;
+                enemyPos.y=2.15;
+            } else if(level2)
+            {
+                enemyPos.x=3.8;
+                enemyPos.y=2.05;
+            } else if(level3)
+            {
+                enemyPos.x=3.8;
+                enemyPos.y=1.95;
+            }
+        }
+    } else if(spriteChangeEnm==3)
+    {
+        enemyScale.x=0.6;
+        enemyScale.y=0.6;
+        if(xMin<9/framesX)
+        {
+            xMin += 1/framesX;
+            xMax += 1/framesX;
+        } else
+        {
+            yMin=2.0/framesY;
+            yMax=1.0;
+            xMin=1.0/framesX;
+            xMax=0.0;
+        }
+    }
+
 }
 
 void _enemies::autoScroll()

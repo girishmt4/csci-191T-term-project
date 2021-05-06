@@ -16,9 +16,32 @@ bool _collision::isLinearCollision(float x1, float x2)
    return false;
 }
 
-bool _collision::isRadialCollision(float x1, float y1, float x2, float y2, float r1, float r2)
+bool _collision::isRadialCollision(_player &plyr, _enemies enms)
 {
-    if(sqrt(pow(x1-x2,2)+pow(y1-y2,2))<r1+r2)return true;
+    float a_x =(plyr.playerPos.x + (plyr.playerScale.x/2.0));
+    float a_y =(plyr.playerPos.y + (plyr.playerScale.y/2.0));
+    float b_x =(enms.enemyPos.x + (enms.enemyScale.x/2.0));
+    float b_y =(enms.enemyPos.y + (enms.enemyScale.y/2.0));
+    if(((b_y-a_y)<0.8) &&((b_x-a_x)<0.8))
+    {
+        enms.colEnmAtck=true;
+    } else
+    {
+        enms.colEnmAtck=false;
+    }
+
+
+    if(sqrt(pow(a_x-b_x,2)+pow(a_y-b_y,2))<plyr.radius+enms.radius)return true;
+    return false;
+}
+bool _collision::isRadialCollision(_enemies enm, _bullet bllt)
+{
+    float c_x =(bllt.bulletPos.x + (bllt.bulletScale.x/2.0));
+    float c_y =(bllt.bulletPos.y + (bllt.bulletScale.y/2.0));
+    float d_x =(enm.enemyPos.x + (enm.enemyScale.x/2.0));
+    float d_y =(enm.enemyPos.y + (enm.enemyScale.y/2.0));
+
+    if(sqrt(pow(c_x-d_x,2)+pow(c_y-d_y,2))<bllt.radius+enm.radius)return true;
     return false;
 }
 
