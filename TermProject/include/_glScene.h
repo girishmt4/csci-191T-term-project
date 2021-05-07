@@ -4,6 +4,8 @@
 #include <windows.h>
 #include <GL/glut.h>
 #include <iostream>
+#include <vector>
+#include <algorithm>
 #include <_input.h>
 #include <_texture.h>
 #include <_parallax.h>
@@ -22,6 +24,8 @@
 #include <string>
 #include <sstream>
 #include <_enemies.h>
+#include <_health.h>
+#include <_bullet.h>
 #include <_sounds.h>
 
 
@@ -57,10 +61,13 @@ class _glScene
         _HelpPage *helpp = new _HelpPage();
         _PopUp *pup = new _PopUp();
         _collision *colsn = new _collision();
-        _enemies *enmy = new _enemies();
+        _enemies enmy[3];
         _credits * cp = new _credits();
         _credits * cpname = new _credits();
         _screenSettings scrnStng[7][7];
+        _health hlth[3];
+        int colEnmCount=0, noblts=10;
+        _bullet blet[10];
         _sounds *snds = new _sounds();
 
 
@@ -69,6 +76,7 @@ class _glScene
         char* t;
         bool clsn = false, enmClsn = false;
         ostringstream str1;
+
 
         int winMsg(HWND,UINT,WPARAM,LPARAM);
         WPARAM wParam;

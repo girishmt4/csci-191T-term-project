@@ -10,7 +10,7 @@ _player::_player()
     vert[1].x=0.5;vert[1].y=-0.5;vert[1].z=0.0;
     vert[2].x=0.5;vert[2].y=0.5;vert[2].z=0.0;
     vert[3].x=-0.5;vert[3].y=0.5;vert[3].z=0.0;
-    radius = 0.5*0.2;
+    radius = 1.0*0.2;
 
 
 }
@@ -102,8 +102,8 @@ void _player::actions()
             //cout<<colPlyTrue<<colPlyUp<<endl;
 
             playerPos.y += jumpSpeed;
-            cout<<"Bottom "<<colBottom<<endl;
-            cout<<"Up "<<colUp<<endl;
+            //cout<<"Bottom "<<colBottom<<endl;
+            //cout<<"Up "<<colUp<<endl;
             if(colBottom)
             {
                 playerPos.y -= jumpSpeed;
@@ -147,9 +147,6 @@ void _player::actions()
         {
             //cout<<colUp;
 
-            playerPos.y -= gravity;
-
-
             break;
         }
         case WALK_RIGHT_JUMP:
@@ -183,4 +180,18 @@ void _player::actions()
             break;
         }
     }
+}
+void _player::falldown()
+{
+    if(!colUp)
+        {
+           if(playerPos.y <= -2.2)
+            {
+            playerPos.y = 2.15;
+            }
+            else
+            {
+            playerPos.y -=0.001;
+            }
+        }
 }

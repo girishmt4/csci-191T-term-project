@@ -27,11 +27,13 @@ void _input::keyPressed(_player* ply)
     {
     case VK_LEFT:
         {
+            ply->colPlyDir=false;
             leftKey=true;
             break;
         }
     case VK_RIGHT:
         {
+            ply->colPlyDir=true;
             rightKey=true;
             break;
         }
@@ -95,6 +97,16 @@ void _input::keyPressed(_player* ply)
         else
         {
             ply->actionTrigger = ply->JUMP;
+        }
+    }else if(spaceKey)
+    {
+        ply->colPlyShoot=true;
+        if(ply->cntNumShoot<11)
+        {
+            ply->cntNumShoot++;
+        } else
+        {
+            ply->cntNumShoot=1;
         }
     }
 

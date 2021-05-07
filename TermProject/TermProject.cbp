@@ -49,14 +49,16 @@
 		<Unit filename="include/_LandingPage.h" />
 		<Unit filename="include/_MenuPage.h" />
 		<Unit filename="include/_PopUp.h" />
+		<Unit filename="include/_bullet.h" />
 		<Unit filename="include/_collision.h" />
 		<Unit filename="include/_common.h" />
-		<Unit filename="include/_enemies.h" />
 		<Unit filename="include/_credits.h" />
+		<Unit filename="include/_enemies.h" />
 		<Unit filename="include/_fallingObject.h" />
 		<Unit filename="include/_gameMessage.h" />
 		<Unit filename="include/_glLight.h" />
 		<Unit filename="include/_glScene.h" />
+		<Unit filename="include/_health.h" />
 		<Unit filename="include/_input.h" />
 		<Unit filename="include/_parallax.h" />
 		<Unit filename="include/_player.h" />
@@ -67,13 +69,15 @@
 		<Unit filename="src/_LandingPage.cpp" />
 		<Unit filename="src/_MenuPage.cpp" />
 		<Unit filename="src/_PopUp.cpp" />
+		<Unit filename="src/_bullet.cpp" />
 		<Unit filename="src/_collision.cpp" />
-		<Unit filename="src/_enemies.cpp" />
 		<Unit filename="src/_credits.cpp" />
+		<Unit filename="src/_enemies.cpp" />
 		<Unit filename="src/_fallingObject.cpp" />
 		<Unit filename="src/_gameMessage.cpp" />
 		<Unit filename="src/_glLight.cpp" />
 		<Unit filename="src/_glScene.cpp" />
+		<Unit filename="src/_health.cpp" />
 		<Unit filename="src/_input.cpp" />
 		<Unit filename="src/_parallax.cpp" />
 		<Unit filename="src/_player.cpp" />
@@ -82,9 +86,6 @@
 		<Unit filename="src/_timer.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
-			<code_completion />
-			<envvars />
-			<debugger />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

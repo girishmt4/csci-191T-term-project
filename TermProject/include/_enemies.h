@@ -20,7 +20,7 @@ class _enemies
         vec3 enemyScale;       //enemy size
         vec3 vert[4];           //rectangle around enemy
 
-        void enemyInit(float, float, float);      //initialize enemy - passing horizontal and vertical frames from sprite sheet
+        void enemyInit(float, float,float, float);      //initialize enemy - passing horizontal and vertical frames from sprite sheet
         void drawEnemy();      //rendering the enemy
         void actions();         //enemy actions
         void autoScroll();
@@ -30,8 +30,14 @@ class _enemies
         float framesX, framesY;
         _timer *timerEnemy = new _timer();
         _texture *enemyImage = new _texture();
-        int dir=1,dir1=1;
-        bool colEnmTrue, colEnmLeft, colEnmRight, colEnmUp, colEnmBottom;
+        _texture *enemyImageDead = new _texture();
+        _texture *enemyImageAttack = new _texture();
+        int dir=1,dir1=1, colCount=0;
+        bool colEnmTrue, colEnmLeft, colEnmRight, colEnmUp, colEnmBottom, colEnmTileXPos, colEnmTileYPos;
+        float radius;
+        int spriteChangeEnm=0;
+        bool colEnmAtck;
+        bool level1,level2,level3;
 
     protected:
 
