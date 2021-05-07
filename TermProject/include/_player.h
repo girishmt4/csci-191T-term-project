@@ -35,6 +35,7 @@ class _player
         int hitCount;
         float gravity = 0.2;
         float jumpSpeed = 0.450;
+        float yVelocity = 0.00;
 
         _timer *timer = new _timer();
         _texture *plyImage = new _texture();

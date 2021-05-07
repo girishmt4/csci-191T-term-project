@@ -287,6 +287,7 @@ GLint _glScene::drawScene()
                 //cout<<"Right "<<myPly->colRight<<endl;
                 //myPly->playerLanded = 0;
 
+        myPly->colCount=0;
          for(int imgfile = 0; imgfile < 7; imgfile++)
         {
 
@@ -297,47 +298,6 @@ GLint _glScene::drawScene()
 
             clsn = colsn->isBoundedCollision(*myPly,&scrnStng[imgfile][y],imgfile,y);
             //clsn = colsn->isBoundedCollision(*myPly,scrnStng[imgfile][y],imgfile,y);
-
-                for(int i=0;i<3;i++)
-                {
-                    /*blet[i].colTile= colsn->isBoundedCollision3(blet[i],&scrnStng[imgfile][y],imgfile,y);
-                    if(blet[i].colTile)
-                    {
-                        myPly->colPlyShoot= false;
-                    }*/
-
-                    enmy[i].colEnmTrue = colsn->isBoundedCollision2(enmy[i],&scrnStng[imgfile][y],imgfile,y);
-                    if(enmy[i].colEnmTrue)
-                    {
-                        enmy[i].autoScroll();
-                        enmy[i].colCount=0;
-                    }
-                    else
-                    {
-                        enmy[i].colCount++;
-                        //cout<<colEnmCount<<endl;
-                        if(enmy[i].colCount==49)
-                        {
-                            enmy[i].autoScrollCol();
-                            enmy[i].colCount=0;
-                        }
-                    }
-
-                    myPly->colPlyEnm = colsn->isRadialCollision(*myPly,enmy[i]);
-                    if(enmy[i].colEnmAtck)
-                    {
-                        enmy[i].spriteChangeEnm=2;
-                    }else if(myPly->colPlyEnm)
-                    {
-                        //cout<<"\nThere is a collision"<<endl;
-                        enmy[i].spriteChangeEnm=1;
-                    }
-                    else
-                    {
-                        enmy[i].spriteChangeEnm=3;
-                    }
-
-                }
             if(clsn == true)
             {
                 //myPly->playerLanded += 1;
@@ -350,7 +310,7 @@ GLint _glScene::drawScene()
                 //myPly->startWalk=true;
                 //cout<<"Collision = true at"<<imgfile<<" "<<y+1<<endl;
                 //cout<<myPly->colUp<<endl;
-                myPly->colCount=0;
+                //myPly->colCount=0;
                 if(scrnStng[imgfile][y].colUp)
                 {
                     //myPly->playerLanded = true;
@@ -405,10 +365,10 @@ GLint _glScene::drawScene()
             else
             {
                 myPly->colCount++;
-                if(myPly->colCount==49)
+                if(myPly->colCount==49 && myPly->actionTrigger != myPly->JUMP && myPly->actionTrigger != myPly->WALK_LEFT_JUMP && myPly->actionTrigger != myPly->WALK_RIGHT_JUMP)
                 {
-                    myPly->falldown();
-                    myPly->colCount=0;
+                    myPly->actionTrigger = myPly->FALL_DOWN;
+                    //myPly->colCount=0;
                 }
                 scrnStng[imgfile][y].colLeft= false;
                 scrnStng[imgfile][y].colRight= false;
@@ -417,11 +377,50 @@ GLint _glScene::drawScene()
                 //scrnStng[imgfile][y].colPlyTrue=false;
                 //myPly->actionTrigger = myPly->FALL_DOWN;
             }
-            if(enmClsn == true)
-            {
 
-                //cout<<"Collision of enemy = true at"<<imgfile+1<<" "<<y+1<<endl;
-            }
+
+                for(int i=0;i<3;i++)
+                {
+                    /*blet[i].colTile= colsn->isBoundedCollision3(blet[i],&scrnStng[imgfile][y],imgfile,y);
+                    if(blet[i].colTile)
+                    {
+                        myPly->colPlyShoot= false;
+                    }*/
+
+                    enmy[i].colEnmTrue = colsn->isBoundedCollision2(enmy[i],&scrnStng[imgfile][y],imgfile,y);
+                    if(enmy[i].colEnmTrue)
+                    {
+                        enmy[i].autoScroll();
+                        enmy[i].colCount=0;
+                    }
+                    else
+                    {
+                        enmy[i].colCount++;
+                        //cout<<colEnmCount<<endl;
+                        if(enmy[i].colCount==49)
+                        {
+                            enmy[i].autoScrollCol();
+                            enmy[i].colCount=0;
+                        }
+                    }
+
+                    myPly->colPlyEnm = colsn->isRadialCollision(*myPly,enmy[i]);
+                    if(enmy[i].colEnmAtck)
+                    {
+                        enmy[i].spriteChangeEnm=2;
+                    }else if(myPly->colPlyEnm)
+                    {
+                        //cout<<"\nThere is a collision"<<endl;
+                        enmy[i].spriteChangeEnm=1;
+                    }
+                    else
+                    {
+                        enmy[i].spriteChangeEnm=3;
+                    }
+
+                }
+
+
           }
 
         }
