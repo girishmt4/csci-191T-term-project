@@ -193,7 +193,7 @@ GLint _glScene::drawScene()
         glLoadIdentity();
         glPushMatrix();
         glTranslated(0,0,-8.0);  //placing objects on the screen
-        glScalef(2.4, 2.4, 1.0);  //scale to fit within the screen
+        glScalef(2.5, 2.5, 1.0);  //scale to fit within the screen
         helpp -> renderBack(screenWidth, screenHeight);       //create background for help page
         glPopMatrix();
     }

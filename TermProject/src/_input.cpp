@@ -88,6 +88,7 @@ void _input::keyPressed(_player* ply)
         {
             ply->actionTrigger = ply->WALK_LEFT_JUMP;
             ply->playerPos.x -= 0.02;
+
         }
         else if(rightKey)
         {

@@ -151,10 +151,12 @@
 	<iostream>
 	<windows.h>
 
-1620404755 d:\graphics\csci-191t-term-project\termproject\include\_glscene.h
+1620421295 d:\graphics\csci-191t-term-project\termproject\include\_glscene.h
 	<windows.h>
 	<GL/glut.h>
 	<iostream>
+	<vector>
+	<algorithm>
 	<_input.h>
 	<_texture.h>
 	<_parallax.h>
@@ -173,6 +175,8 @@
 	<string>
 	<sstream>
 	<_enemies.h>
+	<_health.h>
+	<_bullet.h>
 	<_sounds.h>
 
 1607167179 d:\graphics\common\include\gl\glut.h
@@ -204,7 +208,7 @@
 
 1502817372 d:\graphics\common\include\soil.h
 
-1620400674 d:\graphics\csci-191t-term-project\termproject\include\_player.h
+1620421295 d:\graphics\csci-191t-term-project\termproject\include\_player.h
 	<_common.h>
 	<_texture.h>
 	<_timer.h>
@@ -221,7 +225,7 @@
 	<_timer.h>
 	<_texture.h>
 
-1620400674 d:\graphics\csci-191t-term-project\termproject\include\_collision.h
+1620421295 d:\graphics\csci-191t-term-project\termproject\include\_collision.h
 	<math.h>
 	<iostream>
 	<conio.h>
@@ -229,6 +233,7 @@
 	<_player.h>
 	<GL/gl.h>
 	<_enemies.h>
+	<_bullet.h>
 
 1617313469 d:\graphics\csci-191t-term-project\termproject\include\_gamemessage.h
 	<_texture.h>
@@ -251,20 +256,20 @@
 1617313469 d:\graphics\csci-191t-term-project\termproject\include\_gllight.h
 	<_glScene.h>
 
-1620409019 source:d:\graphics\csci-191t-term-project\termproject\src\_glscene.cpp
+1620421295 source:d:\graphics\csci-191t-term-project\termproject\src\_glscene.cpp
 	"_glScene.h"
 	<_glLight.h>
 	<SOIL.h>
 	<math.h>
 
-1620408847 source:d:\graphics\csci-191t-term-project\termproject\src\_input.cpp
+1620421295 source:d:\graphics\csci-191t-term-project\termproject\src\_input.cpp
 	"_input.h"
 	<windows.h>
 
 1617313469 source:d:\graphics\csci-191t-term-project\termproject\src\_parallax.cpp
 	"_parallax.h"
 
-1620400674 source:d:\graphics\csci-191t-term-project\termproject\src\_player.cpp
+1620421295 source:d:\graphics\csci-191t-term-project\termproject\src\_player.cpp
 	"_player.h"
 
 1617317536 source:d:\graphics\csci-191t-term-project\termproject\src\_texture.cpp
@@ -511,7 +516,7 @@
 	<_texture.h>
 	<GL/gl.h>
 
-1620400674 source:d:\graphics\csci-191t-term-project\termproject\src\_screensettings.cpp
+1620421295 source:d:\graphics\csci-191t-term-project\termproject\src\_screensettings.cpp
 	"_screenSettings.h"
 
 1618976978 shed changes
@@ -563,14 +568,14 @@
 	<_texture.h>
 	<GL/gl.h>
 
-1620400674 d:\graphics\csci-191t-term-project\termproject\include\_enemies.h
+1620421295 d:\graphics\csci-191t-term-project\termproject\include\_enemies.h
 	<_common.h>
 	<_texture.h>
 	<_timer.h>
 	<iostream>
 	<GL/gl.h>
 
-1620400674 source:d:\graphics\csci-191t-term-project\termproject\src\_enemies.cpp
+1620421295 source:d:\graphics\csci-191t-term-project\termproject\src\_enemies.cpp
 	"_enemies.h"
 
 1620404213 source:d:\graphics\csci-191t-term-project\termproject\src\_sounds.cpp
@@ -676,4 +681,22 @@
 1517252424 d:\graphics\common\include\snds\ik_iaudiorecorder.h
 	"ik_IRefCounted.h"
 	"ik_ISoundSource.h"
+
+1620421295 d:\graphics\csci-191t-term-project\termproject\include\_bullet.h
+	<iostream>
+	<_common.h>
+	<_texture.h>
+	<GL/gl.h>
+
+1620421295 d:\graphics\csci-191t-term-project\termproject\include\_health.h
+	<iostream>
+	<_common.h>
+	<_texture.h>
+	<GL/gl.h>
+
+1620421295 source:d:\graphics\csci-191t-term-project\termproject\src\_particles.cpp
+	"_particles.h"
+
+1620421857 d:\graphics\csci-191t-term-project\termproject\include\_particles.h
+	<math.h>
 
