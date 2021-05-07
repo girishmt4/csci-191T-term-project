@@ -110,6 +110,8 @@ GLint _glScene::initGL()
     lpdecor->landingPageInit("images/rain.png");
     cp->creditsPageInit("images/credits.jpg");
     cpname->creditsPageInit("images/names.png");
+    snds->initSounds();
+    snds->playMusic("sounds/zombie.mp3");
 
     return true;
 }
@@ -396,6 +398,8 @@ int _glScene::winMsg(HWND	hWnd,			// Handle For This Window
             kbMs->keyPressed(helpp);       //Handling key inputs on the help page
             kbMs->keyPressed(pup);      //Handling key inputs on the game pause pop up screen
             kbMs->keyPressed(cp);       //handling key inputs on credits page
+            kbMs->keyPressed(snds);
+
 			break;
 		}
 

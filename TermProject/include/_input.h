@@ -9,19 +9,20 @@
 #include<_MenuPage.h>
 #include<_PopUp.h>
 #include<_credits.h>
+#include<_sounds.h>
 
 class _input
 {
     public:
         _input();
         virtual ~_input();
-         void keyPressed(_player*);
-
-         void moveEnv(_parallax *,float);
-         void keyUp();
-         void keyUp(_player*);
+        void keyPressed(_player*);
+        void keyPressed(_sounds *);
+        void moveEnv(_parallax *,float);
+        void keyUp();
+        void keyUp(_player*);
          //enum {UP,DOWN,RIGHT,LEFT,SPACE};
-         bool upKey,downKey,rightKey,leftKey,spaceKey;
+        bool upKey,downKey,rightKey,leftKey,spaceKey;
 
 
 //         void mouseDown(_model*,float, float);

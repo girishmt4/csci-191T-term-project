@@ -22,6 +22,8 @@
 #include <string>
 #include <sstream>
 #include <_enemies.h>
+#include <_sounds.h>
+
 
 using namespace std;
 
@@ -59,6 +61,8 @@ class _glScene
         _credits * cp = new _credits();
         _credits * cpname = new _credits();
         _screenSettings scrnStng[7][7];
+        _sounds *snds = new _sounds();
+
 
         string c;
         string h,j,k;
