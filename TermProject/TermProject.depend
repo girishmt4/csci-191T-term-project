@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1618902214 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\main.cpp
+1620416329 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\main.cpp
 	<windows.h>
 	<_glScene.h>
 	<GL/glut.h>
@@ -7,10 +7,12 @@
 	<iostream>
 	<windows.h>
 
-1619041514 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_glscene.h
+1620416345 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_glscene.h
 	<windows.h>
 	<GL/glut.h>
 	<iostream>
+	<vector>
+	<algorithm>
 	<_input.h>
 	<_texture.h>
 	<_parallax.h>
@@ -29,6 +31,9 @@
 	<string>
 	<sstream>
 	<_enemies.h>
+	<_health.h>
+	<_bullet.h>
+	<_sounds.h>
 
 1612228921 c:\users\giris\desktop\csci191games\common\include\gl\glut.h
 	<windows.h>
@@ -41,7 +46,7 @@
 	<GL/glut.h>
 	<iostream>
 
-1619041514 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_input.h
+1620416329 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_input.h
 	<windows.h>
 	<_parallax.h>
 	<_player.h>
@@ -50,6 +55,7 @@
 	<_MenuPage.h>
 	<_PopUp.h>
 	<_credits.h>
+	<_sounds.h>
 
 1616103990 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_parallax.h
 	<string>
@@ -63,7 +69,7 @@
 
 1613613288 c:\users\giris\desktop\csci191games\common\include\soil.h
 
-1619041521 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_player.h
+1620424423 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_player.h
 	<_common.h>
 	<_texture.h>
 	<_timer.h>
@@ -80,7 +86,7 @@
 	<_timer.h>
 	<_texture.h>
 
-1619041521 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_collision.h
+1620416345 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_collision.h
 	<math.h>
 	<iostream>
 	<conio.h>
@@ -88,6 +94,7 @@
 	<_player.h>
 	<GL/gl.h>
 	<_enemies.h>
+	<_bullet.h>
 
 1616791904 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_finishflag.h
 	<_common.h>
@@ -98,7 +105,7 @@
 	<_texture.h>
 	<_common.h>
 
-1619041521 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_collision.cpp
+1620416345 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_collision.cpp
 	"_collision.h"
 
 1617351112 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_fallingobject.cpp
@@ -118,13 +125,13 @@
 1616103990 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_gllight.h
 	<_glScene.h>
 
-1619041521 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_glscene.cpp
+1620424863 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_glscene.cpp
 	"_glScene.h"
 	<_glLight.h>
 	<SOIL.h>
 	<math.h>
 
-1619041521 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_input.cpp
+1620416345 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_input.cpp
 	"_input.h"
 	<windows.h>
 
@@ -134,7 +141,7 @@
 1619842379 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_parallax.cpp
 	"_parallax.h"
 
-1619041521 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_player.cpp
+1620424338 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_player.cpp
 	"_player.h"
 
 1617322363 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_texture.cpp
@@ -477,13 +484,13 @@
 1617322363 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_popup.cpp
 	"_PopUp.h"
 
-1619041521 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_screensettings.h
+1620415425 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_screensettings.h
 	<iostream>
 	<_common.h>
 	<_texture.h>
 	<GL/gl.h>
 
-1619041521 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_screensettings.cpp
+1620416345 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_screensettings.cpp
 	"_screenSettings.h"
 
 1619041053 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_screensettings.h
@@ -529,14 +536,14 @@
 	"_credits.h"
 	"_credits.h"
 
-1619041514 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_enemies.h
+1620416345 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_enemies.h
 	<_common.h>
 	<_texture.h>
 	<_timer.h>
 	<iostream>
 	<GL/gl.h>
 
-1619039989 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_enemies.cpp
+1620416345 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_enemies.cpp
 	"_enemies.h"
 
 1619041046 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_credits.h
@@ -676,4 +683,126 @@
 1517252424 d:\graphics\common\include\snds\ik_iaudiorecorder.h
 	"ik_IRefCounted.h"
 	"ik_ISoundSource.h"
+
+1620416329 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_sounds.h
+	<iostream>
+	<SNDS/irrKlang.h>
+
+1617669014 c:\users\giris\desktop\csci191games\common\include\snds\irrklang.h
+	"ik_irrKlangTypes.h"
+	"ik_vec3d.h"
+	"ik_IRefCounted.h"
+	"ik_IVirtualRefCounted.h"
+	"ik_ESoundOutputDrivers.h"
+	"ik_ESoundEngineOptions.h"
+	"ik_EStreamModes.h"
+	"ik_SAudioStreamFormat.h"
+	"ik_ISoundEngine.h"
+	"ik_ISoundSource.h"
+	"ik_ISound.h"
+	"ik_IAudioStream.h"
+	"ik_IAudioStreamLoader.h"
+	"ik_ISoundEffectControl.h"
+	"ik_ISoundStopEventReceiver.h"
+	"ik_IFileFactory.h"
+	"ik_IFileReader.h"
+	"ik_ISoundDeviceList.h"
+	"ik_IAudioRecorder.h"
+	"ik_ISoundMixedOutputReceiver.h"
+
+1617669014 c:\users\giris\desktop\csci191games\common\include\snds\ik_irrklangtypes.h
+	<wchar.h>
+
+1617669014 c:\users\giris\desktop\csci191games\common\include\snds\ik_vec3d.h
+	<math.h>
+	"ik_irrKlangTypes.h"
+
+1617669014 c:\users\giris\desktop\csci191games\common\include\snds\ik_irefcounted.h
+	"ik_irrKlangTypes.h"
+
+1617669014 c:\users\giris\desktop\csci191games\common\include\snds\ik_ivirtualrefcounted.h
+	"ik_irrKlangTypes.h"
+
+1617669014 c:\users\giris\desktop\csci191games\common\include\snds\ik_esoundoutputdrivers.h
+
+1617669014 c:\users\giris\desktop\csci191games\common\include\snds\ik_esoundengineoptions.h
+
+1617669014 c:\users\giris\desktop\csci191games\common\include\snds\ik_estreammodes.h
+
+1617669014 c:\users\giris\desktop\csci191games\common\include\snds\ik_saudiostreamformat.h
+	"ik_IRefCounted.h"
+
+1617669014 c:\users\giris\desktop\csci191games\common\include\snds\ik_isoundengine.h
+	"ik_IRefCounted.h"
+	"ik_vec3d.h"
+	"ik_ISoundSource.h"
+	"ik_ISound.h"
+	"ik_EStreamModes.h"
+	"ik_IFileFactory.h"
+	"ik_ISoundMixedOutputReceiver.h"
+
+1617669014 c:\users\giris\desktop\csci191games\common\include\snds\ik_isoundsource.h
+	"ik_IVirtualRefCounted.h"
+	"ik_vec3d.h"
+	"ik_EStreamModes.h"
+	"ik_SAudioStreamFormat.h"
+
+1617669014 c:\users\giris\desktop\csci191games\common\include\snds\ik_isound.h
+	"ik_IVirtualRefCounted.h"
+	"ik_ISoundEffectControl.h"
+	"ik_vec3d.h"
+
+1617669014 c:\users\giris\desktop\csci191games\common\include\snds\ik_isoundeffectcontrol.h
+	"ik_IVirtualRefCounted.h"
+	"ik_vec3d.h"
+
+1617669014 c:\users\giris\desktop\csci191games\common\include\snds\ik_ifilefactory.h
+	"ik_IRefCounted.h"
+
+1617669014 c:\users\giris\desktop\csci191games\common\include\snds\ik_isoundmixedoutputreceiver.h
+	"ik_IRefCounted.h"
+	"ik_SAudioStreamFormat.h"
+
+1617669014 c:\users\giris\desktop\csci191games\common\include\snds\ik_iaudiostream.h
+	"ik_IRefCounted.h"
+	"ik_SAudioStreamFormat.h"
+
+1617669014 c:\users\giris\desktop\csci191games\common\include\snds\ik_iaudiostreamloader.h
+	"ik_IRefCounted.h"
+	"ik_IFileReader.h"
+
+1617669014 c:\users\giris\desktop\csci191games\common\include\snds\ik_ifilereader.h
+	"ik_IRefCounted.h"
+
+1617669014 c:\users\giris\desktop\csci191games\common\include\snds\ik_isoundstopeventreceiver.h
+	"ik_IRefCounted.h"
+	"ik_SAudioStreamFormat.h"
+
+1617669014 c:\users\giris\desktop\csci191games\common\include\snds\ik_isounddevicelist.h
+	"ik_IRefCounted.h"
+
+1617669014 c:\users\giris\desktop\csci191games\common\include\snds\ik_iaudiorecorder.h
+	"ik_IRefCounted.h"
+	"ik_ISoundSource.h"
+
+1620416345 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_bullet.h
+	<iostream>
+	<_common.h>
+	<_texture.h>
+	<GL/gl.h>
+
+1620416345 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_health.h
+	<iostream>
+	<_common.h>
+	<_texture.h>
+	<GL/gl.h>
+
+1620416345 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_bullet.cpp
+	"_bullet.h"
+
+1620416345 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_health.cpp
+	"_health.h"
+
+1620416329 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_sounds.cpp
+	"_sounds.h"
 
