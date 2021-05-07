@@ -146,7 +146,15 @@ void _player::actions()
         case FALL_DOWN:
         {
             //cout<<colUp;
-
+            yVelocity -= gravity/2.0;
+            playerPos.y += yVelocity;
+            if(playerPos.y<-2.5)
+            {
+                cout<<"Player Dead"<<endl;
+                playerInit(8,2,-1.5);
+                actionTrigger = STAND;
+                yVelocity = 0.0;
+            }
             break;
         }
         case WALK_RIGHT_JUMP:
@@ -159,7 +167,6 @@ void _player::actions()
             //cout<<<<endl;
             if(playerPos.y<plyPosY)
             {
-
                 //playerPos.y = -1.475;
                 playerPos.y = plyPosY;
                 actionTrigger = STAND;
@@ -183,15 +190,5 @@ void _player::actions()
 }
 void _player::falldown()
 {
-    if(!colUp)
-        {
-           if(playerPos.y <= -2.2)
-            {
-            playerPos.y = 2.15;
-            }
-            else
-            {
-            playerPos.y -=0.001;
-            }
-        }
+
 }

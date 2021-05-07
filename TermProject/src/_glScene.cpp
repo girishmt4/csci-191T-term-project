@@ -181,6 +181,17 @@ GLint _glScene::drawScene()
         glBindTexture(GL_TEXTURE_2D,myPly->plyImage->tex);
         myPly->drawPlayer();
 
+        //------------------------------------Enemy Settings------------------------------------------------------
+        glPushMatrix();
+
+        for(int i=0;i<3;i++)
+            {
+                glBindTexture(GL_TEXTURE_2D,enmy[i].enemyImage->tex);
+                enmy[i].drawEnemy();
+            }
+        glPopMatrix();
+
+        //enemy and player actions
         if(timer->getTicks() > 120)
         {
             myPly->actions();
@@ -191,25 +202,11 @@ GLint _glScene::drawScene()
             timer->resetTime();
         }
         glPopMatrix();
-//------------------------------------Enemy Settings------------------------------------------------------
-        glPushMatrix();
 
-        for(int i=0;i<3;i++)
-            {
-                glBindTexture(GL_TEXTURE_2D,enmy[i].enemyImage->tex);
-                enmy[i].drawEnemy();
-            }
-        glPopMatrix();
 //------------------------------------Screen Settings Draw + Collision------------------------------------
         glPushMatrix(); // group my object
 
-
-        //cout<<"Bottom "<<myPly->colBottom<<endl;
-                //cout<<"Up "<<myPly->colUp<<endl;
-                //cout<<"Left "<<myPly->colLeft<<endl;
-                //cout<<"Right "<<myPly->colRight<<endl;
-                //myPly->playerLanded = 0;
-
+        myPly->colCount=0;
          for(int imgfile = 0; imgfile < 7; imgfile++)
         {
 
@@ -219,14 +216,73 @@ GLint _glScene::drawScene()
             scrnStng[imgfile][y].drwScn(imgfile,y);
 
             clsn = colsn->isBoundedCollision(*myPly,&scrnStng[imgfile][y],imgfile,y);
-            //clsn = colsn->isBoundedCollision(*myPly,scrnStng[imgfile][y],imgfile,y);
 
-                for(int i=0;i<3;i++)
+            //check if player collides with the top of the tile
+            //if yes then hold the position
+            //else change the action trigger to fall down
+            if(clsn == true)
+            {
+                //PLAYER COLLIDES WITH THE TOP OF THE TILE
+                if(scrnStng[imgfile][y].colUp)
                 {
+                    myPly->plyPosY = (scrnStng[imgfile][y].scenePos[imgfile][y].y + (scrnStng[imgfile][y].sceneScale[imgfile].y/2.0)) + (myPly->playerScale.y/2.0) - 0.1;
+                }
+
+                //PLAYER COLLIDES WITH THE LEFT OF THE TILE
+                if(scrnStng[imgfile][y].colLeft)
+                {
+                    if(kbMs->rightKey)
+                    {
+                        myPly->playerPos.x = (scrnStng[imgfile][y].scenePos[imgfile][y].x - (scrnStng[imgfile][y].sceneScale[imgfile].x/2.0)) - (myPly->playerScale.x/2.0) - 0.1;
+                    }
+                }
+
+                //PLAYER COLLIDES WITH THE RIGHT OF THE TILE
+                if(scrnStng[imgfile][y].colRight)
+                {
+                    if(kbMs->leftKey)
+                    {
+                        myPly->playerPos.x = (scrnStng[imgfile][y].scenePos[imgfile][y].x + (scrnStng[imgfile][y].sceneScale[imgfile].x/2.0)) + (myPly->playerScale.x/2.0) - 0.1;
+                        //myPly->playerPos.x -= 0.02;
+                    }
+                }
+
+                //PLAYER COLLIDES WITH THE BOTTOM OF THE TILE
+                if(scrnStng[imgfile][y].colBottom)
+                {
+                    if(kbMs->upKey)
+                    {
+                        myPly->playerPos.y = (scrnStng[imgfile][y].scenePos[imgfile][y].y - (scrnStng[imgfile][y].sceneScale[imgfile].y/2.0)) - (myPly->playerScale.y/2.0);
+                    }
+                }
+            }
+            else
+            {
+                myPly->colCount++;
+                if(myPly->colCount==49 && myPly->actionTrigger != myPly->JUMP && myPly->actionTrigger != myPly->WALK_LEFT_JUMP && myPly->actionTrigger != myPly->WALK_RIGHT_JUMP)
+                {
+                    myPly->actionTrigger = myPly->FALL_DOWN;
+                }
+                scrnStng[imgfile][y].colLeft= false;
+                scrnStng[imgfile][y].colRight= false;
+                scrnStng[imgfile][y].colUp= false;
+                scrnStng[imgfile][y].colBottom= false;
+                //scrnStng[imgfile][y].colPlyTrue=false;
+                //myPly->actionTrigger = myPly->FALL_DOWN;
+            }
+
+
+
+            //for each enemy, check the collision with the top of the tile
+            //if yes, then auto scroll
+            //if not, then fall down
+
+            for(int i=0;i<3;i++)
+            {
+                //if enm collision with tile top
+                //then autoscroll()
+                //else falldown
                 enmy[i].colEnmTrue = colsn->isBoundedCollision2(enmy[i],&scrnStng[imgfile][y],imgfile,y);
-                /*enmy[1].colEnmTrue = colsn->isBoundedCollision2(enmy[1],scrnStng[imgfile][y],imgfile,y);
-                enmy[2].colEnmTrue = colsn->isBoundedCollision2(enmy[2],scrnStng[imgfile][y],imgfile,y);
-                */
                 if(enmy[i].colEnmTrue)
                 {
                     enmy[i].autoScroll();
@@ -243,86 +299,8 @@ GLint _glScene::drawScene()
                     }
                 }
 
-                }
-            if(clsn == true)
-            {
-                //myPly->playerLanded += 1;
-                //cout<<"Bottom "<<myPly->colBottom<<endl;
-                //cout<<"Up "<<myPly->colUp<<endl;
-                //cout<<"Bottom "<<myPly->colBottom<<endl;
-                //cout<<"Up "<<myPly->colUp<<endl;
-                //cout<<"Left "<<myPly->colLeft<<endl;
-                //cout<<"Right "<<myPly->colRight<<endl;
-                //myPly->startWalk=true;
-                //cout<<"Collision = true at"<<imgfile<<" "<<y+1<<endl;
-                //cout<<myPly->colUp<<endl;
-                myPly->colCount=0;
-                if(scrnStng[imgfile][y].colUp)
-                {
-                    //myPly->playerLanded = true;
-                    //myPly->actionTrigger=myPly->STAND;
-                    //cout<<"Collision happened"<<endl;
-
-
-                    //jumpSpeed = 0.360;
-                    //myPly->playerLanded += 1;
-                    myPly->plyPosY = (scrnStng[imgfile][y].scenePos[imgfile][y].y + (scrnStng[imgfile][y].sceneScale[imgfile].y/2.0)) + (myPly->playerScale.y/2.0) - 0.1;
-                   //myPly->playerPos.y = myPly->plyPosY;
-                    //myPly->actionTrigger = myPly->STAND;
-                }
-
-                if(scrnStng[imgfile][y].colLeft)
-
-                {
-                    //cout<<"left collision";
-                    if(kbMs->rightKey)
-                    {
-                        myPly->playerPos.x = (scrnStng[imgfile][y].scenePos[imgfile][y].x - (scrnStng[imgfile][y].sceneScale[imgfile].x/2.0)) - (myPly->playerScale.x/2.0) - 0.1;
-                    }
-                }
-                if(scrnStng[imgfile][y].colRight)
-                {
-                    if(kbMs->leftKey)
-                    {
-                        myPly->playerPos.x = (scrnStng[imgfile][y].scenePos[imgfile][y].x + (scrnStng[imgfile][y].sceneScale[imgfile].x/2.0)) + (myPly->playerScale.x/2.0) - 0.1;
-                        //myPly->playerPos.x -= 0.02;
-                    }
-                }
-                if(scrnStng[imgfile][y].colBottom)
-                {
-                    if(kbMs->upKey)
-                    {
-                        myPly->playerPos.y = (scrnStng[imgfile][y].scenePos[imgfile][y].y - (scrnStng[imgfile][y].sceneScale[imgfile].y/2.0)) - (myPly->playerScale.y/2.0);
-                    }
-                }
-                /*if(scrnStng[imgfile][y].colRight)
-                {
-                    if(kbMs->leftKey)
-                    {
-                        myPly->playerPos.x += 0.02;
-                    }
-                }*/
-
-                /*else
-                {
-                    myPly->plyPosY = myPly->playerPos.y;
-                }*/
             }
-            else
-            {
-                myPly->colCount++;
-                if(myPly->colCount==49)
-                {
-                    myPly->falldown();
-                    myPly->colCount=0;
-                }
-                scrnStng[imgfile][y].colLeft= false;
-                scrnStng[imgfile][y].colRight= false;
-                scrnStng[imgfile][y].colUp= false;
-                scrnStng[imgfile][y].colBottom= false;
-                //scrnStng[imgfile][y].colPlyTrue=false;
-                //myPly->actionTrigger = myPly->FALL_DOWN;
-            }
+
             if(enmClsn == true)
             {
 
@@ -331,14 +309,6 @@ GLint _glScene::drawScene()
           }
 
         }
-        /*if(myPly->playerLanded == 0)
-        {
-            myPly->actionTrigger=myPly->FALL_DOWN;
-        }*/
-        /*if((!myPly->playerLanded) && (myPly->actionTrigger!= myPly->JUMP) && (myPly->actionTrigger!= myPly->WALK_LEFT_JUMP) && (myPly->actionTrigger!= myPly->WALK_RIGHT_JUMP))
-        {
-            myPly->actionTrigger=myPly->FALL_DOWN;
-        }*/
         glPopMatrix(); // exit the group
 
         if(myPly->playerPos.x > 4.2)

@@ -16,6 +16,9 @@ class _enemies
         _enemies();
         virtual ~_enemies();
 
+        enum {LANDED, NOT_LANDED};
+        int actionTrigger;
+
         vec3 enemyPos;         //enemy position settings
         vec3 enemyScale;       //enemy size
         vec3 vert[4];           //rectangle around enemy
