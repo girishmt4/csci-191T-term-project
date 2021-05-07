@@ -110,6 +110,8 @@ GLint _glScene::initGL()
     lpdecor->landingPageInit("images/rain.png");
     cp->creditsPageInit("images/credits.jpg");
     cpname->creditsPageInit("images/names.png");
+    snds->initSounds();
+    snds->playMusic("sounds/zombie.mp3");
 
     return true;
 }
