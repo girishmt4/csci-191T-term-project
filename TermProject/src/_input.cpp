@@ -351,6 +351,16 @@ void _input::keyPressed(_credits* cp)
     }
 }
 
+void _input::keyPressed(_sounds* snds)
+{
+    switch(wParam)
+    {
+    case VK_SPACE:
+        snds->playSound("sounds/keypress.wav");
+        break;
+    }
+}
+
 /*
 void _input::mouseWheel(_model* mdl, float delta )
 {

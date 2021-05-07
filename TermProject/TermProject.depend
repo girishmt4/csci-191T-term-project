@@ -181,7 +181,7 @@
 	<GL/gl.h>
 	<GL/glu.h>
 
-1620400705 d:\graphics\csci-191t-term-project\termproject\include\_input.h
+1620408318 d:\graphics\csci-191t-term-project\termproject\include\_input.h
 	<windows.h>
 	<_parallax.h>
 	<_player.h>
@@ -190,6 +190,7 @@
 	<_MenuPage.h>
 	<_PopUp.h>
 	<_credits.h>
+	<_sounds.h>
 
 1617313469 d:\graphics\csci-191t-term-project\termproject\include\_parallax.h
 	<string>
@@ -250,13 +251,13 @@
 1617313469 d:\graphics\csci-191t-term-project\termproject\include\_gllight.h
 	<_glScene.h>
 
-1620406355 source:d:\graphics\csci-191t-term-project\termproject\src\_glscene.cpp
+1620409019 source:d:\graphics\csci-191t-term-project\termproject\src\_glscene.cpp
 	"_glScene.h"
 	<_glLight.h>
 	<SOIL.h>
 	<math.h>
 
-1620400705 source:d:\graphics\csci-191t-term-project\termproject\src\_input.cpp
+1620408847 source:d:\graphics\csci-191t-term-project\termproject\src\_input.cpp
 	"_input.h"
 	<windows.h>
 

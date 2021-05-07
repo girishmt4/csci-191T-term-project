@@ -398,6 +398,8 @@ int _glScene::winMsg(HWND	hWnd,			// Handle For This Window
             kbMs->keyPressed(helpp);       //Handling key inputs on the help page
             kbMs->keyPressed(pup);      //Handling key inputs on the game pause pop up screen
             kbMs->keyPressed(cp);       //handling key inputs on credits page
+            kbMs->keyPressed(snds);
+
 			break;
 		}
 
