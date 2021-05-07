@@ -40,7 +40,7 @@ class _player
         _texture *plyImage = new _texture();
         int playerLanded;
         bool colLeft, colRight, colUp, colBottom, colPlyTrue;
-        bool colPlyEnm, colPlyShoot;
+        bool colPlyEnm, colPlyShoot, colPlyDir;
         float plyPosY,plyPosX;
         int colCount = 0, cntNumShoot = 0;
 

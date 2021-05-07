@@ -35,15 +35,23 @@ GLint _glScene::initGL()
     enmy->level1 = level1;
     enmy->level2 = level2;
     enmy->level3 = level3;
-    for(int i=0;i<3;i++)
-    {
-        hlth[i].healthInit(i);
-        hlth[i].healthImg->loadTexture("images/health.png");
-        blet[i].bulletInit(7);
-        blet[i].bulletImg->loadTexture("images/gun.png");
-    }
+        for(int i=0;i<3;i++)
+        {
+            hlth[i].healthInit(i);
+            hlth[i].healthImg->loadTexture("images/health.png");
+        }
+        for(int i=0;i<noblts;i++)
+        {
+            blet[i].bulletInit(7);
+            blet[i].bulletImg->loadTexture("images/gun.png");
+            blet[i].bulletPos.x=(myPly->playerPos.x + myPly->playerScale.x/2.0);
+            blet[i].bulletPos.y=(myPly->playerPos.y);
+        }
     if(level1)
     {
+        myPly->colPlyShoot=false;
+        myPly->cntNumShoot=0;
+
         for(int i=0;i<7;i++)
         {
           for(int j=0;j<7;j++)
@@ -69,6 +77,9 @@ GLint _glScene::initGL()
     }
     if(level2)
     {
+        myPly->colPlyShoot=false;
+        myPly->cntNumShoot=0;
+
         for(int i=0;i<7;i++)
         {
           for(int j=0;j<7;j++)
@@ -91,6 +102,9 @@ GLint _glScene::initGL()
     }
     else if(level3)
     {
+        myPly->colPlyShoot=false;
+        myPly->cntNumShoot=0;
+
         for(int i=0;i<7;i++)
         {
           for(int j=0;j<7;j++)
@@ -204,9 +218,11 @@ GLint _glScene::drawScene()
             for(int i=0;i<3;i++)
             {
                 enmy[i].actions();
+            }
+            for(int i=0;i<noblts;i++)
+            {
                 blet[i].action();
             }
-
             timer->resetTime();
         }
         glPopMatrix();
@@ -214,19 +230,49 @@ GLint _glScene::drawScene()
         glPushMatrix();
 
         for(int i=0;i<3;i++)
-            {
+        {
                     glBindTexture(GL_TEXTURE_2D,enmy[i].enemyImage->tex);
                     enmy[i].drawEnemy();
                     glBindTexture(GL_TEXTURE_2D,hlth[i].healthImg->tex);
                     hlth[i].drawHlth(i);
-                    if(myPly->colPlyShoot)
+        }
+        for(int i=0;i<noblts;i++)
+            {
+            if(myPly->colPlyShoot&&myPly->cntNumShoot>0)
+            {
+                int ij = myPly->cntNumShoot -1;
+                blet[ij].bltDir = myPly->colPlyDir;
+                if(myPly->colPlyDir)
+                {
+                    blet[ij].xMin = 0.0;
+                    blet[ij].xMax = 1.0/blet[ij].xFrame;
+                    blet[ij].bulletPos.x=(myPly->playerPos.x + myPly->playerScale.x/2.0);
+                    blet[ij].bulletPos.y=(myPly->playerPos.y);
+                }
+                else
+                {
+                    blet[ij].xMax = 0.0;
+                    blet[ij].xMin = 1.0/blet[ij].xFrame;
+                    blet[ij].bulletPos.x=(myPly->playerPos.x - myPly->playerScale.x/2.0);
+                    blet[ij].bulletPos.y=(myPly->playerPos.y);
+                }
+
+                for(int j=0; j<3; j++)
+                {
+                    blet[i].colTile= colsn->isRadialCollision2(enmy[j], blet[i]);
+                    //cout<<"\n"<<blet[i].colTile<<endl;
+                    if(blet[i].colTile)
                     {
-                        blet[myPly->cntNumShoot].shoot = myPly->colPlyShoot;
-                        blet[myPly->cntNumShoot].bulletPos.x=(myPly->playerPos.x + myPly->playerScale.x/2.0);
-                        blet[myPly->cntNumShoot].bulletPos.y=(myPly->playerPos.y);
-                        glBindTexture(GL_TEXTURE_2D,blet[i].bulletImg->tex);
-                        blet[i].drawBlt();
+                        enmy[j].spriteChangeEnm=2;
                     }
+                    else
+                    {
+                        enmy[j].spriteChangeEnm=3;
+                    }
+                }
+                glBindTexture(GL_TEXTURE_2D,blet[i].bulletImg->tex);
+                blet[i].drawBlt();
+            }
             }
         glPopMatrix();
 //------------------------------------Screen Settings Draw + Collision------------------------------------
@@ -252,10 +298,13 @@ GLint _glScene::drawScene()
 
                 for(int i=0;i<3;i++)
                 {
+                    /*blet[i].colTile= colsn->isBoundedCollision3(blet[i],&scrnStng[imgfile][y],imgfile,y);
+                    if(blet[i].colTile)
+                    {
+                        myPly->colPlyShoot= false;
+                    }*/
+
                     enmy[i].colEnmTrue = colsn->isBoundedCollision2(enmy[i],&scrnStng[imgfile][y],imgfile,y);
-                    /*enmy[1].colEnmTrue = colsn->isBoundedCollision2(enmy[1],scrnStng[imgfile][y],imgfile,y);
-                    enmy[2].colEnmTrue = colsn->isBoundedCollision2(enmy[2],scrnStng[imgfile][y],imgfile,y);
-                    */
                     if(enmy[i].colEnmTrue)
                     {
                         enmy[i].autoScroll();
@@ -275,11 +324,11 @@ GLint _glScene::drawScene()
                     myPly->colPlyEnm = colsn->isRadialCollision(*myPly,enmy[i]);
                     if(enmy[i].colEnmAtck)
                     {
-                        enmy[i].spriteChangeEnm=1;
+                        enmy[i].spriteChangeEnm=2;
                     }else if(myPly->colPlyEnm)
                     {
                         //cout<<"\nThere is a collision"<<endl;
-                        enmy[i].spriteChangeEnm=2;
+                        enmy[i].spriteChangeEnm=1;
                     }
                     else
                     {

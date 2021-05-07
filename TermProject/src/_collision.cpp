@@ -22,7 +22,7 @@ bool _collision::isRadialCollision(_player &plyr, _enemies enms)
     float a_y =(plyr.playerPos.y + (plyr.playerScale.y/2.0));
     float b_x =(enms.enemyPos.x + (enms.enemyScale.x/2.0));
     float b_y =(enms.enemyPos.y + (enms.enemyScale.y/2.0));
-    if(((b_y-a_y)<0.8) &&((b_x-a_x)<0.8))
+    if((abs(b_y-a_y)<0.8) ||(abs(b_x-a_x)<0.8))
     {
         enms.colEnmAtck=true;
     } else
@@ -30,11 +30,10 @@ bool _collision::isRadialCollision(_player &plyr, _enemies enms)
         enms.colEnmAtck=false;
     }
 
-
     if(sqrt(pow(a_x-b_x,2)+pow(a_y-b_y,2))<plyr.radius+enms.radius)return true;
     return false;
 }
-bool _collision::isRadialCollision(_enemies enm, _bullet bllt)
+bool _collision::isRadialCollision2(_enemies &enm, _bullet &bllt)
 {
     float c_x =(bllt.bulletPos.x + (bllt.bulletScale.x/2.0));
     float c_y =(bllt.bulletPos.y + (bllt.bulletScale.y/2.0));
@@ -173,4 +172,16 @@ bool _collision::isBoundedCollision2(_enemies e, _screenSettings *b, int i, int 
 
 }
 
+bool _collision::isBoundedCollision3(_bullet blt, _screenSettings* ss, int i, int j)
+{
+
+     // collision x-axis?
+        bool bcollisionX = (blt.bulletPos.x + (blt.bulletScale.x/2.0)) >= ((ss->scenePos[i][j].x)-(ss->sceneScale[i].x/2.0)) && (ss->scenePos[i][j].x + (ss->sceneScale[i].x/2.0)) >= (blt.bulletPos.x -(blt.bulletScale.x/2.0));
+        // collision y-axis?
+
+        bool bcollisionY = (blt.bulletScale.y + (blt.bulletScale.y/2.0)) >= ((ss->scenePos[i][j].y)-(ss->sceneScale[i].y/2.0)) && (ss->scenePos[i][j].y + (ss->sceneScale[i].y/2.0)) >= (blt.bulletPos.y -(blt.bulletScale.y/2.0));
+        // collision only if on both axes
+
+    return bcollisionX && bcollisionY;
+}
 

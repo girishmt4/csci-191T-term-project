@@ -26,7 +26,7 @@ class _bullet
         _texture *bulletImg = new _texture();
         int xFrame;
         float radius;
-        bool shoot;
+        bool shoot, colTile, bltDir = true;
 
     protected:
 

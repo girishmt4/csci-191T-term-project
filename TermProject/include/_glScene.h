@@ -63,13 +63,14 @@ class _glScene
         _credits * cpname = new _credits();
         _screenSettings scrnStng[7][7];
         _health hlth[3];
-        _bullet blet[3];
+        int colEnmCount=0, noblts=10;
+        _bullet blet[10];
         string c;
         string h,j,k;
         char* t;
         bool clsn = false, enmClsn = false;
         ostringstream str1;
-        int colEnmCount=0;
+
 
         int winMsg(HWND,UINT,WPARAM,LPARAM);
         WPARAM wParam;

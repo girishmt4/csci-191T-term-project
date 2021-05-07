@@ -7,6 +7,7 @@ _bullet::_bullet()
     vert[1].x=0.5;vert[1].y=-0.5;vert[1].z= -1;
     vert[2].x=0.5;vert[2].y=0.5;vert[2].z= -1;
     vert[3].x=-0.5;vert[3].y=0.5;vert[3].z= -1;
+    radius = 0.25*0.2;
 }
 
 _bullet::~_bullet()
@@ -20,17 +21,29 @@ void _bullet::bulletInit(int F)
      bulletScale.x = 0.25; bulletScale.y = 0.25; bulletScale.z = 1.0;
      xFrame= F;
      xMin=0.0; xMax=1.0/xFrame; yMin=0.0; yMax=1.0;
-     radius = 1.0*0.2;
+
 }
 
 void _bullet::action()
 {
-        if(bulletPos.x<3.0)
+       if(bltDir)
+       {
+           if(bulletPos.x<6.0)
         {
             bulletPos.x+=0.15;
             xMin += 1.0/xFrame;
             xMax += 1.0/xFrame;
         }
+       } else
+       {
+           if(bulletPos.x<6.0)
+        {
+            bulletPos.x-=0.15;
+            xMin += 1.0/xFrame;
+            xMax += 1.0/xFrame;
+        }
+       }
+
 
 }
 
