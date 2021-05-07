@@ -18,6 +18,7 @@
 #include<_HelpPage.h>
 #include<_MenuPage.h>
 #include<_PopUp.h>
+#include<_credits.h>
 #include <_screenSettings.h>
 #include <conio.h>
 #include <string>
@@ -25,6 +26,8 @@
 #include <_enemies.h>
 #include <_health.h>
 #include <_bullet.h>
+#include <_sounds.h>
+
 
 using namespace std;
 
@@ -65,6 +68,9 @@ class _glScene
         _health hlth[3];
         int colEnmCount=0, noblts=10;
         _bullet blet[10];
+        _sounds *snds = new _sounds();
+
+
         string c;
         string h,j,k;
         char* t;
@@ -74,6 +80,32 @@ class _glScene
 
         int winMsg(HWND,UINT,WPARAM,LPARAM);
         WPARAM wParam;
+        GLdouble posmX, posmY;
+
+        void GetOGLPos(int x, int y)            //Mouse map coordinates
+        {
+            GLint viewport[4];
+            GLdouble modelview[16];
+            GLdouble projection[16];
+
+            GLfloat winX, winY, winZ;
+            GLdouble posX, posY, posZ;
+
+            glGetDoublev(GL_MODELVIEW_MATRIX, modelview);
+            glGetDoublev(GL_PROJECTION_MATRIX, projection);
+            glGetIntegerv(GL_VIEWPORT, viewport);
+
+            winX = (float)x;
+            winY = (float)viewport[3] - (float)y;
+
+            glReadPixels(x, int(winY), 1, 1, GL_DEPTH_COMPONENT, GL_FLOAT, &winZ);
+
+            gluUnProject(winX, winY, winZ, modelview, projection, viewport, &posX, &posY, &posZ);
+
+            posmX = posX;
+            posmY = posY;
+
+        }
 
     protected:
 

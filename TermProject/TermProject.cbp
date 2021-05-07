@@ -62,7 +62,6 @@
 		<Unit filename="include/_input.h" />
 		<Unit filename="include/_parallax.h" />
 		<Unit filename="include/_player.h" />
-		<Unit filename="include/_screenSettings.h" />
 		<Unit filename="include/_texture.h" />
 		<Unit filename="include/_timer.h" />
 		<Unit filename="main.cpp" />

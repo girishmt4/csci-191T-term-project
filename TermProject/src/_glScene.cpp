@@ -153,6 +153,8 @@ GLint _glScene::initGL()
     lpdecor->landingPageInit("images/rain.png");
     cp->creditsPageInit("images/credits.jpg");
     cpname->creditsPageInit("images/names.png");
+    snds->initSounds();
+    snds->playMusic("sounds/zombie.mp3");
 
     return true;
 }
@@ -525,6 +527,8 @@ int _glScene::winMsg(HWND	hWnd,			// Handle For This Window
             kbMs->keyPressed(helpp);       //Handling key inputs on the help page
             kbMs->keyPressed(pup);      //Handling key inputs on the game pause pop up screen
             kbMs->keyPressed(cp);       //handling key inputs on credits page
+            kbMs->keyPressed(snds);
+
 			break;
 		}
 
@@ -536,22 +540,30 @@ int _glScene::winMsg(HWND	hWnd,			// Handle For This Window
 		}
 
 		case WM_LBUTTONDOWN:
-            {
+        {
+                GetOGLPos(LOWORD(lParam),HIWORD(lParam));
+
+                cout<<"Mouse Click location:" << posmX<<" "<< posmY<<endl;        //print out grid value
+
 //                kbMs ->mouseDown(modelTeapot, LOWORD(lParam),HIWORD(lParam));
                 kbMs ->mouseDown(landp);
+                kbMs ->mouseDown(menup,posmX,posmY);
 
                 break;
-            }
+        }
+
         case WM_RBUTTONDOWN:
             {
 //                kbMs ->mouseDown(modelTeapot, LOWORD(lParam),HIWORD(lParam));
                 kbMs ->mouseDown(landp);
               break;
             }
+
         case WM_MBUTTONDOWN:
             {
                 break;
             }
+
         case WM_LBUTTONUP:
         case WM_RBUTTONUP:
         case WM_MBUTTONUP:
@@ -559,6 +571,7 @@ int _glScene::winMsg(HWND	hWnd,			// Handle For This Window
                 kbMs->mouseUp();
                break;
             }
+
         case WM_MOUSEMOVE:
             {
 //                kbMs ->mouseMove(modelTeapot, LOWORD(lParam),HIWORD(lParam));
