@@ -9,8 +9,6 @@ _particles::~_particles()
 {
     //dtor
 }
-<<<<<<< Updated upstream
-=======
 
 void _particles::drawDrops()
 {
@@ -45,6 +43,8 @@ void _particles::particleGenerator()
 {
     int i = 0;      //iterator
 
+    srand(time(NULL));
+
     int newDrops = (rand()%1000)/20;
 
     if(numDrops + newDrops > MAX_DROPS)
@@ -53,11 +53,11 @@ void _particles::particleGenerator()
         for(i = numDrops; i<numDrops + newDrops; i++)
         {
             drops[i].alive = true;
-            drops[i].posX = -0.8 + (rand()%1000/1000);
-            drops[i].posY = 0.8 + (rand()%1000/1000);
-            drops[i].xDir = -0.0075 + (rand()%1000)*25/100000);
+            drops[i].posX = -0.8 + (rand()%1000/10000.0);
+            drops[i].posY = 0.8 + (rand()%1000/10000.0);
+            drops[i].xDir = -0.0075 + (rand()%1000)*25/100000.0);
             drops[i].yDir = 0.0;
-            drops[i].mass = 0.5 + rand()%1000/2000;
+            drops[i].mass = 0.5 + rand()%1000/2000.0;
         }
 
         numDrops += newDrops;
@@ -65,4 +65,3 @@ void _particles::particleGenerator()
         numDrops >= MAX_DROPS?numDrops=0:NULL;
 
 }
->>>>>>> Stashed changes

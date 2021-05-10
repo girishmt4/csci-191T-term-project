@@ -151,7 +151,7 @@
 	<iostream>
 	<windows.h>
 
-1620421295 d:\graphics\csci-191t-term-project\termproject\include\_glscene.h
+1620690550 d:\graphics\csci-191t-term-project\termproject\include\_glscene.h
 	<windows.h>
 	<GL/glut.h>
 	<iostream>
@@ -178,6 +178,7 @@
 	<_health.h>
 	<_bullet.h>
 	<_sounds.h>
+	<_particles.h>
 
 1607167179 d:\graphics\common\include\gl\glut.h
 	<windows.h>
@@ -208,16 +209,28 @@
 
 1502817372 d:\graphics\common\include\soil.h
 
-<<<<<<< Updated upstream
-1620421295 d:\graphics\csci-191t-term-project\termproject\include\_player.h
-=======
-1620435989 d:\graphics\csci-191t-term-project\termproject\include\_player.h
->>>>>>> Stashed changes
+1617313469 ated upstream
+
+1620690550 d:\graphics\csci-191t-term-project\termproject\include\_player.h
 	<_common.h>
 	<_texture.h>
 	<_timer.h>
 	<iostream>
 	<GL/gl.h>
+
+1618976978 shed changes
+	<_common.h>
+	<_texture.h>
+	<_timer.h>
+	<iostream>
+	<GL/gl.h>
+	"_glScene.h"
+	<_glLight.h>
+	<SOIL.h>
+	<math.h>
+	"_input.h"
+	<windows.h>
+	"_player.h"
 
 1617313469 d:\graphics\csci-191t-term-project\termproject\include\_common.h
 
@@ -260,33 +273,14 @@
 1617313469 d:\graphics\csci-191t-term-project\termproject\include\_gllight.h
 	<_glScene.h>
 
-<<<<<<< Updated upstream
-1620421295 source:d:\graphics\csci-191t-term-project\termproject\src\_glscene.cpp
-=======
 1620435989 source:d:\graphics\csci-191t-term-project\termproject\src\_glscene.cpp
->>>>>>> Stashed changes
-	"_glScene.h"
-	<_glLight.h>
-	<SOIL.h>
-	<math.h>
 
-<<<<<<< Updated upstream
-1620421295 source:d:\graphics\csci-191t-term-project\termproject\src\_input.cpp
-=======
 1620435989 source:d:\graphics\csci-191t-term-project\termproject\src\_input.cpp
->>>>>>> Stashed changes
-	"_input.h"
-	<windows.h>
 
 1617313469 source:d:\graphics\csci-191t-term-project\termproject\src\_parallax.cpp
 	"_parallax.h"
 
-<<<<<<< Updated upstream
-1620421295 source:d:\graphics\csci-191t-term-project\termproject\src\_player.cpp
-=======
 1620435989 source:d:\graphics\csci-191t-term-project\termproject\src\_player.cpp
->>>>>>> Stashed changes
-	"_player.h"
 
 1617317536 source:d:\graphics\csci-191t-term-project\termproject\src\_texture.cpp
 	"_texture.h"
@@ -535,8 +529,6 @@
 1620421295 source:d:\graphics\csci-191t-term-project\termproject\src\_screensettings.cpp
 	"_screenSettings.h"
 
-1618976978 shed changes
-
 1618989923 d:\graphics\csci-191t-term-project\termproject\include\_credits.h
 	<_texture.h>
 
@@ -703,8 +695,16 @@
 	<_common.h>
 	<_texture.h>
 	<GL/gl.h>
+	<iostream>
+	<_common.h>
+	<_texture.h>
+	<GL/gl.h>
 
 1620421295 d:\graphics\csci-191t-term-project\termproject\include\_health.h
+	<iostream>
+	<_common.h>
+	<_texture.h>
+	<GL/gl.h>
 	<iostream>
 	<_common.h>
 	<_texture.h>
@@ -713,18 +713,7 @@
 1620421295 source:d:\graphics\csci-191t-term-project\termproject\src\_particles.cpp
 	"_particles.h"
 
-1620421857 d:\graphics\csci-191t-term-project\termproject\include\_particles.h
+1620690550 d:\graphics\csci-191t-term-project\termproject\include\_particles.h
 	<math.h>
-
-1620421295 d:\graphics\csci-191t-term-project\termproject\include\_bullet.h
-	<iostream>
-	<_common.h>
-	<_texture.h>
-	<GL/gl.h>
-
-1620421295 d:\graphics\csci-191t-term-project\termproject\include\_health.h
-	<iostream>
-	<_common.h>
-	<_texture.h>
 	<GL/gl.h>
 
