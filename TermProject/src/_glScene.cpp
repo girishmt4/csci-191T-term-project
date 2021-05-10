@@ -156,6 +156,7 @@ GLint _glScene::initGL()
     snds->initSounds();
     snds->playMusic("sounds/zombie.mp3");
 
+
     return true;
 }
 
@@ -484,6 +485,14 @@ GLint _glScene::drawScene()
     glPopMatrix();
     }
 
+     p->particleGenerator();
+
+     glPushMatrix();
+        glTranslatef(0.6, -1.25, 0.0);
+            p->drawDrops();
+        glPopMatrix();
+
+    p->update();
 }
 
 
