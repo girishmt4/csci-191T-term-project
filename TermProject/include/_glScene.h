@@ -1,6 +1,9 @@
 #ifndef _GLSCENE_H
 #define _GLSCENE_H
 
+#define GLEW_STATIC
+
+#include <GL/glew.h>
 #include <windows.h>
 #include <GL/glut.h>
 #include <iostream>
@@ -27,6 +30,7 @@
 #include <_health.h>
 #include <_bullet.h>
 #include <_sounds.h>
+#include <_shaders.h>
 
 
 using namespace std;
@@ -69,6 +73,7 @@ class _glScene
         int colEnmCount=0, noblts=10;
         _bullet blet[10];
         _sounds *snds = new _sounds();
+        _shaders *shd = new _shaders();
 
 
         string c;
