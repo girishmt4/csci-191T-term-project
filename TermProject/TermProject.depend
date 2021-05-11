@@ -256,8 +256,10 @@
 	<_texture.h>
 	<_common.h>
 
-1620400674 source:d:\graphics\csci-191t-term-project\termproject\src\_collision.cpp
+1620707874 source:d:\graphics\csci-191t-term-project\termproject\src\_collision.cpp
 	"_collision.h"
+	<cmath>
+	<stdlib.h>
 
 1617830310 source:d:\graphics\csci-191t-term-project\termproject\src\_fallingobject.cpp
 	"_fallingObject.h"
