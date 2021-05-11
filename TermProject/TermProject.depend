@@ -273,14 +273,21 @@
 1617313469 d:\graphics\csci-191t-term-project\termproject\include\_gllight.h
 	<_glScene.h>
 
-1620435989 source:d:\graphics\csci-191t-term-project\termproject\src\_glscene.cpp
+1620691418 source:d:\graphics\csci-191t-term-project\termproject\src\_glscene.cpp
+	"_glScene.h"
+	<_glLight.h>
+	<SOIL.h>
+	<math.h>
 
-1620435989 source:d:\graphics\csci-191t-term-project\termproject\src\_input.cpp
+1620690550 source:d:\graphics\csci-191t-term-project\termproject\src\_input.cpp
+	"_input.h"
+	<windows.h>
 
 1617313469 source:d:\graphics\csci-191t-term-project\termproject\src\_parallax.cpp
 	"_parallax.h"
 
-1620435989 source:d:\graphics\csci-191t-term-project\termproject\src\_player.cpp
+1620690550 source:d:\graphics\csci-191t-term-project\termproject\src\_player.cpp
+	"_player.h"
 
 1617317536 source:d:\graphics\csci-191t-term-project\termproject\src\_texture.cpp
 	"_texture.h"
@@ -710,10 +717,13 @@
 	<_texture.h>
 	<GL/gl.h>
 
-1620421295 source:d:\graphics\csci-191t-term-project\termproject\src\_particles.cpp
+1620706428 source:d:\graphics\csci-191t-term-project\termproject\src\_particles.cpp
 	"_particles.h"
+	<cstddef>
+	<cstdlib>
+	<time.h>
 
-1620690550 d:\graphics\csci-191t-term-project\termproject\include\_particles.h
+1620706154 d:\graphics\csci-191t-term-project\termproject\include\_particles.h
 	<math.h>
 	<GL/gl.h>
 

@@ -1,4 +1,7 @@
 #include "_particles.h"
+#include <cstddef>
+#include <cstdlib>
+#include <time.h>
 
 _particles::_particles()
 {
@@ -12,6 +15,8 @@ _particles::~_particles()
 
 void _particles::drawDrops()
 {
+    glColor3f(1.0,0.5,0.2);
+
     glPointSize(3);
 
     glBegin(GL_POINTS);
@@ -55,7 +60,7 @@ void _particles::particleGenerator()
             drops[i].alive = true;
             drops[i].posX = -0.8 + (rand()%1000/10000.0);
             drops[i].posY = 0.8 + (rand()%1000/10000.0);
-            drops[i].xDir = -0.0075 + (rand()%1000)*25/100000.0);
+            drops[i].xDir = -0.0075 + (rand()%1000)*25/100000.0;
             drops[i].yDir = 0.0;
             drops[i].mass = 0.5 + rand()%1000/2000.0;
         }
