@@ -852,10 +852,10 @@
 1620715841 source:d:\graphics\csci-191t-term-project\termproject\src\_shaders.cpp
 	"_shaders.h"
 
-1620716119 d:\graphics\csci-191t-term-project\termproject\include\_shaders.h
+1620768152 d:\graphics\csci-191t-term-project\termproject\include\_shaders.h
 	<GL/glew.h>
 	<GL/glu.h>
-	<string.h>
+	<string>
 	<sstream>
 	<iostream>
 	<fstream>

@@ -5,7 +5,7 @@
 
 #include <GL/glew.h>
 #include <GL/glu.h>
-#include <string.h>
+#include <string>
 #include <sstream>
 #include <iostream>
 #include <fstream>

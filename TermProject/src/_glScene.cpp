@@ -2,7 +2,10 @@
 #include <_glLight.h>
 #include <SOIL.h>
 
-#include <math.h>
+GLint loc;         //have in proper place in the game
+float a = 0;
+int h = -1;
+
 //#define YSCREEN 0.8
 //#define XSCREEN 1.2
 
@@ -157,6 +160,8 @@ GLint _glScene::initGL()
     snds->initSounds();
     snds->playMusic("sounds/zombie.mp3");
 
+    shd->initShader("shaders/v.vs", "shaders/f.fs");
+
     return true;
 }
 
@@ -213,6 +218,12 @@ GLint _glScene::drawScene()
 
         glPushMatrix();
         glBindTexture(GL_TEXTURE_2D,myPly->plyImage->tex);
+
+        glUseProgram(shd->program);         //start of the shader
+        loc = glGetUniformLocation(shd->program, "scale");
+        if(loc !=-1) glUniform1f(loc, 2);
+        else cout << "Location not found\n";
+
         myPly->drawPlayer();
 
         if(timer->getTicks() > 120)
@@ -228,7 +239,14 @@ GLint _glScene::drawScene()
             }
             timer->resetTime();
         }
+
+        glUseProgram(0);        //end of the shader
+
         glPopMatrix();
+
+        (a<0.1) ? h=1:NULL;
+        (a>1.5) ? h=-1:NULL;
+         a += 0.01*h;
 //------------------------------------Enemy Settings------------------------------------------------------
         glPushMatrix();
 
