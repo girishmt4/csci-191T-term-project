@@ -23,6 +23,7 @@ _glScene::~_glScene()
 }
 GLint _glScene::initGL()
 {
+    glewInit();
     glShadeModel(GL_SMOOTH);
     glClearColor(0.0f,0.0f,0.0f,0.0f);
     glClearDepth(1.0f);
