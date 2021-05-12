@@ -37,7 +37,6 @@ void _player::playerInit(float X, float Y, float yPosition)
     xMax=1.0/framesX;
     yMin=0.0;
     yMax=1.0/framesY;
-    hitCount = 0;
 
     timer->startTimer();
     //actionTrigger = STAND;

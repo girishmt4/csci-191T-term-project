@@ -235,9 +235,14 @@ GLint _glScene::drawScene()
         {
             glBindTexture(GL_TEXTURE_2D,enmy[i].enemyImage->tex);
             enmy[i].drawEnemy();
+
+
+        }
+
+        for(int i=0;i<(myPly->hitCount);i++)
+        {
             glBindTexture(GL_TEXTURE_2D,hlth[i].healthImg->tex);
             hlth[i].drawHlth(i);
-
         }
 
         for(int i=0;i<noblts;i++)
