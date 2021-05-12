@@ -29,7 +29,6 @@ bool _collision::isRadialCollision(_player &plyr, _enemies enms)
     {
         enms.colEnmAtck=false;
     }
-
     if(sqrt(pow(a_x-b_x,2)+pow(a_y-b_y,2))<plyr.radius+enms.radius)return true;
     return false;
 }
