@@ -193,3 +193,24 @@ void _player::falldown()
 {
 
 }
+void _player::keyUp()
+{
+    init.x = playerPos.x;
+    init.y = playerPos.y;
+
+    t=0;
+
+    ctrl.x = playerPos.x + 1.0;
+    ctrl.y = playerPos.y + 1.0;
+
+    dest.x = playerPos.x + 1.5;
+    dest.y = playerPos.y + 0.5;
+
+}
+
+void _player::jumpPath()
+{
+    playerPos.x = (1-t)*(1-t)*init.x + 2*(1-t)*t*ctrl.x + t*t*dest.x;
+    playerPos.y = (1-t)*(1-t)*init.y + 2*(1-t)*t*ctrl.y + t*t*dest.y;
+
+}

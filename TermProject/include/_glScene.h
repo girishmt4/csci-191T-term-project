@@ -1,7 +1,13 @@
 #ifndef _GLSCENE_H
 #define _GLSCENE_H
 
+<<<<<<< Updated upstream
+=======
+#define GLEW_STATIC
+
+>>>>>>> Stashed changes
 #include <windows.h>
+#include <GL/glew.h>
 #include <GL/glut.h>
 #include <iostream>
 #include <vector>
