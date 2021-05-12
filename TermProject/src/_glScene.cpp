@@ -35,6 +35,7 @@ GLint _glScene::initGL()
     enmy->level1 = level1;
     enmy->level2 = level2;
     enmy->level3 = level3;
+    msg->msgInit();
         for(int i=0;i<3;i++)
         {
             hlth[i].healthInit(i);
@@ -444,6 +445,16 @@ GLint _glScene::drawScene()
         }*/
         glPopMatrix(); // exit the group
 
+        if(myPly->hitCount == 0)
+        {
+            glPushMatrix();
+            msg->msgImage->loadTexture("images/logo_claiming_png.png");
+            glBindTexture(GL_TEXTURE_2D,msg->msgImage->tex);
+            msg->showMessage();
+            glPopMatrix();
+            gameComplete = true;
+        }
+
         if(myPly->playerPos.x > 4.2)
         {
             if(level1)
@@ -460,11 +471,15 @@ GLint _glScene::drawScene()
             {
                 level1 = !level1;
                 level3 = !level3;
+                gameComplete = true;
+                glPushMatrix();
+                msg->msgImage->loadTexture("images/unnamed.png");
+                glBindTexture(GL_TEXTURE_2D,msg->msgImage->tex);
+                msg->showMessage();
+                glPopMatrix();
             }
             doneInitializing = false;
         }
-
-
     }
 
     if (kbMs->flag == 4)  //pause game pop-up page

@@ -16,7 +16,7 @@ _gameMessage::~_gameMessage()
 
 void _gameMessage::msgInit()
 {
-    msgSize.x = msgSize.y  = 1.0;
+    msgSize.x = msgSize.y  = 3.0;
     msgSize.z = 1.0;
 
 }
