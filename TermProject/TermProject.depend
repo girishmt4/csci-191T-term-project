@@ -160,7 +160,7 @@
 
 1620406740 ated upstream
 
-1620772834 d:\graphics\csci-191t-term-project\termproject\include\_glscene.h
+1620784823 d:\graphics\csci-191t-term-project\termproject\include\_glscene.h
 	<windows.h>
 	<GL/glew.h>
 	<GL/glut.h>
@@ -188,6 +188,8 @@
 	<_health.h>
 	<_bullet.h>
 	<_sounds.h>
+	<_shaders.h>
+	<_objects.h>
 
 1618976978 shed changes
 	<windows.h>
@@ -274,8 +276,10 @@
 	<_texture.h>
 	<_common.h>
 
-1620400674 source:d:\graphics\csci-191t-term-project\termproject\src\_collision.cpp
+1620785765 source:d:\graphics\csci-191t-term-project\termproject\src\_collision.cpp
 	"_collision.h"
+	<cmath>
+	<stdlib.h>
 
 1617830310 source:d:\graphics\csci-191t-term-project\termproject\src\_fallingobject.cpp
 	"_fallingObject.h"
@@ -291,11 +295,10 @@
 1617313469 d:\graphics\csci-191t-term-project\termproject\include\_gllight.h
 	<_glScene.h>
 
-1620409019 source:d:\graphics\csci-191t-term-project\termproject\src\_glscene.cpp
+1620785925 source:d:\graphics\csci-191t-term-project\termproject\src\_glscene.cpp
 	"_glScene.h"
 	<_glLight.h>
 	<SOIL.h>
-	<math.h>
 
 1620708991 source:d:\graphics\csci-191t-term-project\termproject\src\_input.cpp
 	"_input.h"
@@ -304,7 +307,7 @@
 1617313469 source:d:\graphics\csci-191t-term-project\termproject\src\_parallax.cpp
 	"_parallax.h"
 
-1620708991 source:d:\graphics\csci-191t-term-project\termproject\src\_player.cpp
+1620781821 source:d:\graphics\csci-191t-term-project\termproject\src\_player.cpp
 	"_player.h"
 
 1617317536 source:d:\graphics\csci-191t-term-project\termproject\src\_texture.cpp
@@ -864,10 +867,14 @@
 1620421295 source:d:\graphics\csci-191t-term-project\termproject\src\_health.cpp
 	"_health.h"
 
-1620772834 source:d:\graphics\csci-191t-term-project\termproject\src\_objects.cpp
+1620783165 source:d:\graphics\csci-191t-term-project\termproject\src\_objects.cpp
 	"_objects.h"
 
-1620772834 d:\graphics\csci-191t-term-project\termproject\include\_objects.h
+1620783905 d:\graphics\csci-191t-term-project\termproject\include\_objects.h
+	<string>
+	<GL/gl.h>
+	<GL/glut.h>
+	<_texture.h>
 
 1620772973 source:d:\graphics\csci-191t-term-project\termproject\src\_shaders.cpp
 	"_shaders.h"
