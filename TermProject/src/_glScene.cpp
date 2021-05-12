@@ -349,7 +349,7 @@ GLint _glScene::drawScene()
                 }
                 if(scrnStng[imgfile][y].colBottom)
                 {
-                    if(kbMs->upKey)
+                    if(myPly->actionTrigger == myPly->JUMP || myPly->actionTrigger == myPly->WALK_LEFT_JUMP || myPly->actionTrigger == myPly->WALK_RIGHT_JUMP)
                     {
                         myPly->playerPos.y = (scrnStng[imgfile][y].scenePos[imgfile][y].y - (scrnStng[imgfile][y].sceneScale[imgfile].y/2.0)) - (myPly->playerScale.y/2.0);
                     }
