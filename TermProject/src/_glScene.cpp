@@ -233,11 +233,13 @@ GLint _glScene::drawScene()
 
         for(int i=0;i<3;i++)
         {
-                    glBindTexture(GL_TEXTURE_2D,enmy[i].enemyImage->tex);
-                    enmy[i].drawEnemy();
-                    glBindTexture(GL_TEXTURE_2D,hlth[i].healthImg->tex);
-                    hlth[i].drawHlth(i);
+            glBindTexture(GL_TEXTURE_2D,enmy[i].enemyImage->tex);
+            enmy[i].drawEnemy();
+            glBindTexture(GL_TEXTURE_2D,hlth[i].healthImg->tex);
+            hlth[i].drawHlth(i);
+
         }
+
         for(int i=0;i<noblts;i++)
             {
             if(myPly->colPlyShoot&&myPly->cntNumShoot>0)
@@ -258,7 +260,6 @@ GLint _glScene::drawScene()
                     blet[ij].bulletPos.x=(myPly->playerPos.x - myPly->playerScale.x/2.0);
                     blet[ij].bulletPos.y=(myPly->playerPos.y);
                 }
-
                 for(int j=0; j<3; j++)
                 {
                     blet[i].colTile= colsn->isRadialCollision2(enmy[j], blet[i]);
@@ -322,7 +323,11 @@ GLint _glScene::drawScene()
                     //myPly->playerLanded += 1;
                     myPly->plyPosY = (scrnStng[imgfile][y].scenePos[imgfile][y].y + (scrnStng[imgfile][y].sceneScale[imgfile].y/2.0)) + (myPly->playerScale.y/2.0) - 0.1;
                    //myPly->playerPos.y = myPly->plyPosY;
-                    //myPly->actionTrigger = myPly->STAND;
+                    if(myPly->actionTrigger == myPly->FALL_DOWN)
+                    {
+                        myPly->actionTrigger = myPly->STAND;
+                    }
+
                 }
 
                 if(scrnStng[imgfile][y].colLeft)
