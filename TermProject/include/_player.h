@@ -32,8 +32,8 @@ class _player
         float xMin,xMax,yMin,yMax;
         float framesX, framesY;
         float radius;
-        int hitCount;
-        float gravity = 0.2;
+        int hitCount=3;
+        float gravity = 0.19;
         float jumpSpeed = 0.450;
         float yVelocity = 0.00;
 

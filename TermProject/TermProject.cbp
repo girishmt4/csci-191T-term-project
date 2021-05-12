@@ -38,6 +38,7 @@
 		</Compiler>
 		<Linker>
 			<Add library="../../common/lib/libSOIL.a" />
+			<Add library="../../common/lib/libirrKlang.a" />
 			<Add library="../../common/lib/glut32.lib" />
 			<Add library="opengl32" />
 			<Add library="glu32" />
@@ -62,6 +63,8 @@
 		<Unit filename="include/_input.h" />
 		<Unit filename="include/_parallax.h" />
 		<Unit filename="include/_player.h" />
+		<Unit filename="include/_screenSettings.h" />
+		<Unit filename="include/_sounds.h" />
 		<Unit filename="include/_texture.h" />
 		<Unit filename="include/_timer.h" />
 		<Unit filename="main.cpp" />
@@ -82,6 +85,7 @@
 		<Unit filename="src/_parallax.cpp" />
 		<Unit filename="src/_player.cpp" />
 		<Unit filename="src/_screenSettings.cpp" />
+		<Unit filename="src/_sounds.cpp" />
 		<Unit filename="src/_texture.cpp" />
 		<Unit filename="src/_timer.cpp" />
 		<Extensions>

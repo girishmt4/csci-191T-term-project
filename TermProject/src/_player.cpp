@@ -116,13 +116,14 @@ void _player::actions()
             {
                 playerPos.y = plyPosY;
                 actionTrigger = STAND;
-                jumpSpeed = 0.450;
+                jumpSpeed = 0.550;
             }
             break;
         }
         case WALK_LEFT_JUMP:
         {
             playerPos.y += jumpSpeed;
+            playerPos.x -= 0.04;
             if(jumpSpeed != 0.00)
             {
                 jumpSpeed -= gravity;
@@ -131,7 +132,7 @@ void _player::actions()
             {
                 playerPos.y = plyPosY;
                 actionTrigger = STAND;
-                jumpSpeed = 0.450;
+                jumpSpeed = 0.550;
             }
             yMin=1.0/framesY;
             yMax=1.0;
@@ -146,11 +147,13 @@ void _player::actions()
         case FALL_DOWN:
         {
             //cout<<colUp;
+
             yVelocity -= gravity/2.0;
             playerPos.y += yVelocity;
             if(playerPos.y<-2.5)
             {
                 cout<<"Player Dead"<<endl;
+                hitCount--;
                 playerInit(8,2,-1.5);
                 actionTrigger = STAND;
                 yVelocity = 0.0;
@@ -160,6 +163,7 @@ void _player::actions()
         case WALK_RIGHT_JUMP:
         {
             playerPos.y += jumpSpeed;
+            playerPos.x += 0.04;
             if(jumpSpeed != 0.00)
             {
                 jumpSpeed -= gravity;
@@ -171,7 +175,7 @@ void _player::actions()
                 //playerPos.y = -1.475;
                 playerPos.y = plyPosY;
                 actionTrigger = STAND;
-                jumpSpeed = 0.450;
+                jumpSpeed = 0.550;
             }
             yMin=0.0;
             yMax=1.0/framesY;

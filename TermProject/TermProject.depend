@@ -69,7 +69,7 @@
 
 1613613288 c:\users\giris\desktop\csci191games\common\include\soil.h
 
-1620424423 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_player.h
+1620853071 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_player.h
 	<_common.h>
 	<_texture.h>
 	<_timer.h>
@@ -125,13 +125,13 @@
 1616103990 c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\include\_gllight.h
 	<_glScene.h>
 
-1620424863 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_glscene.cpp
+1620852590 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_glscene.cpp
 	"_glScene.h"
 	<_glLight.h>
 	<SOIL.h>
 	<math.h>
 
-1620416345 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_input.cpp
+1620427700 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_input.cpp
 	"_input.h"
 	<windows.h>
 
@@ -141,7 +141,7 @@
 1619842379 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_parallax.cpp
 	"_parallax.h"
 
-1620424338 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_player.cpp
+1620852966 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_player.cpp
 	"_player.h"
 
 1617322363 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_texture.cpp
