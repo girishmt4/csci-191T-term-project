@@ -304,7 +304,7 @@
 1616558451 d:\graphics\csci-191t-term-project\termproject\include\_popup.h
 	<_texture.h>
 
-1618902210 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\main.cpp
+1620804775 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\main.cpp
 	<windows.h>
 	<_glScene.h>
 	<GL/glut.h>
@@ -312,7 +312,7 @@
 	<iostream>
 	<windows.h>
 
-1620409622 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_glscene.h
+1620804775 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_glscene.h
 	<windows.h>
 	<GL/glut.h>
 	<iostream>
@@ -330,6 +330,7 @@
 	<_HelpPage.h>
 	<_MenuPage.h>
 	<_PopUp.h>
+	<_credits.h>
 	<_screenSettings.h>
 	<conio.h>
 	<string>
@@ -337,6 +338,7 @@
 	<_enemies.h>
 	<_health.h>
 	<_bullet.h>
+	<_sounds.h>
 
 1612228940 c:\chetan files\gamedevelop\common\include\gl\glut.h
 	<windows.h>
@@ -344,7 +346,7 @@
 	<GL/gl.h>
 	<GL/glu.h>
 
-1620242341 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_input.h
+1620804775 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_input.h
 	<windows.h>
 	<_parallax.h>
 	<_player.h>
@@ -353,6 +355,7 @@
 	<_MenuPage.h>
 	<_PopUp.h>
 	<_credits.h>
+	<_sounds.h>
 
 1617326466 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_parallax.h
 	<string>
@@ -366,7 +369,7 @@
 
 1613613471 c:\chetan files\gamedevelop\common\include\soil.h
 
-1620375430 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_player.h
+1620804775 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_player.h
 	<_common.h>
 	<_texture.h>
 	<_timer.h>
@@ -395,7 +398,7 @@
 	<_timer.h>
 	<_texture.h>
 
-1620409815 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_collision.h
+1620804775 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_collision.h
 	<math.h>
 	<iostream>
 	<conio.h>
@@ -409,7 +412,7 @@
 	<_texture.h>
 	<_common.h>
 
-1620414226 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_collision.cpp
+1620804776 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_collision.cpp
 	"_collision.h"
 
 1617349043 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_fallingobject.cpp
@@ -426,20 +429,20 @@
 1617326466 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_gllight.h
 	<_glScene.h>
 
-1620415119 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_glscene.cpp
+1620804776 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_glscene.cpp
 	"_glScene.h"
 	<_glLight.h>
 	<SOIL.h>
 	<math.h>
 
-1620413562 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_input.cpp
+1620804776 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_input.cpp
 	"_input.h"
 	<windows.h>
 
 1617326466 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_parallax.cpp
 	"_parallax.h"
 
-1620065639 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_player.cpp
+1620804776 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_player.cpp
 	"_player.h"
 
 1617326466 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_texture.cpp
@@ -499,17 +502,17 @@
 	<_texture.h>
 	<GL/gl.h>
 
-1620174505 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_screensettings.cpp
+1620804776 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_screensettings.cpp
 	"_screenSettings.h"
 
-1620156804 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_enemies.h
+1620804775 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_enemies.h
 	<_common.h>
 	<_texture.h>
 	<_timer.h>
 	<iostream>
 	<GL/gl.h>
 
-1620266308 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_enemies.cpp
+1620804776 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_enemies.cpp
 	"_enemies.h"
 
 1620400674 d:\graphics\csci-191t-term-project\termproject\include\_screensettings.h
@@ -552,19 +555,19 @@
 1619041046 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_credits.cpp
 	"_credits.h"
 
-1620413933 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_bullet.cpp
+1620804776 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_bullet.cpp
 	"_bullet.h"
 
-1620375861 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_bullet.h
+1620804775 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_bullet.h
 	<iostream>
 	<_common.h>
 	<_texture.h>
 	<GL/gl.h>
 
-1620176696 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_health.cpp
+1620804776 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_health.cpp
 	"_health.h"
 
-1620173288 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_health.h
+1620804775 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_health.h
 	<iostream>
 	<_common.h>
 	<_texture.h>
@@ -804,5 +807,109 @@
 	"_health.h"
 
 1620416329 source:c:\users\giris\desktop\csci191games\csci-191t-term-project\termproject\src\_sounds.cpp
+	"_sounds.h"
+
+1620804775 c:\chetan files\gamedevelop\csci-191t-term-project\termproject\include\_sounds.h
+	<iostream>
+	<SNDS/irrKlang.h>
+
+1617669113 c:\chetan files\gamedevelop\common\include\snds\irrklang.h
+	"ik_irrKlangTypes.h"
+	"ik_vec3d.h"
+	"ik_IRefCounted.h"
+	"ik_IVirtualRefCounted.h"
+	"ik_ESoundOutputDrivers.h"
+	"ik_ESoundEngineOptions.h"
+	"ik_EStreamModes.h"
+	"ik_SAudioStreamFormat.h"
+	"ik_ISoundEngine.h"
+	"ik_ISoundSource.h"
+	"ik_ISound.h"
+	"ik_IAudioStream.h"
+	"ik_IAudioStreamLoader.h"
+	"ik_ISoundEffectControl.h"
+	"ik_ISoundStopEventReceiver.h"
+	"ik_IFileFactory.h"
+	"ik_IFileReader.h"
+	"ik_ISoundDeviceList.h"
+	"ik_IAudioRecorder.h"
+	"ik_ISoundMixedOutputReceiver.h"
+
+1617669113 c:\chetan files\gamedevelop\common\include\snds\ik_irrklangtypes.h
+	<wchar.h>
+
+1617669113 c:\chetan files\gamedevelop\common\include\snds\ik_vec3d.h
+	<math.h>
+	"ik_irrKlangTypes.h"
+
+1617669113 c:\chetan files\gamedevelop\common\include\snds\ik_irefcounted.h
+	"ik_irrKlangTypes.h"
+
+1617669113 c:\chetan files\gamedevelop\common\include\snds\ik_ivirtualrefcounted.h
+	"ik_irrKlangTypes.h"
+
+1617669113 c:\chetan files\gamedevelop\common\include\snds\ik_esoundoutputdrivers.h
+
+1617669113 c:\chetan files\gamedevelop\common\include\snds\ik_esoundengineoptions.h
+
+1617669113 c:\chetan files\gamedevelop\common\include\snds\ik_estreammodes.h
+
+1617669113 c:\chetan files\gamedevelop\common\include\snds\ik_saudiostreamformat.h
+	"ik_IRefCounted.h"
+
+1617669113 c:\chetan files\gamedevelop\common\include\snds\ik_isoundengine.h
+	"ik_IRefCounted.h"
+	"ik_vec3d.h"
+	"ik_ISoundSource.h"
+	"ik_ISound.h"
+	"ik_EStreamModes.h"
+	"ik_IFileFactory.h"
+	"ik_ISoundMixedOutputReceiver.h"
+
+1617669113 c:\chetan files\gamedevelop\common\include\snds\ik_isoundsource.h
+	"ik_IVirtualRefCounted.h"
+	"ik_vec3d.h"
+	"ik_EStreamModes.h"
+	"ik_SAudioStreamFormat.h"
+
+1617669113 c:\chetan files\gamedevelop\common\include\snds\ik_isound.h
+	"ik_IVirtualRefCounted.h"
+	"ik_ISoundEffectControl.h"
+	"ik_vec3d.h"
+
+1617669113 c:\chetan files\gamedevelop\common\include\snds\ik_isoundeffectcontrol.h
+	"ik_IVirtualRefCounted.h"
+	"ik_vec3d.h"
+
+1617669113 c:\chetan files\gamedevelop\common\include\snds\ik_ifilefactory.h
+	"ik_IRefCounted.h"
+
+1617669113 c:\chetan files\gamedevelop\common\include\snds\ik_isoundmixedoutputreceiver.h
+	"ik_IRefCounted.h"
+	"ik_SAudioStreamFormat.h"
+
+1617669113 c:\chetan files\gamedevelop\common\include\snds\ik_iaudiostream.h
+	"ik_IRefCounted.h"
+	"ik_SAudioStreamFormat.h"
+
+1617669113 c:\chetan files\gamedevelop\common\include\snds\ik_iaudiostreamloader.h
+	"ik_IRefCounted.h"
+	"ik_IFileReader.h"
+
+1617669113 c:\chetan files\gamedevelop\common\include\snds\ik_ifilereader.h
+	"ik_IRefCounted.h"
+
+1617669113 c:\chetan files\gamedevelop\common\include\snds\ik_isoundstopeventreceiver.h
+	"ik_IRefCounted.h"
+	"ik_SAudioStreamFormat.h"
+
+1617669113 c:\chetan files\gamedevelop\common\include\snds\ik_isounddevicelist.h
+	"ik_IRefCounted.h"
+
+1617669113 c:\chetan files\gamedevelop\common\include\snds\ik_iaudiorecorder.h
+	"ik_IRefCounted.h"
+	"ik_ISoundSource.h"
+
+1620804776 source:c:\chetan files\gamedevelop\csci-191t-term-project\termproject\src\_sounds.cpp
 	"_sounds.h"
 
