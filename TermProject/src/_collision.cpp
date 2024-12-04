@@ -1,4 +1,6 @@
 #include "_collision.h"
+#include <cmath>
+#include <stdlib.h>
 
 _collision::_collision()
 {

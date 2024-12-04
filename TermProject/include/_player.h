@@ -45,6 +45,12 @@ class _player
         float plyPosY,plyPosX;
         int colCount = 0, cntNumShoot = 0;
 
+        float t = 0;
+        vec3 init, ctrl, dest;
+
+        void keyUp();
+        void jumpPath();
+
     protected:
 
     private:
